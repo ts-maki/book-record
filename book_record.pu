@@ -1,0 +1,62 @@
+@startuml book_record
+title データベース設計
+
+entity users {
+    id [ユーザーID] [PK] 
+    --
+    name [名前]
+    username [Twitterのユーザー名]
+    password [パスワード]
+    image_path [画像のurl]
+    created_at
+    updated_at
+}
+
+entity books {
+    id [本ID] [PK] 
+    --
+    title [本のタイトル]
+    author [著者]
+    thumbnail_url [画像のurl]
+    isbn [ISBN番号]
+    published_date [出版日]
+    created_at
+    updated_at
+}
+
+entity book_records {
+    id [記録ID] [PK]
+    --
+    # book_id [FK]
+    # user_id [FK]
+    # category_id [FK]
+    content [本の感想]
+    read_date [読んだ日]
+    created_at
+    updated_at
+}
+
+entity categories {
+    id [カテゴリーID] [PK]
+    --
+    category_name [カテゴリー名]
+    created_at
+    updated_at
+}
+
+
+entity likes {
+    # user_id [ユーザーID] [PK] [FK]
+    # book_record_id [本の記録ID] [PK] [FK]
+    --
+    created_at
+    updated_at
+}
+
+@enduml
+
+' @startuml リレーション
+' title ER図
+' !include book_record.pu
+' users ||--o{ book_records
+' @enduml
