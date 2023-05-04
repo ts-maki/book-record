@@ -1,0 +1,9 @@
+@startuml リレーション
+title ER図
+!include book_record.pu
+users |o--o{ book_records
+books ||--o{ book_records
+categories |o--o{ book_records
+users |o-d-o{ likes
+book_records |o-r-o{ likes
+@enduml
