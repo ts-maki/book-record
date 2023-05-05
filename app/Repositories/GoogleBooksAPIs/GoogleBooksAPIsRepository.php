@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 /**
- * 書籍情報取得のGoogleBooksAPIs リソースにアクセスするリポジトリ
+ * 本の情報取得のGoogleBooksAPIs リソースにアクセスするリポジトリ
  */
 class GoogleBooksAPIsRepository
 {
     /**
-     * 検索キーワードから書籍情報を取得する
+     * 検索キーワードから本の情報を取得する
      *
      * @param  string  $search_keyword 検索キーワード
      * @return object
@@ -43,7 +43,7 @@ class GoogleBooksAPIsRepository
                 throw new Exception('レスポンスにエラー情報があります');
             }
 
-            //成功時書籍データを取得する
+            //成功時に本のデータを取得する
             if ($response->successful()) {
                 return $response->json();
             }
