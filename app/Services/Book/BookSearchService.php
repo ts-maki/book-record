@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Book;
+namespace App\Services\Book;
 
 use App\Repositories\GoogleBooksAPIs\GoogleBooksAPIsRepository;
 use Illuminate\Support\Facades\Log;
@@ -18,10 +18,10 @@ class BookSearchService
     }
 
     /**
-     * 検索したキーワードを含む本のタイトル、著者、サムネイル画像のurl、ISBN番号、出版日を一覧取得
+     * 検索したキーワードを含む本のタイトル、著者、サムネイル画像のurl、説明、ISBN番号、出版日を一覧取得
      *
-     * @param string $search_keyword
-     * @return array 書籍データ一覧
+     * @param  string  $search_keyword
+     * @return array 書籍データ一覧 二次元配列
      */
     public function readBookData($search_keyword)
     {
@@ -29,7 +29,22 @@ class BookSearchService
 
         Log::debug('検索キーワードで本の情報取得成功');
 
-        $books = $response->items;
-        dd($books);
+        //必要な本情報を取得した連想配列を格納した配列を作成
+        $books = [];
+        foreach ($response->items as $item) {
+            $book = [
+                'title' => $item->volumeInfo->title,
+                // 'author' => implode(',', $item->volumeInfo->authors),
+                'id' => $item->id,
+                'author' => $item->volumeInfo->authors[0],
+                'description' => $item->volumeInfo->description ?? null,
+                'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
+                'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,
+                'published_date' => $item->volumeInfo->publishedDate ?? null,
+            ];
+            $books[] = $book;
+        }
+
+        return $books;
     }
 }

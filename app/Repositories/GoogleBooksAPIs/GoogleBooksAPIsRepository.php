@@ -46,10 +46,22 @@ class GoogleBooksAPIsRepository
             //成功時に本のデータを取得する
             if ($response->successful()) {
                 $books = json_decode($response);
-                foreach ($books->items as $book) {
-                    echo $book->volumeInfo->imageLinks->thumbnail;
-                }
-                // return $books;
+                // foreach ($responseData->items as $item) {
+
+                //     $book = [
+                //         'title' => $item->volumeInfo->title,
+
+                //         'id' => $item->id,
+                //         'author' => $item->volumeInfo->authors[0],
+                //         'description' => $item->volumeInfo->description ?? null,
+                //         'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
+                //         'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,
+                //         'published_date' => $item->volumeInfo->publishedDate ?? null,
+                //     ];
+                //     $books[] = $book;
+                // }
+
+                return $books;
             }
         } catch (\Exception $e) {
             report($e);
