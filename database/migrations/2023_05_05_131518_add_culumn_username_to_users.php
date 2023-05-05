@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('likes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('book_record_id')->constrained();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('user_name', 30)->unique()->after('name')->nullable()->comment('Twitterのユーザー名');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('likes');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('user_name');
+        });
     }
 };
