@@ -13,41 +13,43 @@ class GoogleBooksAPIsRepository
 {
     /**
      * 検索キーワードから書籍情報を取得する
-     * @param string $search_keyword 検索キーワード
+     *
+     * @param  string  $search_keyword 検索キーワード
      * @return object
      */
-    public function readBookInfo($search_keyword)
+    public static function readBookInfo($search_keyword)
     {
-        $search_url = 'https://www.googleapis.com/books/v1/volumes?q=' . $search_keyword . '&maxResults=30';
-        Log::info("検索URLは:". $search_url);
+        $search_url = 'https://www.googleapis.com/books/v1/volumes?q='.$search_keyword.'&maxResults=30';
+        Log::info('検索URLは:'.$search_url);
         try {
             $response = Http::get($search_url);
 
             //HTTP リクエストに失敗したかチェック
             if ($response->failed()) {
-                Log::error("書籍データの読み込みに失敗しました");
-                throw new Exception("書籍データの読み込みに失敗しました");
+                Log::error('書籍データの読み込みに失敗しました');
+                throw new Exception('書籍データの読み込みに失敗しました');
             }
 
             //API レスポンスのボディが空がチェック
             if (empty($response->body())) {
-                Log::error("レスポンスのボディが空です");
-                throw new Exception("レスポンスのボディが空です");
+                Log::error('レスポンスのボディが空です');
+                throw new Exception('レスポンスのボディが空です');
             }
 
             //API レスポンスにエラー情報があるかチェック
-            $error = $response->json("error");
-            if (!empty($error)) {
-                Log::error("レスポンスにエラー情報があります");
-                throw new Exception("レスポンスにエラー情報があります");
+            $error = $response->json('error');
+            if (! empty($error)) {
+                Log::error('レスポンスにエラー情報があります');
+                throw new Exception('レスポンスにエラー情報があります');
             }
 
-            return $response->body();
+            //成功時書籍データを取得する
+            if ($response->successful()) {
+                return $response->json();
+            }
         } catch (\Exception $e) {
             report($e);
-            Log::error("書籍データの読み込みに失敗しました");
+            Log::error('書籍データの読み込みに失敗しました');
         }
     }
 }
-
-
