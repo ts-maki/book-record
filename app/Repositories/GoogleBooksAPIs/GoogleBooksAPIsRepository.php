@@ -45,7 +45,11 @@ class GoogleBooksAPIsRepository
 
             //成功時に本のデータを取得する
             if ($response->successful()) {
-                return $response->json();
+                $books = json_decode($response);
+                foreach ($books->items as $book) {
+                    echo $book->volumeInfo->imageLinks->thumbnail;
+                }
+                // return $books;
             }
         } catch (\Exception $e) {
             report($e);

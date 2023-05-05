@@ -30,5 +30,6 @@ class BookSearchService
         Log::debug('検索キーワードで本の情報取得成功');
 
         $books = $response->items;
+        dd($books);
     }
 }
