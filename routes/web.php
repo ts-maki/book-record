@@ -22,7 +22,9 @@ Route::get('/test',function() {
     return view('test');
 });
 Route::get('/search', [BookController::class, 'show'])->name('search');
-Route::post('/search', [BookController::class, 'create'])->name('book.search');
+Route::post('/search', [BookController::class, 'searchBook'])->name('book.search');
+
+Route::post('/create/{id}', [BookController::class, 'create'])->name('book.create');
 
 // Route::get('test', [TestController::class, 'testFunction']);
 
