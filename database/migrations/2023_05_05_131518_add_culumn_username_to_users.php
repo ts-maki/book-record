@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('image_path')->after('password')->nullable()->comment('画像のURL');
-            $table->dropColumn('email_verified_at');
+            $table->string('user_name', 30)->unique()->after('name')->nullable()->comment('Twitterのユーザー名');
         });
     }
 
@@ -23,8 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('image_path');
-            $table->timestamp('email_verified_at');
+            $table->dropColumn('user_name');
         });
     }
 };

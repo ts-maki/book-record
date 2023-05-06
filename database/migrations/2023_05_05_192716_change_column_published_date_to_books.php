@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->rememberToken()->comment('ログイン保持')->change();
+        Schema::table('books', function (Blueprint $table) {
+            $table->date('published_date')->nullable()->comment('出版日')->change();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->rememberToken()->change();
+        Schema::table('books', function (Blueprint $table) {
+            $table->date('published_date')->comment('出版日')->change();
         });
     }
 };
