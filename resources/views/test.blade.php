@@ -16,4 +16,4 @@
 
 </html>
 
-<h1 class="test-color">こんにちは！</h1>
+<h1 class="text-red-500">こんにちは！</h1>
