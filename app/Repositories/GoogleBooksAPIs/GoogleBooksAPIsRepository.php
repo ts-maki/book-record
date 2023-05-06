@@ -19,7 +19,7 @@ class GoogleBooksAPIsRepository
      */
     public function readBookInfo($search_keyword)
     {
-        $search_url = 'https://www.googleapis.com/books/v1/volumes?q='.$search_keyword.'&maxResults=20';
+        $search_url = 'https://www.googleapis.com/books/v1/volumes?q='.$search_keyword.'&maxResults=40';
         Log::info('検索URLは:'.$search_url);
         try {
             $response = Http::get($search_url);
@@ -66,6 +66,7 @@ class GoogleBooksAPIsRepository
         } catch (\Exception $e) {
             report($e);
             Log::error('書籍データの読み込みに失敗しました');
+            Log::error($e->getMessage());
         }
     }
 }

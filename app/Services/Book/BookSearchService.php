@@ -30,22 +30,37 @@ class BookSearchService
         Log::debug('検索キーワードで本の情報取得成功');
 
         //必要な本情報を取得した連想配列を格納した配列を作成
-        // dd($response);
         $books = [];
+        //検索結果が0 = itemsがない場合
+        // if(empty($response->items)) {
+        //     Log::info('取得件数:'. 0);
+        //     dd($response->items);
+        //     return $books = [];
+        // }
+        if($response->totalItems == 0) {
+            Log::info('取得件数:'. 0);
+            return $books = [];
+        }
+        // dd($response->items);
         foreach ($response->items as $item) {
+            // $existDate = $item->volumeInfo->title || $item->volumeInfo->authors[0];
+            // if(empty($existDate)) {
+            //     break;
+            // }
             $book = [
                 'title' => $item->volumeInfo->title,
                 // 'author' => implode(',', $item->volumeInfo->authors),
                 'id' => $item->id,
-                'author' => $item->volumeInfo->authors[0],
+                'author' => $item->volumeInfo->authors[0] ?? '著者不明',
                 'description' => $item->volumeInfo->description ?? null,
                 'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
                 'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,
                 'published_date' => $item->volumeInfo->publishedDate ?? null,
             ];
+
             $books[] = $book;
         }
-
+        Log::info('取得件数:'. count($books));
         return $books;
     }
 }

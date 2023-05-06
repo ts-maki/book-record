@@ -18,7 +18,9 @@
     <h2>検索結果</h2>
     @if (!empty($books))
         @foreach ($books as $book)
-            <p>{{ $book['description'] }}</p>
+            <div class="">
+                <img src="{{ $book['thumbnail_path'] }}" alt="">
+            </div>
         @endforeach
     @endif
 
