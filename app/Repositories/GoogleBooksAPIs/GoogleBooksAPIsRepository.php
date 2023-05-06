@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Log;
 class GoogleBooksAPIsRepository
 {
     /**
-     * 検索キーワードから本の情報を取得する
+     * 検索キーワードから本の情報を取得する 最大20件
      *
      * @param  string  $search_keyword 検索キーワード
      * @return object
      */
-    public static function readBookInfo($search_keyword)
+    public function readBookInfo($search_keyword)
     {
-        $search_url = 'https://www.googleapis.com/books/v1/volumes?q='.$search_keyword.'&maxResults=30';
+        $search_url = 'https://www.googleapis.com/books/v1/volumes?q='.$search_keyword.'&maxResults=20';
         Log::info('検索URLは:'.$search_url);
         try {
             $response = Http::get($search_url);

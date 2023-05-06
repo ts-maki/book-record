@@ -30,6 +30,7 @@ class BookSearchService
         Log::debug('検索キーワードで本の情報取得成功');
 
         //必要な本情報を取得した連想配列を格納した配列を作成
+        // dd($response);
         $books = [];
         foreach ($response->items as $item) {
             $book = [
