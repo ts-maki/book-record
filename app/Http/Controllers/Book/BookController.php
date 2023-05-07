@@ -76,9 +76,16 @@ class BookController extends Controller
 
         //TODO 登録後、前のページに戻って同じ内容で登録できるので本1冊、1感想にする
         $this->book_record_service->addRecord($request->id, $user_id, $request->category, $request->content, $request->date);
+
+        //登録後、感想一覧ページに遷移
         return to_route('index');
     }
 
+    public function index()
+    {
+        $records = BookRecord::with('book')->orderBy('created_at', 'DESC')->get();
+        return view('index')->with('records', $records);
+    }
     public function show()
     {
         return view('search');
