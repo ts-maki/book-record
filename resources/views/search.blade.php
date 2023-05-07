@@ -11,10 +11,11 @@
         <div class="flex">
             <img src="{{ $book['thumbnail_path'] }}">
             <div>
-                <h4 class="text-blue-800">{{ $book['id'] }}</h4>
+                <h4 class="text-blue-800">{{ $book['title'] }}</h4>
                 <p>{{ $book['author'] }}</p>
                 <p>{{ $book['description'] }}</p>
-                <form action="{{ route('book.create', $book['title']) }}" method="post">
+                <p>{{ $book['published_date'] }}</p>
+                <form action="{{ route('book.create', $book['id']) }}" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{ $book['id'] }}">
                     <input type="hidden" name="title" value="{{ $book['title'] }}">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Book;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Services\Book\BookSearchService;
+use App\Services\Book\BookService;
 use App\Services\Common\Util;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -12,10 +13,12 @@ use Illuminate\Support\Facades\Log;
 class BookController extends Controller
 {
     protected $book_search_service;
+    protected $book_service;
 
-    public function __construct(BookSearchService $book_search_service)
+    public function __construct(BookSearchService $book_search_service, BookService $book_service)
     {
         $this->book_search_service = $book_search_service;
+        $this->book_service = $book_service;
     }
 
     //本の検索結果を返す
@@ -40,22 +43,22 @@ class BookController extends Controller
         Log::info("対象の本のisbn:". $request->isbn);
         Log::info("対象の本のpublished_date:".  substr($request->published_date, 0, 7));
 
-        //TODO DBにY/mの表記で登録できないか　暫定として日にちが不明なデータは01日を追記
-        if(mb_strlen($request->published_date) == 7) {
-            $published_date = $request->published_date . '-01';
-        } else {
-            $published_date = $request->published_date;
-        }
-        $book = Book::create([
-            'google_book_id' => $request->id,
-            'title' => $request->title,
-            'author' => $request->author,
-            'description' => $request->description,
-            'thumbnail_path' => $request->thumbnail_path,
-            'isbn' => $request->isbn,
-            'published_date' => $published_date,
-        ]);
-
+        //TODO DBにY/mの表記で登録できないか？　暫定として日にちが不明なデータは01日を追記
+        // if(mb_strlen($request->published_date) == 7) {
+        //     $published_date = $request->published_date . '-01';
+        // } else {
+        //     $published_date = $request->published_date;
+        // }
+        // $book = Book::create([
+        //     'google_book_id' => $request->id,
+        //     'title' => $request->title,
+        //     'author' => $request->author,
+        //     'description' => $request->description,
+        //     'thumbnail_path' => $request->thumbnail_path,
+        //     'isbn' => $request->isbn,
+        //     'published_date' => $published_date,
+        // ]);
+        $this->book_service->addBook($request->id, $request->title, $request->author, $request->description, $request->thumbnail_path, $request->isbn, $request->published_date);
         return view('create')->with('book', $request);
     }
     public function show()
