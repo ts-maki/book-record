@@ -37,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //リレーション 1対多のbook_recordsテーブル
+    public function bookRecords()
+    {
+        return $this->hasMany(BookRecord::class);
+    }
 }

@@ -8,6 +8,7 @@ use App\Services\Book\BookSearchService;
 use App\Services\Book\BookService;
 use App\Services\Common\Util;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class BookController extends Controller
@@ -49,7 +50,7 @@ class BookController extends Controller
 
     public function createRecord(Request $request)
     {
-        
+        Auth::user();
         return to_route('index');
     }
 
