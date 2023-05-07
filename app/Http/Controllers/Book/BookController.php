@@ -49,6 +49,7 @@ class BookController extends Controller
 
     public function createRecord(Request $request)
     {
+        
         return to_route('index');
     }
 
