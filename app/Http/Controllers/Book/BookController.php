@@ -8,6 +8,7 @@ use App\Models\BookRecord;
 use App\Models\Category;
 use App\Services\Book\BookSearchService;
 use App\Services\Book\BookService;
+use App\Services\BookRecord\BookRecordService;
 use App\Services\Common\Util;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,11 +18,13 @@ class BookController extends Controller
 {
     protected $book_search_service;
     protected $book_service;
+    protected $book_record_service;
 
-    public function __construct(BookSearchService $book_search_service, BookService $book_service)
+    public function __construct(BookSearchService $book_search_service, BookService $book_service, BookRecordService $book_record_service)
     {
         $this->book_search_service = $book_search_service;
         $this->book_service = $book_service;
+        $this->book_record_service = $book_record_service;
     }
 
     //本の検索結果を返す
@@ -50,7 +53,7 @@ class BookController extends Controller
         return view('create')->with('book', $request);
     }
 
-    public function createRecord(Request $request)
+    public function addRecord(Request $request)
     {
         Log::info('ユーザーIDは:'. Auth::id());
         Log::info('book_idは:'. $request->id);
@@ -60,16 +63,19 @@ class BookController extends Controller
         Log::info('DBの検索'. Book::where('google_book_id', $request->id)->first()->id);
 
         $user_id = Auth::id();
-        $book_id = Book::where('google_book_id', $request->id)->value('id');
-        $category_id = Category::where('category_name', $request->category)->value('id');
-        Log::info($book_id);
-        $record = BookRecord::create([
-            'book_id' => $book_id,
-            'user_id' => $user_id,
-            'category_id' => $category_id,
-            'content' => $request->content,
-            'read_date' => $request->date,
-        ]);
+        // $book_id = Book::where('google_book_id', $request->id)->value('id');
+        // $category_id = Category::where('category_name', $request->category)->value('id');
+        // Log::info($book_id);
+        // $record = BookRecord::create([
+        //     'book_id' => $book_id,
+        //     'user_id' => $user_id,
+        //     'category_id' => $category_id,
+        //     'content' => $request->content,
+        //     'read_date' => $request->date,
+        // ]);
+
+        //TODO 登録後、前のページに戻って同じ内容で登録できるので本1冊、1感想にする
+        $this->book_record_service->addRecord($request->id, $user_id, $request->category, $request->content, $request->date);
         return to_route('index');
     }
 

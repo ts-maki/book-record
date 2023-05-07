@@ -25,7 +25,7 @@ Route::get('/search', [BookController::class, 'show'])->name('search');
 Route::post('/search', [BookController::class, 'searchBook'])->name('book.search');
 
 Route::post('/search/{id}', [BookController::class, 'create'])->name('book.create');
-Route::post('/create/{id}', [BookController::class, 'createRecord'])->name('book.record');
+Route::post('/create/{id}', [BookController::class, 'addRecord'])->name('book.record');
 
 // Route::get('test', [TestController::class, 'testFunction']);
 
