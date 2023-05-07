@@ -18,13 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test',function() {
-    return view('test');
-});
+Route::get('/index',function() {
+    return view('index');
+})->name('index');
 Route::get('/search', [BookController::class, 'show'])->name('search');
 Route::post('/search', [BookController::class, 'searchBook'])->name('book.search');
 
-Route::post('/create/{id}', [BookController::class, 'create'])->name('book.create');
+Route::post('/search/{id}', [BookController::class, 'create'])->name('book.create');
+Route::post('/create/{id}', [BookController::class, 'createRecord'])->name('book.record');
 
 // Route::get('test', [TestController::class, 'testFunction']);
 

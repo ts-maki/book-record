@@ -43,24 +43,15 @@ class BookController extends Controller
         Log::info("対象の本のisbn:". $request->isbn);
         Log::info("対象の本のpublished_date:".  substr($request->published_date, 0, 7));
 
-        //TODO DBにY/mの表記で登録できないか？　暫定として日にちが不明なデータは01日を追記
-        // if(mb_strlen($request->published_date) == 7) {
-        //     $published_date = $request->published_date . '-01';
-        // } else {
-        //     $published_date = $request->published_date;
-        // }
-        // $book = Book::create([
-        //     'google_book_id' => $request->id,
-        //     'title' => $request->title,
-        //     'author' => $request->author,
-        //     'description' => $request->description,
-        //     'thumbnail_path' => $request->thumbnail_path,
-        //     'isbn' => $request->isbn,
-        //     'published_date' => $published_date,
-        // ]);
         $this->book_service->addBook($request->id, $request->title, $request->author, $request->description, $request->thumbnail_path, $request->isbn, $request->published_date);
         return view('create')->with('book', $request);
     }
+
+    public function createRecord(Request $request)
+    {
+        return to_route('index');
+    }
+
     public function show()
     {
         return view('search');
