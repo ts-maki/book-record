@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\BookRecord;
+use App\Models\Category;
 use App\Services\Book\BookSearchService;
 use App\Services\Book\BookService;
 use App\Services\Common\Util;
@@ -50,7 +52,24 @@ class BookController extends Controller
 
     public function createRecord(Request $request)
     {
-        Auth::user();
+        Log::info('ユーザーIDは:'. Auth::id());
+        Log::info('book_idは:'. $request->id);
+        Log::info('カテゴリーは:'. $request->category);
+        Log::info('読んだ日は:'. $request->date);
+        Log::info('本の感想は:'. $request->content);
+        Log::info('DBの検索'. Book::where('google_book_id', $request->id)->first()->id);
+
+        $user_id = Auth::id();
+        $book_id = Book::where('google_book_id', $request->id)->value('id');
+        $category_id = Category::where('category_name', $request->category)->value('id');
+        Log::info($book_id);
+        $record = BookRecord::create([
+            'book_id' => $book_id,
+            'user_id' => $user_id,
+            'category_id' => $category_id,
+            'content' => $request->content,
+            'read_date' => $request->date,
+        ]);
         return to_route('index');
     }
 

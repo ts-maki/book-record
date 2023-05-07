@@ -5,8 +5,8 @@
         <input type="text" name="serach_keyword" id="" placeholder="キーワードを入力してください">
         <input type="submit" value="送信">
     </form>
-    <h2>検索結果</h2>
     @if (!empty($books))
+    <h2>検索結果</h2>
     @foreach ($books as $book)
         <div class="flex">
             <img src="{{ $book['thumbnail_path'] }}">

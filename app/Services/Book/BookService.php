@@ -26,7 +26,7 @@ class BookService
             DB::transaction(function () use (&$book_id,
             &$title, &$author, &$description, &$thumbnail_path, &$isbn, &$published_date) {
                 $this->book_repository->addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date);
-            }, 3);
+            });
         } catch (\Exception $e) {
             Log::error("本の登録に失敗しました。エラーメッセージは:". $e);
         }
