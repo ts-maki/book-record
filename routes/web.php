@@ -25,6 +25,8 @@ Route::post('/search', [BookController::class, 'searchBook'])->name('book.search
 Route::post('/search/{id}', [BookController::class, 'create'])->name('book.create');
 Route::post('/create/{id}', [BookController::class, 'addRecord'])->name('book.record');
 
+Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
+Route::put('/edit//{record_id}', [BookController::class, 'update'])->name('record.update');
 // Route::get('test', [TestController::class, 'testFunction']);
 
 Route::get('/dashboard', function () {

@@ -8,6 +8,12 @@
             <h4>{{ $record->book->title }}</h4>
             <hr>
             <p>{{ $record->content }}</p>
+                <button type="submit"></button>
+                @if (Auth::id() === $record->user_id)
+                    <div>
+                        <a href="{{ route('record.edit', ['record_id' => $record->id]) }}">編集</a>
+                    </div>
+                @endif
         </div>
     </div>
     @endforeach

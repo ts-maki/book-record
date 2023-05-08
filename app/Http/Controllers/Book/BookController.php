@@ -10,9 +10,11 @@ use App\Services\Book\BookSearchService;
 use App\Services\Book\BookService;
 use App\Services\BookRecord\BookRecordService;
 use App\Services\Common\Util;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class BookController extends Controller
 {
@@ -85,6 +87,36 @@ class BookController extends Controller
     {
         $records = BookRecord::with('book')->orderBy('created_at', 'DESC')->get();
         return view('index')->with('records', $records);
+    }
+
+    public function edit(Request $request)
+    {
+        $record_id = $request->route('record_id');
+        Log::info('record_idは:'. $record_id);
+        $record = BookRecord::with('book', 'category')->find($record_id);
+        // dd($record);
+        return view('update')->with('record', $record);
+    }
+
+    //変更箇所だけ更新
+    public function update(Request $request)
+    {
+        $record_id = $request->route('record_id');
+        Log::info(Auth::id());
+        Log::info($request);
+        Log::info(BookRecord::find($record_id)->user_id);
+
+        //ログインユーザーIDと感想を書いたユーザーIDが一致するか確認
+        $check_user_id = $this->book_record_service->matchUserIdOfBookRecord($record_id);
+        Log::info($check_user_id);
+        if(!$check_user_id) {
+            throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります', );
+        }
+        $book_record = BookRecord::find($record_id);
+        $input = $request->all();
+        Log::info($book_record);
+        $result = $book_record->fill($input)->save();
+        return to_route('index');
     }
     public function show()
     {

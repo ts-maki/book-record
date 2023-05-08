@@ -2,9 +2,12 @@
 
 namespace App\Services\BookRecord;
 
+use App\Models\BookRecord;
 use App\Repositories\BookRecord\BookRecordRepository;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class BookRecordService
 {
@@ -15,6 +18,7 @@ class BookRecordService
         $this->book_record_repository = $book_record_repository;
     }
 
+    //本の感想登録
     public function addRecord($book_id, $user_id, $category_id, $content, $read_date)
     {
         try {
@@ -24,5 +28,12 @@ class BookRecordService
         } catch (\Exception $e) {
             Log::error("本の感想登録に失敗しました。エラーメッセージは:". $e);
         }
+    }
+
+    public function matchUserIdOfBookRecord($record_user_id)
+    {
+        $user_id = Auth::id();
+        $record_user_id = BookRecord::find($record_user_id)->user_id;
+        return $user_id === $record_user_id;
     }
 }
