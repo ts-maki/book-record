@@ -30,10 +30,13 @@ class BookRecordService
         }
     }
 
-    public function matchUserIdOfBookRecord($record_user_id)
+    public function matchUserIdOfBookRecord($record_id)
     {
         $user_id = Auth::id();
-        $record_user_id = BookRecord::find($record_user_id)->user_id;
-        return $user_id === $record_user_id;
+        $record_user_id = BookRecord::find($record_id);
+        if (!$record_user_id) {
+            return false;
+        }
+        return $user_id === $record_user_id->user_id;
     }
 }
