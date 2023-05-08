@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>こんにちは</h1>
-    <h1>本検索</h1>
-    <form action="{{ route('index.search') }}" method="post">
-        <input type="text" name="search_keyword" id="" placeholder="キーワードを入力してください">
-        <input type="submit" value="送信">
-    </form>
-</body>
-</html>
+<x-layout>
+    <h1></h1>
+    <h1>登録した感想</h1>
+    @foreach ($records as $record)
+    <div class="flex">
+        <img src="{{ $record->book->thumbnail_path }}">
+        <div>
+            <h4>{{ $record->book->title }}</h4>
+            <hr>
+            <p>{{ $record->content }}</p>
+        </div>
+    </div>
+    @endforeach
+</x-layout>

@@ -3,6 +3,7 @@
 namespace App\Services\Book;
 
 use App\Repositories\GoogleBooksAPIs\GoogleBooksAPIsRepository;
+use App\Services\Common\Util;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -48,10 +49,10 @@ class BookSearchService
             //     break;
             // }
             $book = [
-                'title' => $item->volumeInfo->title,
+                'title' => Util::deleteSpace($item->volumeInfo->title),
                 // 'author' => implode(',', $item->volumeInfo->authors),
                 'id' => $item->id,
-                'author' => $item->volumeInfo->authors[0] ?? '著者不明',
+                'author' => Util::deleteSpace($item->volumeInfo->authors[0]) ?? '著者不明',
                 'description' => $item->volumeInfo->description ?? null,
                 'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
                 'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,

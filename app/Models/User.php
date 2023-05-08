@@ -17,13 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'user_name',
-        'email',
-        'password',
-        'image_path',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //リレーション 1対多のbook_recordsテーブル
+    public function bookRecords()
+    {
+        return $this->hasMany(BookRecord::class);
+    }
 }
