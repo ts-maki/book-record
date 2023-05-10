@@ -12,7 +12,9 @@
                 @if (Auth::id() === $record->user_id)
                     <div>
                         <a href="{{ route('record.edit', ['record_id' => $record->id]) }}">編集</a>
-                        {{-- 削除モーダルはlaravelのInertiaでVueを使ってみる --}}
+                    </div>
+                    <div>
+                        <a href="{{ route('record.check', ['record_id' => $record->id]) }}">削除</a>
                     </div>
                 @endif
         </div>

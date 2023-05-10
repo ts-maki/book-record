@@ -118,6 +118,30 @@ class BookController extends Controller
         $result = $book_record->fill($input)->save();
         return to_route('index');
     }
+
+    //削除確認
+    public function check(Request $request)
+    {
+        $record_id = $request->route('record_id');
+        Log::info('削除するrecord_idは:'. $record_id);
+        $record = BookRecord::with('book', 'category')->find($record_id);
+        // dd($record);
+        return view('delete')->with('record', $record);
+    }
+
+    public function delete(Request $request)
+    {
+        $record_id = $request->route('record_id');
+        $check_user_id = $this->book_record_service->matchUserIdOfBookRecord($record_id);
+        Log::info($check_user_id);
+        if(!$check_user_id) {
+            throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります', );
+        }
+        $result = BookRecord::destroy($record_id);
+        return to_route('index');
+    }
+
+
     public function show()
     {
         return view('search');

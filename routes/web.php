@@ -28,6 +28,8 @@ Route::post('/create/{id}', [BookController::class, 'addRecord'])->name('book.re
 Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
 Route::put('/edit/{record_id}', [BookController::class, 'update'])->name('record.update');
 Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
+Route::get('/delete/{record_id}', [BookController::class, 'check'])->name('record.check');
+Route::delete('/delete/{record_id}', [BookController::class, 'delete'])->name('record.delete');
 
 // Route::get('test', [TestController::class, 'testFunction']);
 
