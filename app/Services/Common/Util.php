@@ -15,7 +15,7 @@ class Util
      */
     public static function deleteSpace($string)
     {
-        $result = str_replace(array(" ", "　"), "", $string);
+        $result = str_replace("　", "", $string);
         return $result;
     }
 }

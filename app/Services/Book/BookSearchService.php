@@ -44,15 +44,20 @@ class BookSearchService
         }
         // dd($response->items);
         foreach ($response->items as $item) {
-            // $existDate = $item->volumeInfo->title || $item->volumeInfo->authors[0];
-            // if(empty($existDate)) {
-            //     break;
-            // }
+
+            $author = Util::deleteSpace($item->volumeInfo->authors);
+            $author = $item->volumeInfo->authors;
+            if($author == null) {
+                $author = '著者不明';
+            } else {
+                $author = Util::deleteSpace($author[0]);
+            }
+
             $book = [
                 'title' => Util::deleteSpace($item->volumeInfo->title),
                 // 'author' => implode(',', $item->volumeInfo->authors),
                 'id' => $item->id,
-                'author' => Util::deleteSpace($item->volumeInfo->authors[0]) ?? '著者不明',
+                'author' => $author,
                 'description' => $item->volumeInfo->description ?? null,
                 'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
                 'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,
