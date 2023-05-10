@@ -38,18 +38,18 @@ class BookSearchService
         //     dd($response->items);
         //     return $books = [];
         // }
+
+            //TODO 検索時のバリデーションでnull検索できないようにする
+
         if($response->totalItems == 0) {
             Log::info('取得件数:'. 0);
             return $books = [];
         }
-        // dd($response->items);
+
         foreach ($response->items as $item) {
 
-            $author = Util::deleteSpace($item->volumeInfo->authors);
-            $author = $item->volumeInfo->authors;
-            if($author == null) {
-                $author = '著者不明';
-            } else {
+            $author = $item->volumeInfo->authors ?? null;
+            if(!$author == null) {
                 $author = Util::deleteSpace($author[0]);
             }
 
@@ -66,6 +66,7 @@ class BookSearchService
 
             $books[] = $book;
         }
+
         Log::info('取得件数:'. count($books));
         return $books;
     }
