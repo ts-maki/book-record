@@ -12,6 +12,7 @@
                 @if (Auth::id() === $record->user_id)
                     <div>
                         <a href="{{ route('record.edit', ['record_id' => $record->id]) }}">編集</a>
+                        {{-- 削除モーダルはlaravelのInertiaでVueを使ってみる --}}
                     </div>
                 @endif
         </div>
