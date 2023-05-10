@@ -5,9 +5,11 @@ entity users {
     id [ユーザーID] [PK] 
     --
     name [名前]
-    username [Twitterのユーザー名]
+    user_name [Twitterのユーザー名]
+    email [メール]
     password [パスワード]
     image_path [画像のurl]
+    remember_token [ログイン維持]
     created_at
     updated_at
 }
@@ -15,9 +17,11 @@ entity users {
 entity books {
     id [本ID] [PK] 
     --
+    google_book_id [googleAPIの本のid]
     title [本のタイトル]
     author [著者]
-    thumbnail_url [画像のurl]
+    description [説明]
+    thumbnail_path [画像のurl]
     isbn [ISBN番号]
     published_date [出版日]
     created_at
@@ -39,7 +43,7 @@ entity book_records {
 entity categories {
     id [カテゴリーID] [PK]
     --
-    category_name [カテゴリー名]
+    name [カテゴリー名]
     created_at
     updated_at
 }
