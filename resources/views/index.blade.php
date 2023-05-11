@@ -10,6 +10,7 @@ $is_toggle = 'favorite.save';
 <x-layout>
     <h1></h1>
     <h1>登録した感想</h1>
+    {{-- TODO ゲストユーザーできるようにする --}}
     @foreach ($records as $record)
     <div class="flex">
         <img src="{{ $record->book->thumbnail_path }}">
