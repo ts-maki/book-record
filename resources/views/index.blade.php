@@ -1,3 +1,12 @@
+{{-- お気に入りボタンの押下時の処理で名前付きのrouteを変える --}}
+{{-- @php
+    function toggleFavorite()
+    {
+        $flag = true;
+        $is_toggle = 'favorite.save';
+    }
+@endphp --}}
+
 <x-layout>
     <h1></h1>
     <h1>登録した感想</h1>
@@ -17,6 +26,14 @@
                         <a href="{{ route('record.check', ['record_id' => $record->id]) }}">削除</a>
                     </div>
                 @endif
+                <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
+                    @csrf
+                    <button type="submit">お気に入り登録</button>
+                </form>
+                {{-- <form action="{{ route('favorite.destory') }}" method="post">
+                    @csrf
+                    <button type="submit">お気に入り削除</button>
+                </form> --}}
         </div>
     </div>
     @endforeach

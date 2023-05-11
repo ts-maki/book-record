@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Book\BookController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::put('/edit/{record_id}', [BookController::class, 'update'])->name('record
 Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
 Route::get('/delete/{record_id}', [BookController::class, 'check'])->name('record.check');
 Route::delete('/delete/{record_id}', [BookController::class, 'delete'])->name('record.delete');
+
+Route::post('/index/{record_id}', [FavoriteController::class, 'checkFavorite'])->name('favorite.save');
 
 // Route::get('test', [TestController::class, 'testFunction']);
 
