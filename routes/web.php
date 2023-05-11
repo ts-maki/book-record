@@ -32,7 +32,8 @@ Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.e
 Route::get('/delete/{record_id}', [BookController::class, 'check'])->name('record.check');
 Route::delete('/delete/{record_id}', [BookController::class, 'delete'])->name('record.delete');
 
-Route::post('/index/{record_id}', [FavoriteController::class, 'checkFavorite'])->name('favorite.save');
+Route::post('/index/{record_id}', [FavoriteController::class, 'saveFavorite'])->name('favorite.save');
+Route::delete('/index/{record_id}', [FavoriteController::class, 'destroyFavorite'])->name('favorite.destroy');
 
 // Route::get('test', [TestController::class, 'testFunction']);
 

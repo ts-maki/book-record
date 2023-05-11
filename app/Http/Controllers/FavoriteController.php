@@ -16,7 +16,7 @@ class FavoriteController extends Controller
         $book_record_id = $request->route('record_id');
         $user = Auth::user();
         if (!$user->checkFavorite($book_record_id)) {
-            $user->likes()->attach($book_record_id);
+            $user->likes()->syncWithoutDetaching($book_record_id);
         }
         return back();
     }
