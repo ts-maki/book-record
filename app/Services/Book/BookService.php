@@ -21,14 +21,9 @@ class BookService
         if(mb_strlen($published_date) == 7) {
             $published_date = $published_date . '-01';
         }
-
-        try {
-            DB::transaction(function () use (&$book_id,
+        DB::transaction(function () use (&$book_id,
             &$title, &$author, &$description, &$thumbnail_path, &$isbn, &$published_date) {
                 $this->book_repository->addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date);
-            }, 2);
-        } catch (\Exception $e) {
-            Log::error("本の登録に失敗しました。エラーメッセージは:". $e);
-        }
+            });
     }
 }
