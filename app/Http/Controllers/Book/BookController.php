@@ -43,7 +43,7 @@ class BookController extends Controller
     public function create(Request $request)
     {
         // $input = $request->all();
-        Log::info("対象の本のid:". $request->id);
+        Log::info("対象の本のgoogleAPIsのid:". $request->google_api_id);
         Log::info("対象の本のtitle:". $request->title);
         Log::info("対象の本のauthor:". $request->author);
         Log::info("対象の本のdescription:". $request->description);
@@ -51,7 +51,15 @@ class BookController extends Controller
         Log::info("対象の本のisbn:". $request->isbn);
         Log::info("対象の本のpublished_date:".  substr($request->published_date, 0, 7));
 
-        $this->book_service->addBook($request->id, $request->title, $request->author, $request->description, $request->thumbnail_path, $request->isbn, $request->published_date);
+        //既に登録されている場合は本の情報を返す
+        $exist_book = Book::where('google_book_id', $request->google_api_id)->first();
+        Log::info('既に登録されている本の情報？'. $exist_book);
+        if ($exist_book !== null) {
+            return view('create')->with('book', $exist_book);
+        }
+
+        //本情報の新規登録
+        $this->book_service->addBook($request->google_api_id, $request->title, $request->author, $request->description, $request->thumbnail_path, $request->isbn, $request->published_date);
         return view('create')->with('book', $request);
     }
 
@@ -62,7 +70,7 @@ class BookController extends Controller
         Log::info('カテゴリーは:'. $request->category);
         Log::info('読んだ日は:'. $request->date);
         Log::info('本の感想は:'. $request->content);
-        Log::info('DBの検索'. Book::where('google_book_id', $request->id)->first()->id);
+        // Log::info('DBの検索'. Book::where('google_book_id', $request->id)->first()->id);
 
         $user_id = Auth::id();
         // $book_id = Book::where('google_book_id', $request->id)->value('id');
@@ -81,6 +89,13 @@ class BookController extends Controller
 
         //登録後、感想一覧ページに遷移
         return to_route('index');
+    }
+
+    public function otherCreate(Request $request)
+    {
+        $book_id = $request->route('id');
+        $book = Book::find($book_id);
+        return view('other')->with('book', $book);
     }
 
     public function index()
