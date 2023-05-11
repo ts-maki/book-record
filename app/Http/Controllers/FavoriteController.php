@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,15 +10,25 @@ use Illuminate\Support\Facades\Auth;
 class FavoriteController extends Controller
 {
 
-    //対象の本をユーザーがお気に入り登録しているか
-    public static function checkFavorite(Request $request)
+    //ログインユーザーと本の感想を紐づけてお気に入り登録する
+    public function saveFavorite(Request $request)
     {
         $book_record_id = $request->route('record_id');
-        $user = Auth::id();
-        $result = User::find($user)->likes()->where('book_record_id', $book_record_id)->exists();
-        dd($result);
-        return $result;
+        $user = Auth::user();
+        if (!$user->checkFavorite($book_record_id)) {
+            $user->likes()->attach($book_record_id);
+        }
+        return back();
     }
 
-
+    //ログインユーザーと本の感想を削除
+    public function destroyFavorite(Request $request)
+    {
+        $book_record_id = $request->route('record_id');
+        $user = Auth::user();
+        if ($user->checkFavorite($book_record_id)) {
+            $user->likes()->detach($book_record_id);
+        }
+        return back();
+    }
 }
