@@ -25,4 +25,9 @@ class BookRecord extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function likeUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes')->using(User::class)->withTimestamps();
+    }
 }
