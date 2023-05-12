@@ -34,9 +34,11 @@ docker run --rm \ -u "$(id -u):$(id -g)" \ -v $(pwd):/var/www/html \ -w /var/www
 ファイル「.env」を作成して「.env.example」の内容をコピーして貼り付け
 
 .envファイルのDB_HOSTをmysqlに変更
+
 DB_HOST=mysql
 
 laravelのLogを日ごとに出力する(好み)
+
 LOG_CHANNEL=daily
 
 起動
@@ -49,6 +51,7 @@ sail php artisan key:generate
 ```
 
 SQLファイルをphpMyadminにインポート
+
 http://localhost:8080/
 
 パッケージをインストール
@@ -67,6 +70,7 @@ http://localhost/
 ```
 
 Laravel公式デバッグアシスタント telescope
+
 http://localhost/telescope/
 
 
