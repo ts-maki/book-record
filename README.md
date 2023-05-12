@@ -12,6 +12,7 @@ Doker Desktop
 
 
 ####手順
+
 \\wsl.localhost\Ubuntu-22.04\home\任意のフォルダにgithubのリポジトリをクローン
 ```
 git clone https://github.com/mirai-79/book-record.git book-record
