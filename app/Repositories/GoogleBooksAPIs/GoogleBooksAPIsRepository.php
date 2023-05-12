@@ -45,7 +45,9 @@ class GoogleBooksAPIsRepository
 
             //成功時に本のデータを取得する
             if ($response->successful()) {
+                // dd($$response);
                 $books = json_decode($response);
+                // dd($books);
                 return $books;
             }
         } catch (\Exception $e) {
