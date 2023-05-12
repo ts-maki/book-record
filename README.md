@@ -1,6 +1,6 @@
-###開発環境構築
+### 開発環境構築
 
-####環境
+#### 環境
 
 Laravel v10.9.0
 
@@ -11,7 +11,7 @@ Ubuntu22.04
 Doker Desktop
 
 
-####手順
+#### 手順
 
 \\wsl.localhost\Ubuntu-22.04\home\任意のフォルダにgithubのリポジトリをクローン
 ```
