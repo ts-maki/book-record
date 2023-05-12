@@ -21,10 +21,10 @@ class BookRepository
      * @param int $isbn 本のISBN番号
      * @param date $published_date 	出版日
      */
-    public function addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date)
+    public function addBook($google_api_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date)
     {
         $book = Book::create([
-            'google_book_id' => $book_id,
+            'google_book_id' => $google_api_id,
             'title' =>  $title,
             'author' => $author,
             'description' => $description,
