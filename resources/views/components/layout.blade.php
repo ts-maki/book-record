@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <x-header></x-header>
+    <x-layout.header></x-layout.header>
     {{ $slot }}
 </body>
 

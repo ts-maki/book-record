@@ -27,6 +27,7 @@ $is_toggle = 'favorite.save';
                 <a href="{{ route('record.check', ['record_id' => $record->id]) }}">削除</a>
             </div>
             @endif
+            @auth
             @if (!Auth::user()->checkFavorite($record->id))
             <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
                 @csrf
@@ -39,6 +40,7 @@ $is_toggle = 'favorite.save';
                 <button type="submit">お気に入り削除</button>
             </form>
             @endif
+            @endauth
             @if (Auth::id() !== $record->user_id)
             <div>
                 <a href="{{ route('other.book.record', ['id' => $record->book->id]) }}">この本を感想に登録する</a>
