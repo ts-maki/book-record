@@ -2,6 +2,7 @@
     ['category_name',]
 )
 @php
+//foreachにより関数が繰り返し宣言されるのを避ける
 if (!function_exists('changeCategoryColor')) {
     function changeCategoryColor($category_name) {
     return match($category_name) {
