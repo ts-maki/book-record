@@ -8,45 +8,16 @@ $is_toggle = 'favorite.save';
 @endphp --}}
 
 <x-layout>
-    <h1></h1>
-    <h1>登録した感想</h1>
-    {{-- TODO ゲストユーザーできるようにする --}}
-    @foreach ($records as $record)
-    <div class="flex">
-        <img src="{{ $record->book->thumbnail_path }}">
-        <div>
-            <h4>{{ $record->book->title }}</h4>
-            <hr>
-            <p>{{ $record->content }}</p>
-            <button type="submit"></button>
-            @if (Auth::id() === $record->user_id)
-            <div>
-                <a href="{{ route('record.edit', ['record_id' => $record->id]) }}">編集</a>
+    <div class="w-full bg-emerald-50">
+        <div class="container mx-auto max-w-4xl">
+            <section class=""></section>
+            <h1>登録した感想</h1>
+            {{-- TODO ゲストユーザーできるようにする --}}
+            <div class="pt-6 px-6">
+                @foreach ($records as $record)
+                <x-element.article :record='$record'></x-element.article>
+                @endforeach
             </div>
-            <div>
-                <a href="{{ route('record.check', ['record_id' => $record->id]) }}">削除</a>
-            </div>
-            @endif
-            @auth
-            @if (!Auth::user()->checkFavorite($record->id))
-            <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
-                @csrf
-                <button type="submit">お気に入り登録</button>
-            </form>
-            @else
-            <form action="{{ route('favorite.destroy', ['record_id' => $record->id]) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit">お気に入り削除</button>
-            </form>
-            @endif
-            @endauth
-            @if (Auth::id() !== $record->user_id)
-            <div>
-                <a href="{{ route('other.book.record', ['id' => $record->book->id]) }}">この本を感想に登録する</a>
-            </div>
-            @endif
         </div>
     </div>
-    @endforeach
 </x-layout>
