@@ -1,3 +1,6 @@
+@props(
+    ['record',]
+)
 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
     <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg">
     <div class="flex flex-col py-2 px-4 flex-1 justify-between">
@@ -8,7 +11,10 @@
                 </h3>
                 <p>{{ $record->book->author }}</p>
             </div>
-            <p>{{ $record->category->name }}</p>
+            @php
+                $category_name = $record->category->name;
+            @endphp
+            <x-element.category :category_name="$category_name"></x-element.category>
             <p class="text-gray-500">
                 {{ $record->content }}
             </p>
