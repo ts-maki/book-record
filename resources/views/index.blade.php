@@ -9,6 +9,9 @@
                     @endforeach
                 </div>
             </section>
+            <div class="relative">
+                <a href="{{ route('search') }}" class="fixed bottom-24 right-10 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300">感想<span class="block"></span>登録</a>
+            </div>
         </div>
     </div>
 </x-layout>
