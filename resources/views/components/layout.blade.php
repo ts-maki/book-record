@@ -8,7 +8,7 @@
     <title>本の感想共有アプリ</title>
 </head>
 
-<body>
+<body class="h-full bg-emerald-50">
     <x-layout.header></x-layout.header>
     {{ $slot }}
 </body>

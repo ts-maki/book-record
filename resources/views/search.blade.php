@@ -1,13 +1,14 @@
 <x-layout>
-    <h1>本検索</h1>
-    <form action="{{ route('book.search') }}" method="post">
-        @csrf
-        <input type="text" name="serach_keyword" id="" placeholder="キーワードを入力してください">
-        <input type="submit" value="送信">
-    </form>
-    @if (!empty($books))
-    <h2>検索結果</h2>
-    @foreach ($books as $book)
+    <x-layout.container>
+        <h2>本検索</h2>
+        <form action="{{ route('book.search') }}" method="post">
+            @csrf
+            <input type="text" name="serach_keyword" id="" placeholder="キーワードを入力してください">
+            <input type="submit" value="検索">
+        </form>
+        @if (!empty($books))
+        <h2>検索結果</h2>
+        @foreach ($books as $book)
         <div class="flex">
             <img src="{{ $book['thumbnail_path'] }}">
             <div>
@@ -28,7 +29,7 @@
                 </form>
             </div>
         </div>
-    @endforeach
-    @endif
-
+        @endforeach
+        @endif
+    </x-layout.container>
 </x-layout>

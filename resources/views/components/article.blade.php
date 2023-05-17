@@ -6,7 +6,7 @@
     <div class="flex flex-col py-2 px-4 flex-1 justify-between">
         <div class="">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-bold text-gray-800 pt-2">
+                <h3 class="text-lg font-bold text-gray-800">
                     {{ $record->book->title }}
                 </h3>
                 <p>{{ $record->book->author }}</p>
@@ -16,7 +16,7 @@
                 {{ $record->content }}
             </p>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
             @auth
             @if (!Auth::user()->checkFavorite($record->id))
             <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
