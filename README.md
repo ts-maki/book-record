@@ -36,9 +36,7 @@ Doker Desktop
     DB_HOST=mysql
 
 - laravelのLogを日ごとに出力する(好み)
-
-    - LOG_CHANNEL=daily
-
+    LOG_CHANNEL=daily
 - 起動
     ```
     sail up -d
@@ -49,14 +47,11 @@ Doker Desktop
     ```
 
 - SQLファイルをphpMyadminにインポート
-
     http://localhost:8080/
-
 - パッケージをインストール
     ```
     sail npm install
     ```
-
 - 開発環境をローカルにビルド(ホットリロード)
     ```
     sail npm run dev
@@ -66,7 +61,6 @@ Doker Desktop
     ```
     http://localhost/
     ```
-
 - Laravel公式デバッグアシスタント telescope
 
     http://localhost/telescope/
