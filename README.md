@@ -14,23 +14,21 @@ Doker Desktop
 #### 手順
 
 - \\wsl.localhost\Ubuntu-22.04\home\任意のフォルダにgithubのリポジトリをクローン
-```
-git clone https://github.com/mirai-79/book-record.git book-record
-```
+    ```
+    git clone https://github.com/mirai-79/book-record.git book-record
+    ```
 - ファイル「.bashrc」の最後に下記を追記
-```
-alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-```
-
+    ```
+    alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+    ```
 - ディレクトリに移動
-```
-cd book-record
-```
-
+    ```
+    cd book-record
+    ```
 - Composerのパッケージのインストール
-```
-docker run --rm \ -u "$(id -u):$(id -g)" \ -v $(pwd):/var/www/html \ -w /var/www/html \ laravelsail/php82-composer:latest \ composer install --ignore-platform-reqs
-```
+    ```
+    docker run --rm \ -u "$(id -u):$(id -g)" \ -v $(pwd):/var/www/html \ -w /var/www/html \ laravelsail/php82-composer:latest \ composer install --ignore-platform-reqs
+    ```
 - ファイル「.env」を作成して「.env.example」の内容をコピーして貼り付け
 
 - .envファイルのDB_HOSTをmysqlに変更
