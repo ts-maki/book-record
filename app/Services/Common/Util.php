@@ -26,10 +26,10 @@ class Util
      * @param int $limitLength
      * @return string
      */
-    public static function limitTextLength($text, $limitLength)
+    public static function limitTextLength($text, $limit_length)
     {
-        if (mb_strlen($text) > $limitLength) {
-            $text = mb_substr($text, 0, $limitLength - 1);
+        if (mb_strlen($text) > $limit_length) {
+            $text = mb_substr($text, 0, $limit_length - 1);
             return $text . '...';
         }
         return $text;
