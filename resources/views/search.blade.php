@@ -1,3 +1,6 @@
+@php
+    use App\Services\Common\Util;
+@endphp
 <x-layout>
     <x-layout.container>
         <h2>本の検索</h2>
@@ -15,7 +18,7 @@
             <div>
                 <h4 class="text-blue-800">{{ $book['title'] }}</h4>
                 <p>{{ $book['author'] }}</p>
-                <p>{{ $book['description'] }}</p>
+                <p>{{ Util::limitTextLength($book['description'], 200) }}</p>
                 <p>{{ $book['published_date'] }}</p>
                 <form action="{{ route('book.create', $book['id']) }}" method="post">
                     @csrf
