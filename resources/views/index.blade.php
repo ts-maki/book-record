@@ -38,7 +38,7 @@
                         @if (Auth::id() !== $record->user_id)
                         <div>
                             <a href="{{ route('other.book.record', ['id' => $record->book->id]) }}"
-                                class="px-2 border-green-200 border-solid border-2 rounded-full hover:text-white hover:bg-green-300 duration-300">この本を感想に登録する</a>
+                                class="px-2 border-green-300 border-solid border-2 rounded-full hover:text-white hover:bg-green-300 duration-300">この本を感想に登録する</a>
                         </div>
                         @endif
                         @if (Auth::id() === $record->user_id)
