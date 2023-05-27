@@ -1,5 +1,8 @@
 <?php
 
+use App\Facades\Util as FacadesUtil;
+use App\Providers\UtilServiceProvider;
+use App\Services\Common\Util;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -168,6 +171,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\UtilServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
     ])->toArray(),
 
@@ -184,6 +188,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Util' => app\Facades\Util::class,
     ])->toArray(),
 
 ];

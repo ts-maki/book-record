@@ -1,6 +1,3 @@
-@php
-    use App\Services\Common\Util;
-@endphp
 <x-layout>
     <x-layout.container>
         <h2>本の検索</h2>

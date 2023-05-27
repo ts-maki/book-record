@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Common\Util;
 use Illuminate\Support\ServiceProvider;
 
 class UtilServiceProvider extends ServiceProvider
@@ -11,7 +12,7 @@ class UtilServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind('util', 'App\Services\Common\Util');
     }
 
     /**
