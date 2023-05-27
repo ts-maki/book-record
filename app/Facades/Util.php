@@ -8,6 +8,6 @@ class Util extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'Util';
+        return 'util';
     }
 }
