@@ -36,6 +36,7 @@ Doker Desktop
     DB_HOST=mysql
 
 - laravelのLogを日ごとに出力する(好み)
+- 
     LOG_CHANNEL=daily
 - 起動
     ```
@@ -47,6 +48,7 @@ Doker Desktop
     ```
 
 - SQLファイルをphpMyadminにインポート
+- 
     http://localhost:8080/
 - パッケージをインストール
     ```
