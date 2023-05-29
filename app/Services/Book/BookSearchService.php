@@ -47,9 +47,9 @@ class BookSearchService
         }
 
         foreach ($response->items as $item) {
-
-            $author = $item->volumeInfo->authors ?? null;
-            if(!$author == null) {
+            
+            $author = $item->volumeInfo->authors ?? '著者不明';
+            if($author !== '著者不明') {
                 $author = Util::deleteSpace($author[0]);
             }
 
