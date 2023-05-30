@@ -48,7 +48,7 @@ Doker Desktop
     ```
 
 - SQLファイルをphpMyadminにインポート
-- 
+
     http://localhost:8080/
 - パッケージをインストール
     ```
