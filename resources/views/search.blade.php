@@ -1,9 +1,9 @@
 <x-layout>
     <x-layout.container>
-        <h2>本の検索</h2>
+        <p>本の検索</p>
         <form action="{{ route('book.search') }}" method="post">
             @csrf
-            <input type="search" name="serach_keyword" placeholder="キーワードを入力してください"
+            <input type="search" name="serach_keyword" placeholder="本のタイトルか作者名を入力してください"
                 class="w-1/2 rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring2" />
             <button type="submit" value="検索" class="-translate-x-8 translate-y-2 scale-150"><img
                     src="{{ asset('storage/images/search_black_24dp.svg') }}"></button>
