@@ -54,6 +54,7 @@ Doker Desktop
     ```
     sail npm install
     ```
+    ※Docker起動時にテストデータを投入するinitSQLに変更予定
 - 開発環境をローカルにビルド(ホットリロード)
     ```
     sail npm run dev
