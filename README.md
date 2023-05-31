@@ -50,11 +50,11 @@ Doker Desktop
 - SQLファイルをphpMyadminにインポート
 
     http://localhost:8080/
+    ※Docker起動時にテストデータを投入するinitSQLに変更予定
 - パッケージをインストール
     ```
     sail npm install
     ```
-    ※Docker起動時にテストデータを投入するinitSQLに変更予定
 - 開発環境をローカルにビルド(ホットリロード)
     ```
     sail npm run dev
