@@ -50,6 +50,7 @@ Doker Desktop
 - SQLファイルをphpMyadminにインポート
 
     http://localhost:8080/
+    
     ※Docker起動時にテストデータを投入するinitSQLに変更予定
 - パッケージをインストール
     ```
