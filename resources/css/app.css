@@ -5,3 +5,7 @@
 .test-color {
     color: red;
 }
+.book__record-category label:not(:first-of-type)
+{
+    padding-left: 1rem;
+}
