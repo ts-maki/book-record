@@ -17,9 +17,9 @@ class BookService
 
     public function addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date)
     {
-        //TODO DBにY/mの表記で登録できないか？　暫定として日にちが不明なデータは01日を追記
+        //日にちがない場合はnullで登録する
         if(mb_strlen($published_date) == 7) {
-            $published_date = $published_date . '-01';
+            $published_date = null;
         }
         DB::transaction(function () use (&$book_id,
             &$title, &$author, &$description, &$thumbnail_path, &$isbn, &$published_date) {

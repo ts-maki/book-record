@@ -5,3 +5,12 @@
 .test-color {
     color: red;
 }
+.book__record-category label:not(:first-of-type)
+{
+    padding-left: 1rem;
+}
+
+input[type="search" i]::-webkit-search-cancel-button
+{
+    transform: translateX(-1.5rem);
+}

@@ -13,6 +13,7 @@
     <form action="{{ route('record.update', $record->id) }}" method="post">
         @method('PUT')
         @csrf
+        {{-- TODO エガーロードできていないので直書きに変更を検討 --}}
         @for ($i = 1; $i <= $record->category->count(); $i++)
             <label><input type="radio" name="category_id" value="{{ $i }}" {{ old('category_id', $record->category_id)
                 ===
