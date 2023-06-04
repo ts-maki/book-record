@@ -1,4 +1,7 @@
 <x-layout>
+    <x-element.breadcrumbs>
+        {{ Breadcrumbs::render('delete') }}
+    </x-element.breadcrumbs>
     <div class="px-4">
         <x-layout.container class="bg-white rounded-lg py-4">
             <h3 class="pb-2 border-b-2 border-green-200">感想削除確認</h3>

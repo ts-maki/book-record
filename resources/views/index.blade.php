@@ -1,4 +1,7 @@
 <x-layout>
+    <x-element.breadcrumbs>
+        {{ Breadcrumbs::render('home') }}
+    </x-element.breadcrumbs>
     <x-layout.container>
         <section>
             {{-- TODO ゲストユーザーできるようにする --}}

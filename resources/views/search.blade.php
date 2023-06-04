@@ -1,4 +1,7 @@
 <x-layout>
+    <x-element.breadcrumbs>
+        {{ Breadcrumbs::render('search') }}
+    </x-element.breadcrumbs>
     <x-layout.container>
         <p>本の検索</p>
         <form action="{{ route('book.search') }}" method="post">

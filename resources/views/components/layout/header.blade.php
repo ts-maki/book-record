@@ -1,11 +1,12 @@
 <header class="w-full bg-emerald-200 border-t body-font">
     <div class="container flex items-center justify-between p-3 mx-auto  max-w-4xl">
-        <a class="flex  font-medium title-font md:mb-0">
+        <a href="{{ route('index') }}" class="flex  font-medium title-font md:mb-0">
             <h1 class="">みんなの感想</h1>
         </a>
         <div class="flex items-center h-full">
             <div class="pr-2">
-                <img src="{{ asset('/storage/images/account_circle_black_24dp.svg') }}" class="w-8 h-8 bg-white rounded-full">
+                <img src="{{ asset('/storage/images/account_circle_black_24dp.svg') }}"
+                    class="w-8 h-8 bg-white rounded-full">
             </div>
             @auth
             <p>{{ Auth::user()->name }}</p>

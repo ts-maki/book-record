@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.test-color {
-    color: red;
+.breadcrumb
+{
+    display: flex;
+}
+.breadcrumb-item:not(:last-of-type):hover
+{
+    color: skyblue;
+}
+.breadcrumb-item:not(:last-of-type)::after
+{
+    content: ">";
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 .book__record-category label:not(:first-of-type)
 {
