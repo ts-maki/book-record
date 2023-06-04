@@ -9,8 +9,8 @@
                     <p>{{ $book->author }}</p>
                 </div>
             </div>
-            <h3>近しいカテゴリーを選んでください</h3>
-            <form action="{{ route('book.record', $book->id) }}" method="post" class="book__record-category pt-4">
+            <p class="pt-4">近しいカテゴリーを選んでください</p>
+            <form action="{{ route('book.record', $book->id) }}" method="post" class="book__record-category pt-1">
                 @csrf
                 <label><input type="radio" name="category" value="ファンタジー" class="border-gray-300"><span class="pl-1">ファンタジー</span></label>
                 <label><input type="radio" name="category" value="恋愛" class="border-gray-300"><span class="pl-1">恋愛</span></label>
@@ -24,8 +24,8 @@
                     <p class="w-1/3 pb-2">本を読んだ日</p>
                     <input type="date" name="date" value="<?php echo date('Y-m-d') ?>" class="border-gray-300 rounded-lg book__record-date w-40">
                 </div>
-                <div class="sm:flex">
-                    <p class="pt-4 sm:w-1/3">感想</p>
+                <div class="sm:flex pt-4">
+                    <p class="sm:w-1/3">感想</p>
                     <textarea name="content" cols="30" rows="3" class="mt-2 sm:w-2/3 w-full border-gray-300 rounded-lg"></textarea>
                 </div>
                 <input type="submit" value="登録"
