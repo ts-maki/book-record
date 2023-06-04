@@ -89,7 +89,7 @@ class BookController extends Controller
     {
         $book_id = $request->route('id');
         $book = Book::find($book_id);
-        return view('other')->with('book', $book);
+        return view('create')->with('book', $book);
     }
 
     public function index()

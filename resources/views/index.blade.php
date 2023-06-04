@@ -3,7 +3,7 @@
         <section>
             {{-- TODO ゲストユーザーできるようにする --}}
             @foreach ($records as $record)
-            <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
+            <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative">
                 <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg">
                 <div class="flex flex-col py-2 px-4 flex-1 justify-between">
                     <div class="">
@@ -61,7 +61,7 @@
         </section>
         <div class="relative">
             <a href="{{ route('search') }}"
-                class="fixed bottom-24 right-10 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 drop-shadow-2xl">感想<span
+                class="fixed bottom-24 right-10 xl:right-1/4 xl:translate-x-40 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 drop-shadow-2xl">感想<span
                     class="block"></span>登録</a>
         </div>
     </x-layout.container>
