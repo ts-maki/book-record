@@ -7,8 +7,8 @@
                 <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg">
                 <div class="flex flex-col py-2 px-4 flex-1 justify-between">
                     <div class="">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-bold text-gray-800">
+                        <div class="flex justify-between">
+                            <h3 class="text-lg font-bold text-gray-800 w-2/3">
                                 {{ $record->book->title }}
                             </h3>
                             <p>投稿者: {{ $record->user->name }}さん</p>
