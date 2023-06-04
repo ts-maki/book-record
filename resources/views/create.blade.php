@@ -21,8 +21,8 @@
                 <label><input type="radio" name="category" value="仕事" class="border-gray-300"><span class="pl-1">仕事</span></label>
                 <label><input type="radio" name="category" value="歴史" class="border-gray-300"><span class="pl-1">歴史</span></label>
                 <div class="sm:flex pt-6">
-                    <p class="w-1/3 pb-2">読了日</p>
-                    <input type="date" name="date" value="<?php echo date('Y-m-d') ?>" class="border-gray-300 rounded-lg">
+                    <p class="w-1/3 pb-2">本を読んだ日</p>
+                    <input type="date" name="date" value="<?php echo date('Y-m-d') ?>" class="border-gray-300 rounded-lg book__record-date w-40">
                 </div>
                 <div class="sm:flex">
                     <p class="pt-4 sm:w-1/3">感想</p>
