@@ -49,7 +49,7 @@
                 </div>
                 <div class="sm:flex pt-4">
                     <p class="sm:w-1/3">感想</p>
-                    <textarea name="content" cols="30" rows="3" class="mt-2 sm:w-2/3 w-full border-gray-300 rounded-lg">{{ old('content', $record->content) }}</textarea>
+                    <textarea name="content" cols="120" rows="3" class="mt-2 sm:w-2/3 w-full border-gray-300 rounded-lg">{{ old('content', $record->content) }}</textarea>
                 </div>
                 <input type="submit" value="編集"
                     class="block px-2 hover:border-green-200 hover:border-solid hover:border-2 hover:bg-white rounded-full border-2 border-green-300 text-white bg-green-300 duration-300 hover:text-green-300 mx-auto mt-4">

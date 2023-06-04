@@ -41,7 +41,7 @@
                 </div>
                 <div class="sm:flex pt-4">
                     <p class="sm:w-1/3">感想</p>
-                    <textarea name="content" cols="30" rows="3"
+                    <textarea name="content" cols="120" rows="3"
                         class="mt-2 sm:w-2/3 w-full border-gray-300 rounded-lg"></textarea>
                 </div>
                 <input type="submit" value="登録"
