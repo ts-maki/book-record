@@ -21,6 +21,12 @@ Breadcrumbs::for('search', function (BreadcrumbTrail $trail) {
     $trail->push('本の検索', route('search'));
 });
 
+//登録
+Breadcrumbs::for('create', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('感想の登録', url('/create/{id}'));
+});
+
 // 編集
 Breadcrumbs::for('edit', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

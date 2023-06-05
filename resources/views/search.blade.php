@@ -21,7 +21,7 @@
                         <h3 class="text-lg font-bold text-gray-800">{{ $book['title'] }}</h3>
                         <p>{{ $book['author'] }}</p>
                     </div>
-                    <p>{{ Util::limitTextLength($book['description'], 200) }}</p>
+                    <p>{{ Util::limitTextLength($book['description'], 150) }}</p>
                 </div>
                 <div class="">
                     <div class="flex justify-between">
