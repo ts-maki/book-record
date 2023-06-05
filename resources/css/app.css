@@ -2,36 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-.breadcrumb
-{
+/* ------------------------------ */
+/* 共通 */
+/* ------------------------------ */
+.breadcrumb {
     display: flex;
 }
-.breadcrumb-item:not(:last-of-type):hover
-{
+
+.breadcrumb-item:not(:last-of-type):hover {
     color: skyblue;
 }
-.breadcrumb-item:not(:last-of-type)::after
-{
+
+.breadcrumb-item:not(:last-of-type)::after {
     content: ">";
     padding-left: .5rem;
     padding-right: .5rem;
 }
-.book__record-category label:not(:first-of-type)
-{
+
+/* ------------------------------ */
+/* 感想登録・編集 */
+/* ------------------------------ */
+.book__record-category label:not(:first-of-type) {
     padding-left: 1rem;
 }
 
-input[type="search" i]::-webkit-search-cancel-button
-{
-    transform: translateX(-1.5rem);
-}
-
-.book__record-date
-{
+.book__record-date {
     position: relative;
 }
-.book__record-date::before
-{
+
+.book__record-date::before {
     position: absolute;
     content: "";
     right: 4px;
@@ -44,8 +43,8 @@ input[type="search" i]::-webkit-search-cancel-button
     transform: scale(1.2);
 
 }
-input[type="date" i]::-webkit-calendar-picker-indicator
-{
+
+input[type="date" i]::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 0;
     right: 7px;
@@ -57,4 +56,11 @@ input[type="date" i]::-webkit-calendar-picker-indicator
     cursor: pointer;
     height: 1.5rem;
     width: 2rem;
+}
+
+/* ------------------------------ */
+/* 本の検索 */
+/* ------------------------------ */
+input[type="search" i]::-webkit-search-cancel-button {
+    transform: translateX(-1.5rem);
 }
