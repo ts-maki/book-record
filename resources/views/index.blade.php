@@ -6,8 +6,8 @@
         <section>
             {{-- TODO ゲストユーザーできるようにする --}}
             @foreach ($records as $record)
-            <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative">
-                <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg">
+            <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative sm:max-h-[182px]">
+                <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg md:max-w-[182px]">
                 <div class="flex flex-col py-2 px-4 flex-1 justify-between">
                     <div class="">
                         <div class="flex justify-between">

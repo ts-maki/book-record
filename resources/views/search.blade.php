@@ -13,8 +13,8 @@
         </form>
         @if (!empty($books))
         @foreach ($books as $book)
-        <div class="flex rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
-            <img src="{{ $book['thumbnail_path'] }}" class="rounded-l-lg">
+        <div class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
+            <img src="{{ $book['thumbnail_path'] }}" class="rounded-l-lg sm:max-h-[182px]">
             <div class="px-4 grow flex flex-col justify-between py-2">
                 <div class="">
                     <div class="flex justify-between">
