@@ -33,7 +33,6 @@ Route::get('/create/other/{id}', [BookController::class, 'otherCreate'])->name('
 
 Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
 Route::put('/edit/{record_id}', [BookController::class, 'update'])->name('record.update');
-Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
 Route::get('/delete/{record_id}', [BookController::class, 'check'])->name('record.check');
 Route::delete('/delete/{record_id}', [BookController::class, 'delete'])->name('record.delete');
 

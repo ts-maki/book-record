@@ -104,7 +104,7 @@ class BookController extends Controller
         Log::info('record_idは:'. $record_id);
         $record = BookRecord::with('book', 'category')->find($record_id);
         // dd($record);
-        return view('update')->with('record', $record);
+        return view('edit')->with('record', $record);
     }
 
     //変更箇所だけ更新

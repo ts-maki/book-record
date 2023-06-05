@@ -1,10 +1,13 @@
 <x-layout>
+    <x-element.breadcrumbs>
+        {{ Breadcrumbs::render('home') }}
+    </x-element.breadcrumbs>
     <x-layout.container>
         <section>
             {{-- TODO ゲストユーザーできるようにする --}}
             @foreach ($records as $record)
-            <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative">
-                <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg">
+            <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative sm:max-h-[182px]">
+                <img src="{{ $record->book->thumbnail_path }}" class="rounded-l-lg md:max-w-[182px]">
                 <div class="flex flex-col py-2 px-4 flex-1 justify-between">
                     <div class="">
                         <div class="flex justify-between">
@@ -35,11 +38,13 @@
                         </form>
                         @endif
                         @endauth
+                        @auth
                         @if (Auth::id() !== $record->user_id)
                         <div>
                             <a href="{{ route('other.book.record', ['id' => $record->book->id]) }}"
                                 class="px-2 border-green-300 border-solid border-2 rounded-full hover:text-white hover:bg-green-300 duration-300">この本を感想に登録する</a>
                         </div>
+                        @endauth
                         @endif
                         @if (Auth::id() === $record->user_id)
                         <div class="flex">
@@ -59,10 +64,12 @@
             @endforeach
 
         </section>
+        @auth
         <div class="relative">
             <a href="{{ route('search') }}"
                 class="fixed bottom-24 right-10 xl:right-1/4 xl:translate-x-40 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 drop-shadow-2xl">感想<span
                     class="block"></span>登録</a>
         </div>
+        @endauth
     </x-layout.container>
 </x-layout>

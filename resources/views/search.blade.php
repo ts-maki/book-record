@@ -1,4 +1,7 @@
 <x-layout>
+    <x-element.breadcrumbs>
+        {{ Breadcrumbs::render('search') }}
+    </x-element.breadcrumbs>
     <x-layout.container>
         <p>本の検索</p>
         <form action="{{ route('book.search') }}" method="post">
@@ -10,15 +13,15 @@
         </form>
         @if (!empty($books))
         @foreach ($books as $book)
-        <div class="flex rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
-            <img src="{{ $book['thumbnail_path'] }}" class="rounded-l-lg">
+        <div class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
+            <img src="{{ $book['thumbnail_path'] }}" class="rounded-l-lg sm:max-h-[182px]">
             <div class="px-4 grow flex flex-col justify-between py-2">
                 <div class="">
                     <div class="flex justify-between">
                         <h3 class="text-lg font-bold text-gray-800">{{ $book['title'] }}</h3>
                         <p>{{ $book['author'] }}</p>
                     </div>
-                    <p>{{ Util::limitTextLength($book['description'], 200) }}</p>
+                    <p>{{ Util::limitTextLength($book['description'], 150) }}</p>
                 </div>
                 <div class="">
                     <div class="flex justify-between">
