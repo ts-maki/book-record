@@ -20,8 +20,8 @@
                 @method('DELETE')
                 @csrf
                 <div class="flex justify-center pt-4">
-                    <a href="{{ route('index') }}" class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300">キャンセル</a>
-                    <input type="submit" value="削除" class="ml-6 px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300">
+                    <a href="{{ route('index') }}" class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">キャンセル</a>
+                    <input type="submit" value="削除" class="ml-6 px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 </div>
             </form>
         </x-layout.container>

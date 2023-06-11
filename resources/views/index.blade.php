@@ -27,14 +27,14 @@
                         <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
                             @csrf
                             <button type="submit"
-                                class="px-2 border-yellow-300 border-solid border-2 rounded-full hover:text-white hover:bg-yellow-300 duration-300">お気に入り登録</button>
+                                class="px-2 border-yellow-300 border-solid border-2 rounded-full hover:text-white hover:bg-yellow-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り登録</button>
                         </form>
                         @else
                         <form action="{{ route('favorite.destroy', ['record_id' => $record->id]) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300">お気に入り削除</button>
+                                class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り削除</button>
                         </form>
                         @endif
                         @endauth
@@ -42,7 +42,7 @@
                         @if (Auth::id() !== $record->user_id)
                         <div>
                             <a href="{{ route('other.book.record', ['id' => $record->book->id]) }}"
-                                class="px-2 border-green-300 border-solid border-2 rounded-full hover:text-white hover:bg-green-300 duration-300">この本の感想を登録する</a>
+                                class="px-2 border-green-300 border-solid border-2 rounded-full hover:text-white hover:bg-green-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">この本の感想を登録する</a>
                         </div>
                         @endauth
                         @endif
@@ -50,11 +50,11 @@
                         <div class="flex">
                             <div>
                                 <a href="{{ route('record.edit', ['record_id' => $record->id]) }}"
-                                    class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300">編集</a>
+                                    class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">編集</a>
                             </div>
                             <div class="pl-6">
                                 <a href="{{ route('record.check', ['record_id' => $record->id]) }}"
-                                    class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300">削除</a>
+                                    class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</a>
                             </div>
                         </div>
                         @endif
@@ -67,7 +67,7 @@
         @auth
         <div class="relative">
             <a href="{{ route('search') }}"
-                class="fixed bottom-24 right-10 xl:right-1/4 xl:translate-x-40 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 drop-shadow-2xl">感想<span
+                class="fixed bottom-24 right-10 xl:right-1/4 xl:translate-x-40 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 drop-shadow-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">感想<span
                     class="block"></span>登録</a>
         </div>
         @endauth

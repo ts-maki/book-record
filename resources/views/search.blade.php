@@ -36,7 +36,7 @@
                             <input type="hidden" name="isbn" value="{{ $book['isbn'] }}">
                             <input type="hidden" name="published_date" value="{{ $book['published_date'] }}">
                             <input type="submit" value="登録"
-                                class="px-2 hover:border-green-200 hover:border-solid hover:border-2 hover:bg-white rounded-full border-2 border-green-300 text-white bg-green-300 duration-300 hover:text-green-300">
+                                class="px-2 hover:border-green-200 hover:border-solid hover:border-2 hover:bg-white rounded-full border-2 border-green-300 text-white bg-green-300 duration-300 hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         </form>
                     </div>
                 </div>
