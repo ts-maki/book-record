@@ -42,6 +42,8 @@
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>
+
         </div>
+        <x-element.auth-button-link :href="route('index')">ゲストでログインする</x-element.auth-button-link>
     </form>
 </x-guest-layout>

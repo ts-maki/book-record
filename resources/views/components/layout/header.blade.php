@@ -11,16 +11,23 @@
             @auth
             <p>{{ Auth::user()->name }}</p>
             @else
-            <p class="pr-4">ゲストさん</p>
+            <p class="pr-4">ゲスト</p>
             <div class="">
-                <a href="{{ route('register') }}"
-                    class="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease">ユーザー登録</a>
+                <x-element.auth-button-link :href="route('register')">ユーザー登録</x-element.auth-button-link>
             </div>
             <div class="pl-4">
-                <a href="{{ route('login') }}"
-                    class="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease">ログイン</a>
+                <x-element.auth-button-link :href="route('login')">ログイン</x-element.auth-button-link>
             </div>
             @endauth
+            @auth
+            <x-element.auth-button-link :href="route('profile.edit')" class="ml-4">プロフィール</x-element.auth-button-link>
+            <form method="POST" action="{{ route('logout') }}" class="translate-y-[-1px]">
+                @csrf
+                <x-element.auth-button-link :href="route('logout')" onclick="event.preventDefault();
+                this.closest('form').submit();" class="ml-4">ログアウト</x-element.auth-button-link>
+            </form>
+            @endauth
+
         </div>
     </div>
 </header>
