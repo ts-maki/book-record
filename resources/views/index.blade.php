@@ -67,7 +67,7 @@
         @auth
         <div class="relative">
             <a href="{{ route('search') }}"
-                class="fixed bottom-24 right-10 xl:right-1/4 xl:translate-x-40 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 drop-shadow-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">感想<span
+                class="fixed bottom-24 right-10 xl:right-1/4 xl:translate-x-40 py-2 px-4 text-white bg-blue-600 rounded-full hover:bg-blue-400 duration-300 shadow-xl shadow-gray-400">感想<span
                     class="block"></span>登録</a>
         </div>
         @endauth
