@@ -16,13 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//ログイン
-Route::get('/', function() {
-    return view('welcome');
-});
 
+Route::get('/',[BookController::class, 'index'])->name('index');
 
-Route::get('/index',[BookController::class, 'index'])->name('index');
+// Route::get('/index',[BookController::class, 'index'])->name('index');
 Route::get('/search', [BookController::class, 'show'])->name('search');
 Route::post('/search', [BookController::class, 'searchBook'])->name('book.search');
 
