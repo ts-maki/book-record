@@ -11,7 +11,7 @@
             @auth
             <p>{{ Auth::user()->name }}</p>
             @else
-            <p class="pr-4">ゲストさん</p>
+            <p class="pr-4">ゲスト</p>
             <div class="">
                 <x-element.auth-button-link :href="route('register')">ユーザー登録</x-element.auth-button-link>
             </div>
