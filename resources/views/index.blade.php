@@ -63,7 +63,7 @@
             </article>
             @endforeach
         </section>
-        <div class="mx-auto">
+        <div class="mx-auto pt-4">
             {{ $records->links() }}
         </div>
         @auth
