@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 /* ------------------------------ */
 /* 共通 */
 /* ------------------------------ */
+
+body {
+    font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
+
 .breadcrumb {
     display: flex;
 }

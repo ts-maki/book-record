@@ -94,7 +94,7 @@ class BookController extends Controller
 
     public function index()
     {
-        $records = BookRecord::with('book')->orderBy('created_at', 'DESC')->get();
+        $records = BookRecord::with('book')->orderBy('created_at', 'DESC')->paginate(20);
         return view('index')->with('records', $records);
     }
 

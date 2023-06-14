@@ -62,8 +62,10 @@
                 </div>
             </article>
             @endforeach
-
         </section>
+        <div class="mx-auto pt-4">
+            {{ $records->links() }}
+        </div>
         @auth
         <div class="relative">
             <a href="{{ route('search') }}"
