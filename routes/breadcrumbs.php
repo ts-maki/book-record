@@ -39,5 +39,10 @@ Breadcrumbs::for('delete', function (BreadcrumbTrail $trail) {
     $trail->push('感想削除', url('/delete/{record_id}'));
 });
 
+//プロフィール編集
+Breadcrumbs::for('profile.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('プロフィール編集', route('profile.edit'));
+});
 
 
