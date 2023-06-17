@@ -125,7 +125,6 @@
             },
         })
         .then(response => {
-            Alpine.store('open', false);
             console.log('削除成功');
             location.reload();
         })
