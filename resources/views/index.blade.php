@@ -57,7 +57,6 @@
                                 <div class="pl-6">
                                     <button
                                         @click="open = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }" class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
-
                                 </div>
                             </div>
                             @endif
@@ -99,9 +98,11 @@
                             <p class="mt-2 py-2 px-4  border-2 border-gray-300 rounded-lg"
                                 x-text="dialogData.recordContent"></p>
                         </div>
-                        <button @click="open = false">キャンセル</button>
-                        <button @click="deleteRecord(dialogData.recordId)"
-                            class="ml-6 px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
+                        <div class="pt-4 flex justify-center">
+                            <button @click="open = false" class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">キャンセル</button>
+                            <button @click="deleteRecord(dialogData.recordId)"
+                                class="ml-6 px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
+                        </div>
                     </x-layout.container>
                 </div>
             </div>
