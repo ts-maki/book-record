@@ -55,10 +55,8 @@
                                         class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">編集</a>
                                 </div>
                                 <div class="pl-6">
-                                    <a href="{{ route('record.check', ['record_id' => $record->id]) }}"
-                                        class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</a>
                                     <button
-                                        @click="open = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }">ダイアログ</button>
+                                        @click="open = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }" class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
 
                                 </div>
                             </div>
@@ -80,14 +78,10 @@
             @endauth
         </x-layout.container>
 
-        <!-- モーダルダイアログのラッパー -->
+        <!-- ダイアログ -->
         <div x-show="open" class="fixed top-0 left-0 w-screen h-screen flex justify-center items-center"
             x-transition:enter-start="opacity-0 scale-90">
-            <!-- 背景を暗くするための半透明部分  -->
             <div class="absolute w-full h-full bg-green-300 opacity-30"></div>
-
-
-            <!-- 実際のモーダルダイアログ部分 -->
             <div @click.outside="open = false"
                 class="relative w-5/6 max-w-xl h-1/2 m-auto bg-white border rounded-md shadow">
                 <div class="px-4">
