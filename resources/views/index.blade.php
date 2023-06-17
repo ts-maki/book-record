@@ -23,19 +23,21 @@
                                 {{ $record->content }}
                             </p>
                         </div>
-                        <div class="flex justify-between items-center">
+                        <div class="flex justify-between items-center" x-data="{ favorite: {} }">
                             @auth
                             @if (!Auth::user()->checkFavorite($record->id))
-                            <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
-                                @csrf
-                                <button type="submit"
-                                    class="px-2 border-yellow-300 border-solid border-2 rounded-full hover:text-white hover:bg-yellow-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り登録</button>
-                            </form>
+                            {{-- <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}" method="post">
+                                @csrf --}}
+                                <button @click="entryFavorite({{ $record->id }})"
+                                type="submit"
+                                    class="px-2 border-yellow-300 border-solid border-2 rounded-full hover:text-white hover:bg-yellow-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" >お気に入り登録</button>
+                            {{-- </form> --}}
                             @else
                             <form action="{{ route('favorite.destroy', ['record_id' => $record->id]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
+                                <button @click="favorite = { recordId: '{{ $record->id }}', isFavorite: false }"
+                                type="submit"
                                     class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り削除</button>
                             </form>
                             @endif
@@ -110,6 +112,7 @@
     </div>
 </x-layout>
 <script>
+    //削除ダイアログ
     function deleteRecord(recordId) {
         console.log("IDは" + recordId);
         const url = '/delete/' + recordId;
@@ -121,6 +124,25 @@
         })
         .then(response => {
             console.log('削除成功');
+            location.reload();
+        })
+        .catch(error => {
+            console.log("エラーが発生しました:", error);
+        });
+    }
+
+    //お気に入り登録
+    function entryFavorite(recordId) {
+        console.log(`お気に入り登録のIDは:${recordId}`);
+        const url = '/index/' + recordId;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+        })
+        .then(response => {
+            console.log('お気に入り登録成功');
             location.reload();
         })
         .catch(error => {
