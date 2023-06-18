@@ -20,7 +20,7 @@ x-transition:enter-start="opacity-0 scale-90">
             </div>
             <div class="pt-4 flex justify-center">
                 <button @click="open = false" class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">キャンセル</button>
-                <button @click="deleteRecord(dialogData.recordId)"
+                <button @click="deleteRecord(dialogData.recordId, open)"
                     class="ml-6 px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
             </div>
         </x-layout.container>
