@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RecordPostRequest;
 use App\Models\Book;
 use App\Models\BookRecord;
 use App\Models\Category;
@@ -68,8 +69,9 @@ class BookController extends Controller
             ->with('book_id', $book_id);
     }
 
-    public function addRecord(Request $request)
+    public function addRecord(RecordPostRequest $request)
     {
+
         Log::info('ユーザーIDは:'. Auth::id());
         Log::info('book_idは:'. $request->id);
         Log::info('カテゴリーは:'. $request->category);
