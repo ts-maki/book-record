@@ -41,7 +41,8 @@
                 <div class="sm:flex pt-6">
                     <p class="basis-1/3 pb-2">本を読んだ日</p>
                     <div>
-                        <input type="date" name="date" max="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d')?>"
+                        <input type="date" name="date" max="<?php echo date('Y-m-d'); ?>"
+                            value="<?php echo date('Y-m-d')?>"
                             class="border-gray-300 rounded-lg book__record-date w-40">
                         <x-input-error class="mt-2" :messages="$errors->get('date')" />
                     </div>

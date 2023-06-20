@@ -1,5 +1,5 @@
 <x-layout>
-    <div x-data="{ open : false, dialogData: {} }" class="m-0 p-0 w-screen h-screen">
+    <div x-cloak x-data="{ open : false, dialogData: {} }" class="m-0 p-0 w-screen h-screen">
         <x-element.breadcrumbs>
             {{ Breadcrumbs::render('home') }}
         </x-element.breadcrumbs>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="pl-6">
                                     <button
-                                        @click="open = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }"
+                                        @click="dialogOpen = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }"
                                         class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
                                 </div>
                             </div>
@@ -88,8 +88,8 @@
     </div>
 </x-layout>
 <script>
-    削除ダイアログ
-    function deleteRecord(recordId, open) {
+    // 削除ダイアログ
+    function deleteRecord(recordId) {
         console.log("IDは" + recordId);
         const url = '/delete/' + recordId;
         fetch(url, {
@@ -100,11 +100,11 @@
         })
         .then(response => {
             console.log('削除成功');
-            console.log(open);
-            open = false;
-            console.log(open);
-            location.reload();
-            return open;
+            console.log(Alpine.store('dialogOpen'))
+            Alpine.store('dialogOpen', false);
+            console.log(Alpine.store('dialogOpen'))
+            // location.reload();
+            // return dialogOpen;
         })
         .catch(error => {
             console.log("エラーが発生しました:", error);
