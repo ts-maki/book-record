@@ -1,11 +1,10 @@
 <x-layout>
-    <div x-cloak x-data="{ open : false, dialogData: {} }" class="m-0 p-0 w-screen h-screen">
+    <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0 w-screen h-screen">
         <x-element.breadcrumbs>
             {{ Breadcrumbs::render('home') }}
         </x-element.breadcrumbs>
         <x-layout.container>
             <section>
-                {{-- TODO ゲストユーザーできるようにする --}}
                 @foreach ($records as $record)
                 <article
                     class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative sm:max-h-[182px]">
@@ -26,22 +25,11 @@
                         <div class="flex justify-between items-center" x-data="{ favorite: {} }">
                             @auth
                             @if (!Auth::user()->checkFavorite($record->id))
-                            {{-- <form action="{{ route('favorite.save',  ['record_id' => $record->id]) }}"
-                                method="post">
-                                @csrf --}}
                                 <button @click="entryFavorite({{ $record->id }})" type="submit"
                                     class="px-2 border-yellow-300 border-solid border-2 rounded-full hover:text-white hover:bg-yellow-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り登録</button>
-                                {{--
-                            </form> --}}
                             @else
-                            {{-- <form action="{{ route('favorite.destroy', ['record_id' => $record->id]) }}"
-                                method="post">
-                                @csrf
-                                @method('DELETE') --}}
-                                <button @click="deleteFavorite({{ $record->id }})" type="submit"
-                                    class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り削除</button>
-                                {{--
-                            </form> --}}
+                            <button @click="deleteFavorite({{ $record->id }})" type="submit"
+                                class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">お気に入り削除</button>
                             @endif
                             @endauth
                             @auth
@@ -54,7 +42,7 @@
                             @endif
                             @if (Auth::id() === $record->user_id)
                             <div class="flex">
-                                <div>
+                                <div class="translate-y-[2px]">
                                     <a href="{{ route('record.edit', ['record_id' => $record->id]) }}"
                                         class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">編集</a>
                                 </div>
@@ -103,7 +91,7 @@
             console.log(Alpine.store('dialogOpen'))
             Alpine.store('dialogOpen', false);
             console.log(Alpine.store('dialogOpen'))
-            // location.reload();
+            location.reload();
             // return dialogOpen;
         })
         .catch(error => {

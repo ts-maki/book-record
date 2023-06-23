@@ -123,6 +123,7 @@ class BookController extends Controller
         Log::info($check_user_id);
         if(!$check_user_id) {
             throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります', );
+            return redirect()->route('index');
         }
         $book_record = BookRecord::find($record_id);
         $input = $request->all();
