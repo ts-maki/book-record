@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RecordPostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Book;
 use App\Models\BookRecord;
 use App\Models\Category;
@@ -68,8 +70,9 @@ class BookController extends Controller
             ->with('book_id', $book_id);
     }
 
-    public function addRecord(Request $request)
+    public function addRecord(RecordPostRequest $request)
     {
+
         Log::info('ユーザーIDは:'. Auth::id());
         Log::info('book_idは:'. $request->id);
         Log::info('カテゴリーは:'. $request->category);
@@ -108,7 +111,7 @@ class BookController extends Controller
     }
 
     //変更箇所だけ更新
-    public function update(Request $request)
+    public function update(UpdatePostRequest $request)
     {
         $record_id = $request->route('record_id');
         Log::info(Auth::id());
@@ -120,12 +123,13 @@ class BookController extends Controller
         Log::info($check_user_id);
         if(!$check_user_id) {
             throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります', );
+            return redirect()->route('index');
         }
         $book_record = BookRecord::find($record_id);
         $input = $request->all();
         Log::info($book_record);
         $result = $book_record->fill($input)->save();
-        return to_route('index');
+        return redirect()->route('index');
     }
 
     //削除確認
@@ -144,7 +148,7 @@ class BookController extends Controller
         $check_user_id = $this->book_record_service->matchUserIdOfBookRecord($record_id);
         Log::info($check_user_id);
         if(!$check_user_id) {
-            throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります', );
+            throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります');
         }
         $result = BookRecord::destroy($record_id);
         return to_route('index');
