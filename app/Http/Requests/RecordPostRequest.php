@@ -39,7 +39,7 @@ class RecordPostRequest extends FormRequest
             'category.required' => 'カテゴリーを選択してね！',
             'content.required' => '感想を入力してね！',
             'content.max:255' => '感想の文字数は最大255文字です',
-            'date.required' => '本を読んだ日を入力してね！今日の日付を入れるね！',
+            'date.required' => '本を読んだ日を入力してね！',
         ];
     }
 }

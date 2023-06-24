@@ -19,30 +19,30 @@
                 <div class="flex flex-col md:flex-row">
                     <div>
                         <label><input type="radio" name="category_id" value="1" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             1 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">ファンタジー</span></label>
                         <label><input type="radio" name="category_id" value="2" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             2 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">恋愛</span></label>
                         <label><input type="radio" name="category_id" value="3" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             3 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">青春</span></label>
                         <label><input type="radio" name="category_id" value="4" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             4 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">SF</span></label>
                     </div>
                     <div class="md:pl-4">
                         <label><input type="radio" name="category_id" value="5" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             5 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">ミステリー</span></label>
                         <label><input type="radio" name="category_id" value="6" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             6 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">ホラー</span></label>
                         <label><input type="radio" name="category_id" value="7" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             7 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">仕事</span></label>
                         <label><input type="radio" name="category_id" value="8" {{ old('category_id',
-                                $record->category_id) ===
+                                $record->category_id) ==
                             8 ? "checked" : ""}} class="border-gray-300"><span class="pl-1">歴史</span></label>
                     </div>
                 </div>
