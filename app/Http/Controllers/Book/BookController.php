@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecordPostRequest;
+use App\Http\Requests\SearchPostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Book;
 use App\Models\BookRecord;
@@ -32,10 +33,10 @@ class BookController extends Controller
     }
 
     //本の検索結果を返す
-    public function searchBook(Request $request)
+    public function searchBook(SearchPostRequest $request)
     {
         $keyword = $request->input('serach_keyword');
-        Log::info('入力キーワード:'. $keyword);
+        Log::info('本の検索入力キーワード:'. $keyword);
         $books = $this->book_search_service->readBookData($keyword);
         // Log::debug("取得取得データ:". $books[]);
         return view('search')->with('books', $books);

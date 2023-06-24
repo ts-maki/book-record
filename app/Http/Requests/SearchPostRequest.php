@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RecordPostRequest extends FormRequest
+class SearchPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,7 @@ class RecordPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category' => 'required',
-            'content' => 'required|max:255',
-            'date' => 'required',
+            'serach_keyword' => 'required',
         ];
     }
 
@@ -36,10 +34,7 @@ class RecordPostRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'category.required' => 'カテゴリーを選択してね！',
-            'content.required' => '感想を入力してね！',
-            'content.max:255' => '感想の文字数は最大255文字です',
-            'date.required' => '本を読んだ日を入力してね！',
+            'serach_keyword.required' => '本のタイトルか著者名を入力してね！',
         ];
     }
 }

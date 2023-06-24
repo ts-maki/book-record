@@ -11,6 +11,7 @@
             <button type="submit" value="検索" class="-translate-x-8 translate-y-2 scale-150"><img
                     src="{{ asset('storage/images/search_black_24dp.svg') }}"></button>
         </form>
+        <x-input-error class="mt-2" :messages="$errors->get('serach_keyword')" />
         @if (!empty($books))
         @foreach ($books as $book)
         <div class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
