@@ -11,8 +11,9 @@
 
 <body class="h-full bg-emerald-50">
     <x-layout.header></x-layout.header>
-
-    {{ $slot }}
+    <main>
+        {{ $slot }}
+    </main>
 </body>
 
 </html>
