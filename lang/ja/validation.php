@@ -142,7 +142,7 @@ return [
     'uuid'                 => ':Attributeは、有効なUUIDである必要があります。',
     'attributes' => [
         'name' => 'ユーザー名',
-        'email' => 'メールアドレス',
+        'email' => 'id',
         'password' => 'パスワード',
     ],
 ];
