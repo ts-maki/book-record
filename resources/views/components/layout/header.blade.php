@@ -1,5 +1,5 @@
 <header class="w-full bg-emerald-200 border-t body-font">
-    <div class="container flex items-center justify-between p-3 mx-auto  max-w-4xl">
+    <div class="container flex items-center justify-between p-3 mx-auto max-w-4xl">
         <a href="{{ route('index') }}" class="flex  font-medium title-font md:mb-0 min-w-[100px]">
             <h1 class="font-bold">みんなの感想</h1>
         </a>
