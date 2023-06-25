@@ -15,13 +15,13 @@
                 </x-slot>
                 <x-slot name="content">
                     <div>
-                        <x-element.auth-button-link :href="route('profile.edit')" class="ml-4">プロフィール
+                        <x-element.auth-button-link :href="route('profile.edit')">プロフィール
                         </x-element.auth-button-link>
                     </div>
                     <form method="POST" action="{{ route('logout') }}" class="pt-6">
                         @csrf
                         <x-element.auth-button-link :href="route('logout')" onclick="event.preventDefault();
-                            this.closest('form').submit();" class="ml-4">ログアウト</x-element.auth-button-link>
+                            this.closest('form').submit();">ログアウト</x-element.auth-button-link>
                     </form>
                 </x-slot>
             </x-dropdown>
