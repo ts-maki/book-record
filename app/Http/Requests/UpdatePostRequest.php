@@ -23,7 +23,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'category_id' => 'required',
-            'content' => 'required|max:255',
+            'content' => 'required',
             'read_date' => 'required',
         ];
     }
@@ -38,7 +38,6 @@ class UpdatePostRequest extends FormRequest
         return [
             'category_id.required' => 'カテゴリーを選択してね！',
             'content.required' => '感想を入力してね！',
-            'content.max:255' => '感想の文字数は最大255文字です',
             'read_date.required' => '本を読んだ日を入力してね！',
         ];
     }

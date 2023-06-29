@@ -21,7 +21,7 @@ Route::get('/',[BookController::class, 'index'])->name('index');
 
 // Route::get('/index',[BookController::class, 'index'])->name('index');
 Route::get('/search', [BookController::class, 'show'])->name('search');
-Route::post('/search', [BookController::class, 'searchBook'])->name('book.search');
+Route::get('/search/book', [BookController::class, 'searchBook'])->name('book.search');
 
 Route::get('/search/{id}', [BookController::class, 'create'])->name('book.create');
 Route::post('/search/{id}', [BookController::class, 'create'])->name('book.create');
