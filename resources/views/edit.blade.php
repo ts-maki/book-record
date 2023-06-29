@@ -56,9 +56,9 @@
                     </div>
                 </div>
                 <div class="sm:flex pt-4">
-                    <p class="basis-1/3">感想</p>
-                    <div class="flex flex-col sm:w-96">
-                        <textarea name="content" cols="120" rows="3"
+                    <p class="basis-1/3">感想(最大255文字)</p>
+                    <div class="flex flex-col sm:w-[420px]">
+                        <textarea name="content" cols="120" rows="8" maxlength="255"
                             class="mt-2 border-gray-300 rounded-lg">{{ old('content', $record->content) }}</textarea>
                         <x-input-error class="mt-2" :messages="$errors->get('content')" />
                     </div>

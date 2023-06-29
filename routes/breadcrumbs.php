@@ -45,4 +45,16 @@ Breadcrumbs::for('profile.edit', function (BreadcrumbTrail $trail) {
     $trail->push('プロフィール編集', route('profile.edit'));
 });
 
+//ユーザー登録
+Breadcrumbs::for('auth.register', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('ユーザー登録', route('register'));
+});
+
+//ユーザー登録
+Breadcrumbs::for('auth.login', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('ログイン', route('login'));
+});
+
 

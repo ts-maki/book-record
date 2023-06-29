@@ -22,7 +22,7 @@ class SearchPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'serach_keyword' => 'required',
+            'search_keyword' => 'required',
         ];
     }
 
@@ -34,7 +34,7 @@ class SearchPostRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'serach_keyword.required' => '本のタイトルか著者名を入力してね！',
+            'search_keyword.required' => '本のタイトルか著者名を入力してね！',
         ];
     }
 }

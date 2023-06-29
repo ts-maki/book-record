@@ -35,7 +35,7 @@ class BookController extends Controller
     //本の検索結果を返す
     public function searchBook(SearchPostRequest $request)
     {
-        $keyword = $request->input('serach_keyword');
+        $keyword = $request->input('search_keyword');
         Log::info('本の検索入力キーワード:'. $keyword);
         $books = $this->book_search_service->readBookData($keyword);
         // Log::debug("取得取得データ:". $books[]);
@@ -143,6 +143,7 @@ class BookController extends Controller
         return view('delete')->with('record', $record);
     }
 
+    //感想削除
     public function delete(Request $request)
     {
         $record_id = $request->route('record_id');
@@ -151,7 +152,11 @@ class BookController extends Controller
         if(!$check_user_id) {
             throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります');
         }
-        $result = BookRecord::destroy($record_id);
+
+        $book_record = BookRecord::find($record_id);
+        //本をお気に入り登録している全てのユーザーとの紐づけ解除
+        $book_record->likeUsers()->detach();
+        $book_record->delete();
         return to_route('index');
     }
 
