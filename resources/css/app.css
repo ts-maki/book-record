@@ -36,6 +36,7 @@ body {
     padding-left: 1rem;
 }
 
+/* 日付登録のカレンダーアイコン */
 .book__record-date {
     position: relative;
 }
