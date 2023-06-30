@@ -75,18 +75,16 @@
             </div>
             @endauth
         </x-layout.container>
-
         <!-- ダイアログ -->
         @include('delete')
-
     </div>
 </x-layout>
 <script>
     // 削除ダイアログ
     function deleteRecord(recordId) {
         console.log("IDは" + recordId);
-        const url = '/delete/' + recordId;
-        fetch(url, {
+        const deleteUrl = '/delete/' + recordId;
+        fetch(deleteUrl, {
             method: 'DELETE',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -94,11 +92,7 @@
         })
         .then(response => {
             console.log('削除成功');
-            console.log(Alpine.store('dialogOpen'))
-            Alpine.store('dialogOpen', false);
-            console.log(Alpine.store('dialogOpen'))
             location.reload();
-            // return dialogOpen;
         })
         .catch(error => {
             console.log("エラーが発生しました:", error);
@@ -108,8 +102,8 @@
     //お気に入り登録
     function entryFavorite(recordId) {
         console.log(`お気に入り登録のIDは:${recordId}`);
-        const url = '/index/' + recordId;
-        fetch(url, {
+        const favoriteUrl = '/index/' + recordId;
+        fetch(favoriteUrl, {
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -128,8 +122,8 @@
     //お気に入り削除
     function deleteFavorite(recordId) {
         console.log(`お気に入り登録のIDは:${recordId}`);
-        const url = '/index/' + recordId;
-        fetch(url, {
+        const favoriteDeleteUrl = '/index/' + recordId;
+        fetch(favoriteDeleteUrl, {
             method: 'DELETE',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
