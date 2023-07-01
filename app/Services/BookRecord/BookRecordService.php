@@ -11,7 +11,7 @@ use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class BookRecordService
 {
-    protected BookRecordRepository $book_record_repository;
+    protected $book_record_repository;
 
     public function __construct(BookRecordRepository $book_record_repository)
     {

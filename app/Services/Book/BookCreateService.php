@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class BookCreateService
 {
-    protected BookCreateRepository $book_create_repository;
+    protected $book_create_repository;
 
     public function __construct(BookCreateRepository $book_create_repository)
     {
