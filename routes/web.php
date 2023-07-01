@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Book\BookController;
 use App\Http\Controllers\CreateRecordController;
+use App\Http\Controllers\EditRecordController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,8 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/',[CreateRecordController::class, 'index'])->name('index');
+Route::get('/', [CreateRecordController::class, 'index'])->name('index');
 
 // Route::get('/index',[BookController::class, 'index'])->name('index');
 Route::get('/search', [BookController::class, 'show'])->name('search');
@@ -30,9 +30,8 @@ Route::post('/create/{id}', [CreateRecordController::class, 'addRecord'])->name(
 
 Route::get('/create/other/{id}', [CreateRecordController::class, 'otherCreate'])->name('other.book.record');
 
-Route::get('/edit/{record_id}', [BookController::class, 'edit'])->name('record.edit');
-Route::put('/edit/{record_id}', [BookController::class, 'update'])->name('record.update');
-Route::get('/delete/{record_id}', [BookController::class, 'check'])->name('record.check');
+Route::get('/edit/{record_id}', [EditRecordController::class, 'edit'])->name('record.edit');
+Route::put('/edit/{record_id}', [EditRecordController::class, 'update'])->name('record.update');
 Route::delete('/delete/{record_id}', [BookController::class, 'delete'])->name('record.delete');
 
 Route::post('/index/{record_id}', [FavoriteController::class, 'saveFavorite'])->name('favorite.save');

@@ -32,15 +32,16 @@ class BookSearchService
 
         $books = [];
 
-        if($response->totalItems == 0) {
+        if ($response->totalItems == 0) {
             Log::info('取得件数:'. 0);
+
             return $books = [];
         }
 
         foreach ($response->items as $item) {
 
             $author = $item->volumeInfo->authors ?? '著者不明';
-            if($author !== '著者不明') {
+            if ($author !== '著者不明') {
                 $author = Util::deleteSpace($author[0]);
             }
 
@@ -57,7 +58,8 @@ class BookSearchService
             $books[] = $book;
         }
 
-        Log::info('取得件数:'. count($books));
+        Log::info('取得件数:'.count($books));
+
         return $books;
     }
 }

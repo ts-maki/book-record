@@ -17,12 +17,12 @@ class BookCreateService
     public function addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date)
     {
         //日にちがない場合はnullで登録する
-        if(mb_strlen($published_date) == 7) {
+        if (mb_strlen($published_date) == 7) {
             $published_date = null;
         }
         DB::transaction(function () use (&$book_id,
             &$title, &$author, &$description, &$thumbnail_path, &$isbn, &$published_date) {
-                $this->book_create_repository->addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date);
-            });
+            $this->book_create_repository->addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date);
+        });
     }
 }

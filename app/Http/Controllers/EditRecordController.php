@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\BookRecord;
 use App\Services\BookRecord\BookEditService;
 use App\Services\BookRecord\BookRecordService;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class EditRecordController extends Controller
 {
     protected $book_record_service;
+
     protected $book_edit_service;
 
     public function __construct(BookRecordService $book_record_service, BookEditService $book_edit_service)
@@ -26,11 +25,11 @@ class EditRecordController extends Controller
     public function edit(Request $request)
     {
         $record_id = $request->route('record_id');
-        Log::info('record_idは:'. $record_id);
+        Log::info('record_idは:'.$record_id);
         $record = BookRecord::with('book', 'category')->find($record_id);
+
         return view('edit')->with('record', $record);
     }
-
 
     //変更箇所だけ更新
     public function update(UpdatePostRequest $request)
@@ -40,12 +39,14 @@ class EditRecordController extends Controller
         //ログインユーザーIDと感想を書いたユーザーIDが一致するか確認
         $check_user_id = $this->book_edit_service->matchUserIdOfBookRecord($record_id);
         Log::info($check_user_id);
-        if(!$check_user_id) {
-            throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります', );
+        if (! $check_user_id) {
+            throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります');
+
             return to_route('index');
         }
 
         $this->book_edit_service->update($request);
+
         return to_route('index');
     }
 }

@@ -33,9 +33,10 @@ class BookEditService
     {
         $user_id = Auth::id();
         $record_user_id = BookRecord::find($record_id);
-        if (!$record_user_id) {
+        if (! $record_user_id) {
             return false;
         }
+
         return $user_id === $record_user_id->user_id;
     }
 }

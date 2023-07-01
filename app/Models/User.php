@@ -53,6 +53,7 @@ class User extends Authenticatable
     public function checkFavorite($book_record_id)
     {
         $result = $this->likes()->where('book_record_id', $book_record_id)->exists();
+
         return $result;
     }
 }

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Log;
 
 class BookEditRepository
 {
-
     public function update($request)
     {
         $record_id = $request->route('record_id');
