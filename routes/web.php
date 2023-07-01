@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Book\BookController;
 use App\Http\Controllers\CreateRecordController;
 use App\Http\Controllers\DeleteRecordController;
 use App\Http\Controllers\EditRecordController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CreateRecordController::class, 'index'])->name('index');
+Route::get('/', [ListController::class, 'index'])->name('index');
 
-// Route::get('/index',[BookController::class, 'index'])->name('index');
-Route::get('/search', [BookController::class, 'show'])->name('search');
+Route::get('/search', [SearchBookController::class, 'show'])->name('search');
 Route::get('/search/book', [CreateRecordController::class, 'searchBook'])->name('book.search');
 
 Route::get('/search/{id}', [CreateRecordController::class, 'create'])->name('book.create');
-Route::post('/search/{id}', [BookController::class, 'create'])->name('book.create');
+Route::post('/search/{id}', [CreateRecordController::class, 'create'])->name('book.create');
 Route::post('/create/{id}', [CreateRecordController::class, 'addRecord'])->name('book.record');
 
 Route::get('/create/other/{id}', [CreateRecordController::class, 'otherCreate'])->name('other.book.record');
