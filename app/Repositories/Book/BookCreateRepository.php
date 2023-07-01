@@ -7,7 +7,7 @@ use App\Models\Book;
 /**
  * BookテーブルのDBに関わる処理をかくリポジトリ
  */
-class BookRepository
+class BookCreateRepository
 {
 
     /**

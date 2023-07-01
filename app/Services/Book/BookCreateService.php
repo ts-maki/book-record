@@ -2,17 +2,16 @@
 
 namespace App\Services\Book;
 
-use App\Repositories\Book\BookRepository;
+use App\Repositories\Book\BookCreateRepository;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
-class BookService
+class BookCreateService
 {
-    protected BookRepository $book_repository;
+    protected BookCreateRepository $book_create_repository;
 
-    public function __construct(BookRepository $book_repository)
+    public function __construct(BookCreateRepository $book_create_repository)
     {
-        $this->book_repository = $book_repository;
+        $this->book_create_repository = $book_create_repository;
     }
 
     public function addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date)
@@ -23,7 +22,7 @@ class BookService
         }
         DB::transaction(function () use (&$book_id,
             &$title, &$author, &$description, &$thumbnail_path, &$isbn, &$published_date) {
-                $this->book_repository->addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date);
+                $this->book_create_repository->addBook($book_id, $title, $author, $description, $thumbnail_path, $isbn, $published_date);
             });
     }
 }
