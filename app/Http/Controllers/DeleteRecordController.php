@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookRecord;
+use App\Services\BookRecord\BookDeleteService;
 use App\Services\BookRecord\BookRecordService;
 use Exception;
 use Illuminate\Http\Request;
@@ -11,20 +12,12 @@ use Illuminate\Support\Facades\Log;
 class DeleteRecordController extends Controller
 {
     protected $book_record_service;
+    protected $book_delete_service;
 
-    public function __construct(BookRecordService $book_record_service)
+    public function __construct(BookRecordService $book_record_service, BookDeleteService $book_delete_service)
     {
         $this->book_record_service = $book_record_service;
-    }
-
-    //削除確認
-    public function check(Request $request)
-    {
-        $record_id = $request->route('record_id');
-        Log::info('削除するrecord_idは:'.$record_id);
-        $record = BookRecord::with('book', 'category')->find($record_id);
-        // dd($record);
-        return view('delete')->with('record', $record);
+        $this->book_delete_service = $book_delete_service;
     }
 
     //感想削除
@@ -37,12 +30,7 @@ class DeleteRecordController extends Controller
             throw new Exception('ログインユーザーIDと感想を書いたユーザーIDが異なります');
         }
 
-        $book_record = BookRecord::find($record_id);
-        //本をお気に入り登録している全てのユーザーとの紐づけ解除
-        $book_record->likeUsers()->detach();
-        $book_record->delete();
-
-        return to_route('index');
+        $this->book_delete_service->delete($request);
     }
 
     public function show()
