@@ -26,4 +26,10 @@ class ListController extends Controller
         $records = $this->list_service->showRecord($user_id);
         return view('my-record')->with('records', $records);
     }
+
+    //自分のお気に入り一覧
+    public function showFavorite($user_id) {
+        $records = $this->list_service->showFavorite($user_id);
+        return view('my-favorite')->with('records', $records);
+    }
 }

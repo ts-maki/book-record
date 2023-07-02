@@ -35,6 +35,6 @@
         <a href="{{ route('my.record', ['user_id' => Auth::id()]) }}">{{ $my_record }}</a>
     </div>
     <div class="px-2 border-blue-300 border-solid border-2 rounded-r-lg hover:text-white hover:bg-blue-300 duration-300 {{ $my_favorite_color }}">
-        <a href="{{ route('index') }}">{{ $my_favorite }}</a>
+        <a href="{{ route('my.favorite', ['user_id' => Auth::id()]) }}">{{ $my_favorite }}</a>
     </div>
 </div>

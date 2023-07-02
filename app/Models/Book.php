@@ -19,8 +19,6 @@ class Book extends Model
      */
     protected $casts = [
         'isbn ' => 'int',
-        'isbn ' => 'int',
-        'isbn ' => 'int',
     ];
 
     //リレーション 1対多のbook_recordsテーブル
