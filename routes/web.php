@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ListController::class, 'index'])->name('index');
+Route::get('/user/{user_id}', [ListController::class, 'showMyRecord'])->name('my.record');
 
 Route::get('/search', [SearchBookController::class, 'show'])->name('search');
 Route::get('/search/book', [CreateRecordController::class, 'searchBook'])->name('book.search');

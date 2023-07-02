@@ -15,6 +15,12 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push('みんなの感想', route('index'));
 });
 
+// 自分の感想
+Breadcrumbs::for('my-record', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('自分の感想', url('/{user_id}'));
+});
+
 //検索
 Breadcrumbs::for('search', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

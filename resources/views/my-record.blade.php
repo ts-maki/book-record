@@ -1,11 +1,11 @@
 <x-layout>
     <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0 w-full h-screen">
         <x-element.breadcrumbs>
-            {{ Breadcrumbs::render('home') }}
+            {{ Breadcrumbs::render('my-record') }}
         </x-element.breadcrumbs>
         <x-layout.container>
             @auth
-            <x-element.tab>
+            <x-element.tab :selected="'my_record'">
                 <x-slot name="index">感想一覧</x-slot>
                 <x-slot name="my_record">自分の感想</x-slot>
                 <x-slot name="my_favorite">お気に入り</x-slot>

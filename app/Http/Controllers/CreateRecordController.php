@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RecordPostRequest;
 use App\Http\Requests\SearchPostRequest;
 use App\Models\Book;
-use App\Models\BookRecord;
 use App\Services\Book\BookCreateService;
 use App\Services\Book\BookSearchService;
 use App\Services\BookRecord\BookRecordService;
@@ -92,13 +91,5 @@ class CreateRecordController extends Controller
         $book = Book::find($book_id);
 
         return view('create')->with('book', $book);
-    }
-
-    //登録されている全ての感想一覧
-    public function index()
-    {
-        $records = BookRecord::with('book')->orderBy('created_at', 'DESC')->paginate(20);
-
-        return view('index')->with('records', $records);
     }
 }

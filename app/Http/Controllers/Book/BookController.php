@@ -3,17 +3,12 @@
 namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RecordPostRequest;
 use App\Http\Requests\SearchPostRequest;
-use App\Http\Requests\UpdatePostRequest;
 use App\Models\Book;
-use App\Models\BookRecord;
 use App\Services\Book\BookCreateService;
 use App\Services\Book\BookSearchService;
 use App\Services\BookRecord\BookRecordService;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class BookController extends Controller
