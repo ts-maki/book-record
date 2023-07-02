@@ -1,3 +1,6 @@
+@php
+    $user_id = Auth::id();
+@endphp
 <x-layout>
     <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0 w-full h-screen">
         <x-element.breadcrumbs>
@@ -5,7 +8,7 @@
         </x-element.breadcrumbs>
         <x-layout.container>
             @auth
-            <x-element.tab :selected="'my_favorite'">
+            <x-element.tab :selected="'my_favorite'" :user_id="$user_id">
                 <x-slot name="index">感想一覧</x-slot>
                 <x-slot name="my_record">自分の感想</x-slot>
                 <x-slot name="my_favorite">お気に入り</x-slot>
@@ -47,7 +50,7 @@
                             @endif
                             @endauth
                             @auth
-                            @if (Auth::id() !== $record->user_id)
+                            @if ($user_id !== $record->bookRecord->user_id)
                             <div class="">
                                 <x-element.a-button
                                     :link="route('other.book.record', ['id' => $record->bookRecord->book->id])"
@@ -57,7 +60,7 @@
                             </div>
                             @endauth
                             @endif
-                            @if (Auth::id() === $record->user_id)
+                            @if ($user_id === $record->bookRecord->user_id)
                             <div class="flex">
                                 <div class="translate-y-[2px]">
                                     <x-element.a-button

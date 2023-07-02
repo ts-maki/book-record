@@ -1,5 +1,6 @@
 @props([
-    'selected' => 'list'
+    'selected' => 'list',
+    'user_id'
 ])
 
 @php
@@ -32,9 +33,9 @@
         <a href="{{ route('index') }}">{{ $index }}</a>
     </div>
     <div class="px-2 border-blue-300 border-solid border-2 hover:text-white hover:bg-blue-300 duration-300 book__list-tab {{ $my_record_color }}">
-        <a href="{{ route('my.record', ['user_id' => Auth::id()]) }}">{{ $my_record }}</a>
+        <a href="{{ route('my.record', ['user_id' => $user_id]) }}">{{ $my_record }}</a>
     </div>
     <div class="px-2 border-blue-300 border-solid border-2 rounded-r-lg hover:text-white hover:bg-blue-300 duration-300 {{ $my_favorite_color }}">
-        <a href="{{ route('my.favorite', ['user_id' => Auth::id()]) }}">{{ $my_favorite }}</a>
+        <a href="{{ route('my.favorite', ['user_id' => $user_id]) }}">{{ $my_favorite }}</a>
     </div>
 </div>
