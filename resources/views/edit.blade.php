@@ -13,7 +13,7 @@
                 </div>
             </div>
             <p class="pt-4">近しいカテゴリーを選んでください</p>
-            @if (strpos(url()->current(), 'user') ==  true)
+            @if (strpos(url()->current(), 'user') !==  false)
             <form action="{{ route('user.record.update', ['user_id' => Auth::id(), 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">
             @else
             <form action="{{ route('record.update', $record->id) }}" method="post" class="book__record-category pt-1">
