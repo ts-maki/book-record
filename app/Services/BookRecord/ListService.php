@@ -11,7 +11,7 @@ class ListService
     //感想一覧
     public function index()
     {
-        $records = BookRecord::with('book', 'category', 'user', 'likes')->orderBy('updated_at', 'DESC')->paginate(20);
+        $records = BookRecord::with('book', 'category', 'user')->orderBy('updated_at', 'DESC')->paginate(20);
 
         return $records;
     }

@@ -1,3 +1,6 @@
+@php
+    $user_id = Auth::id();
+@endphp
 <x-layout>
     <x-element.breadcrumbs>
         {{ Breadcrumbs::render('edit') }}
@@ -14,7 +17,9 @@
             </div>
             <p class="pt-4">近しいカテゴリーを選んでください</p>
             @if (strpos(url()->current(), 'user') !==  false)
-            <form action="{{ route('user.record.update', ['user_id' => Auth::id(), 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">
+            <form action="{{ route('user.record.update', ['user_id' => $user_id, 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">
+            @elseif (strpos(url()->current(), 'favorite') !==  false)
+            <form action="{{ route('favorite.record.update', ['user_id' => $user_id, 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">
             @else
             <form action="{{ route('record.update', $record->id) }}" method="post" class="book__record-category pt-1">
             @endif

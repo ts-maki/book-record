@@ -34,7 +34,7 @@
                             <x-element.category :category_name="$record->bookRecord->category->name">
                             </x-element.category>
                             <p class="text-gray-500">
-                                {{ $record->content }}
+                                {{ $record->bookRecord->content }}
                             </p>
                         </div>
                         <div class="flex justify-between items-center pt-4">
@@ -64,7 +64,7 @@
                             <div class="flex">
                                 <div class="translate-y-[2px]">
                                     <x-element.a-button
-                                        :link="route('record.edit', ['record_id' => $record->bookRecord->id])"
+                                        :link="route('favorite.record.edit', ['record_id' => $record->bookRecord->id, 'user_id' => $user_id])"
                                         :category="'edit'">編集</x-element.a-button>
                                 </div>
                                 <div class="pl-6">

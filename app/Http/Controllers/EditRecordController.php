@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\BookRecord;
+use App\Models\Like;
 use App\Services\BookRecord\BookEditService;
 use App\Services\BookRecord\BookRecordService;
 use Exception;
@@ -36,7 +37,7 @@ class EditRecordController extends Controller
     public function update(UpdatePostRequest $request)
     {
         $record_id = $request->route('record_id');
-
+        $user_id = Auth::id();
         //ログインユーザーIDと感想を書いたユーザーIDが一致するか確認
         $check_user_id = $this->book_edit_service->matchUserIdOfBookRecord($record_id);
         Log::info($check_user_id);
@@ -48,11 +49,19 @@ class EditRecordController extends Controller
 
         $this->book_edit_service->update($request);
 
-        //タブメニューの自分の感想からの編集の場合は自分の感想ページに戻る
+        //元のタブメニューの感想ページに戻る
         if(strpos(url()->current(), 'user') !== false) {
-            return to_route('my.record', ['user_id' => Auth::id()]);
+            return to_route('my.record', ['user_id' => $user_id]);
         }
-        
-        return to_route('index');
+        else if (strpos(url()->current(), 'favorite') !== false) {
+            //likesテーブルの該当のレコードのupdated_atを更新してお気に入り一覧のTOPにくるようにする
+            $update_record = Like::where('book_record_id', $record_id);
+            $update_record->update([
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+            return to_route('my.favorite', ['user_id' => $user_id]);
+        } else {
+            return to_route('index');
+        }
     }
 }

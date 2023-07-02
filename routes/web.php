@@ -35,8 +35,10 @@ Route::get('/create/other/{id}', [CreateRecordController::class, 'otherCreate'])
 
 Route::get('/edit/{record_id}', [EditRecordController::class, 'edit'])->name('record.edit');
 Route::get('/user/{user_id}/edit/{record_id}', [EditRecordController::class, 'edit'])->name('user.record.edit');
+Route::get('/favorite/{user_id}/edit/{record_id}', [EditRecordController::class, 'edit'])->name('favorite.record.edit');
 Route::put('/edit/{record_id}', [EditRecordController::class, 'update'])->name('record.update');
 Route::put('/user/{user_id}/edit/{record_id}', [EditRecordController::class, 'update'])->name('user.record.update');
+Route::put('/favorite/{user_id}/edit/{record_id}', [EditRecordController::class, 'update'])->name('favorite.record.update');
 
 Route::delete('/delete/{record_id}', [DeleteRecordController::class, 'delete'])->name('record.delete');
 
