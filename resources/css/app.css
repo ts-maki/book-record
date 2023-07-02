@@ -29,6 +29,11 @@ body {
     padding-right: .5rem;
 }
 
+.book__list-tab {
+    border-left: none;
+    border-right: none;
+}
+
 /* ------------------------------ */
 /* 感想登録・編集 */
 /* ------------------------------ */
