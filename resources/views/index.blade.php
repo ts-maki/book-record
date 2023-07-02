@@ -4,6 +4,11 @@
             {{ Breadcrumbs::render('home') }}
         </x-element.breadcrumbs>
         <x-layout.container>
+        <x-element.tab>
+            <x-slot name="index">感想一覧</x-slot>
+            <x-slot name="my_record">自分の感想</x-slot>
+            <x-slot name="my_favorite">お気に入り</x-slot>
+        </x-element.tab>
             <section>
                 @foreach ($records as $record)
                 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative ">
@@ -41,16 +46,16 @@
                             @auth
                             @if (Auth::id() !== $record->user_id)
                             <div class="">
-                                <a href="{{ route('other.book.record', ['id' => $record->book->id]) }}"
-                                    class="px-2 border-green-300 border-solid border-2 rounded-full hover:text-white hover:bg-green-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">この本の感想を登録する</a>
+                                <x-element.a-button :link="route('other.book.record', ['id' => $record->book->id])" :category="'record'">
+                                    この本の感想を登録する
+                                </x-element.a-button>
                             </div>
                             @endauth
                             @endif
                             @if (Auth::id() === $record->user_id)
                             <div class="flex">
                                 <div class="translate-y-[2px]">
-                                    <a href="{{ route('record.edit', ['record_id' => $record->id]) }}"
-                                        class="px-2 border-blue-300 border-solid border-2 rounded-full hover:text-white hover:bg-blue-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">編集</a>
+                                    <x-element.a-button :link="route('record.edit', ['record_id' => $record->id])" :category="'edit'">編集</x-element.a-button>
                                 </div>
                                 <div class="pl-6">
                                     <button
