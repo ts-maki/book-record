@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BookRecord;
 use App\Services\BookRecord\BookDeleteService;
 use App\Services\BookRecord\BookRecordService;
 use Exception;
@@ -12,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 class DeleteRecordController extends Controller
 {
     protected $book_record_service;
+
     protected $book_delete_service;
 
     public function __construct(BookRecordService $book_record_service, BookDeleteService $book_delete_service)
