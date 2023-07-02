@@ -58,7 +58,7 @@
                             @if (Auth::id() === $record->user_id)
                             <div class="flex">
                                 <div class="translate-y-[2px]">
-                                    <x-element.a-button :link="route('record.edit', ['record_id' => $record->id])"
+                                    <x-element.a-button :link="route('user.record.edit', ['record_id' => $record->id, 'user_id' => Auth::id()])"
                                         :category="'edit'">編集</x-element.a-button>
                                 </div>
                                 <div class="pl-6">

@@ -8,6 +8,7 @@ use App\Services\BookRecord\BookEditService;
 use App\Services\BookRecord\BookRecordService;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class EditRecordController extends Controller
@@ -47,6 +48,11 @@ class EditRecordController extends Controller
 
         $this->book_edit_service->update($request);
 
+        //タブメニューの自分の感想からの編集の場合は自分の感想ページに戻る
+        if(strpos(url()->current(), 'user') !== false) {
+            return to_route('my.record', ['user_id' => Auth::id()]);
+        }
+        
         return to_route('index');
     }
 }

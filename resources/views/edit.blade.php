@@ -13,7 +13,11 @@
                 </div>
             </div>
             <p class="pt-4">近しいカテゴリーを選んでください</p>
+            @if (strpos(url()->current(), 'user') ==  true)
+            <form action="{{ route('user.record.update', ['user_id' => Auth::id(), 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">
+            @else
             <form action="{{ route('record.update', $record->id) }}" method="post" class="book__record-category pt-1">
+            @endif
                 @method('PUT')
                 @csrf
                 <div class="flex flex-col md:flex-row">
@@ -50,7 +54,8 @@
                 <div class="sm:flex pt-6">
                     <p class="basis-1/3 pb-2">本を読んだ日</p>
                     <div>
-                        <input type="date" name="read_date" max="<?php echo date('Y-m-d'); ?>" value="{{ old('read_date', $record->read_date) }}"
+                        <input type="date" name="read_date" max="<?php echo date('Y-m-d'); ?>"
+                            value="{{ old('read_date', $record->read_date) }}"
                             class="border-gray-300 rounded-lg book__record-date w-40">
                         <x-input-error class="mt-2" :messages="$errors->get('read_date')" />
                     </div>
