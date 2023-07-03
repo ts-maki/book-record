@@ -15,6 +15,9 @@
             </x-element.tab>
             @endauth
             <section>
+                @if (count($records) == 0 )
+                <p class="text-center pt-2">まだお気に入り登録していません</p>
+                @endif
                 @foreach ($records as $record)
                 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative ">
                     <img src="{{ $record->bookRecord->book->thumbnail_path }}"

@@ -2,7 +2,7 @@
     $user_id = Auth::id();
 @endphp
 <x-layout>
-    <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0 w-full h-screen">
+    <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0">
         <x-element.breadcrumbs>
             {{ Breadcrumbs::render('home') }}
         </x-element.breadcrumbs>
@@ -15,6 +15,9 @@
             </x-element.tab>
             @endauth
             <section>
+                @if (count($records) == 0 )
+                <p class="text-center pt-2">まだ誰も感想を登録していません</p>
+                @endif
                 @foreach ($records as $record)
                 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative ">
                     <img src="{{ $record->book->thumbnail_path }}"
@@ -78,7 +81,7 @@
             </section>
             <div class="mx-auto pt-4">
                 {{ $records->links() }}
-            </div>
+            </div>]
             @auth
             <div class="relative">
                 <a href="{{ route('search') }}"
