@@ -21,6 +21,12 @@ Breadcrumbs::for('my-record', function (BreadcrumbTrail $trail) {
     $trail->push('自分の感想', url('/{user_id}'));
 });
 
+// 自分のお気に入り
+Breadcrumbs::for('my-favorite', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('お気に入り', url('favorite/{user_id}'));
+});
+
 //検索
 Breadcrumbs::for('search', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

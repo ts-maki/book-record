@@ -4,7 +4,7 @@
 <x-layout>
     <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0 w-full h-screen">
         <x-element.breadcrumbs>
-            {{ Breadcrumbs::render('home') }}
+            {{ Breadcrumbs::render('my-favorite') }}
         </x-element.breadcrumbs>
         <x-layout.container>
             @auth
