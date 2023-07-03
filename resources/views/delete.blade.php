@@ -2,7 +2,7 @@
 x-transition:enter-start="opacity-0 scale-90">
 <div class="absolute w-full h-full bg-green-300 opacity-30"></div>
 <div @click.outside="dialogOpen = false"
-    class="relative w-5/6 max-w-xl max-h-2/3 m-auto bg-white border rounded-md shadow">
+    class="relative w-5/6 max-w-xl max-h-2/3 max-sm:max-h-[550px] overflow-y-auto m-auto bg-white border rounded-md shadow">
     <div class="px-4">
         <x-layout.container class="bg-white rounded-lg w-full">
             <h3 class="pb-2 border-b-2 border-green-200">感想削除確認</h3>
