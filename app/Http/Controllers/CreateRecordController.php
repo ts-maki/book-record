@@ -1,28 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Book;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\RecordPostRequest;
 use App\Http\Requests\SearchPostRequest;
 use App\Models\Book;
 use App\Services\Book\BookCreateService;
 use App\Services\Book\BookSearchService;
 use App\Services\BookRecord\BookRecordService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-class BookController extends Controller
+class CreateRecordController extends Controller
 {
     protected $book_search_service;
 
-    protected $book_service;
+    protected $book_create_service;
 
     protected $book_record_service;
 
-    public function __construct(BookSearchService $book_search_service, BookCreateService $book_service, BookRecordService $book_record_service)
+    public function __construct(BookSearchService $book_search_service, BookCreateService $book_create_service, BookRecordService $book_record_service)
     {
         $this->book_search_service = $book_search_service;
-        $this->book_service = $book_service;
+        $this->book_create_service = $book_create_service;
         $this->book_record_service = $book_record_service;
     }
 
@@ -56,7 +57,7 @@ class BookController extends Controller
         }
 
         //本情報の新規登録
-        $this->book_service->addBook($request->id, $request->title, $request->author, $request->description, $request->thumbnail_path, $request->isbn, $request->published_date);
+        $this->book_create_service->addBook($request->id, $request->title, $request->author, $request->description, $request->thumbnail_path, $request->isbn, $request->published_date);
 
         //登録した本のIDを一意のgoogle_api_id検索でして取得する
         $book_id = Book::where('google_book_id', $request->google_api_id)->value('id');
@@ -66,8 +67,29 @@ class BookController extends Controller
             ->with('book_id', $book_id);
     }
 
-    public function show()
+    //本の感想を登録する
+    public function addRecord(RecordPostRequest $request)
     {
-        return view('search');
+
+        Log::info('ユーザーIDは:'.Auth::id());
+        Log::info('book_idは:'.$request->id);
+        Log::info('カテゴリーは:'.$request->category);
+        Log::info('読んだ日は:'.$request->date);
+        Log::info('本の感想は:'.$request->content);
+
+        $user_id = Auth::id();
+
+        $this->book_record_service->addRecord($request->id, $user_id, $request->category, $request->content, $request->date);
+
+        return to_route('index');
+    }
+
+    //他の人の感想から本の感想登録ページに遷移
+    public function otherCreate(Request $request)
+    {
+        $book_id = $request->route('id');
+        $book = Book::find($book_id);
+
+        return view('create')->with('book', $book);
     }
 }

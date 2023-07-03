@@ -31,7 +31,7 @@ CREATE TABLE `books` (
   `id` bigint UNSIGNED NOT NULL,
   `google_book_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'googleAPIの本のid',
   `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '本のタイトル',
-  `author` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '著者',
+  `author` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '著者',
   `description` text COLLATE utf8mb4_unicode_ci COMMENT '本のあらすじ',
   `thumbnail_path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '表紙画像のurl',
   `isbn` bigint UNSIGNED DEFAULT NULL COMMENT '本のISBN番号',

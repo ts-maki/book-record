@@ -49,10 +49,16 @@ class User extends Authenticatable
         return $this->belongsToMany(BookRecord::class, 'likes')->withTimestamps();
     }
 
+    public function userLikes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
     //対象の本をユーザーがお気に入り登録しているかの判定
     public function checkFavorite($book_record_id)
     {
         $result = $this->likes()->where('book_record_id', $book_record_id)->exists();
+
         return $result;
     }
 }

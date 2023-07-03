@@ -1,8 +1,5 @@
 <?php
 
-use App\Facades\Util as FacadesUtil;
-use App\Providers\UtilServiceProvider;
-use App\Services\Common\Util;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 

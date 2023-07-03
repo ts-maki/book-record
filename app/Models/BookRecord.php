@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BookRecord extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 
     //リレーション
@@ -30,6 +31,4 @@ class BookRecord extends Model
     {
         return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
-
-
 }

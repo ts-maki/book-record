@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\BookRecord;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -50,6 +51,14 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+        $user->likes()->detach();
+        Log::info('削除するユーザーID: '. $user->id);
+        $book_records = BookRecord::where('user_id', $user->id)->get();
+        //該当ユーザーのレコードを登録しているユーザーとの紐づけ解除、レコード削除
+        foreach ($book_records as $book_record) {
+            $book_record->likeUsers()->detach();
+            $book_record->delete();
+        }
 
         Auth::logout();
 

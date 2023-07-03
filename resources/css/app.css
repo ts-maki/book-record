@@ -29,6 +29,11 @@ body {
     padding-right: .5rem;
 }
 
+.book__list-tab {
+    border-left: none;
+    border-right: none;
+}
+
 /* ------------------------------ */
 /* 感想登録・編集 */
 /* ------------------------------ */
@@ -36,6 +41,7 @@ body {
     padding-left: 1rem;
 }
 
+/* 日付登録のカレンダーアイコン */
 .book__record-date {
     position: relative;
 }
