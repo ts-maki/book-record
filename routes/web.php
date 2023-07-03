@@ -21,35 +21,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ListController::class, 'index'])->name('index');
-
-Route::get('/search', [SearchBookController::class, 'show'])->name('search');
-Route::get('/search/book', [CreateRecordController::class, 'searchBook'])->name('book.search');
-
-Route::get('/search/{id}', [CreateRecordController::class, 'create'])->name('book.create');
-Route::post('/search/{id}', [CreateRecordController::class, 'create'])->name('book.create');
-Route::post('/create/{id}', [CreateRecordController::class, 'addRecord'])->name('book.record');
-
-Route::get('/create/other/{id}', [CreateRecordController::class, 'otherCreate'])->name('other.book.record');
-
-Route::get('/edit/{record_id}', [EditRecordController::class, 'edit'])->name('record.edit');
-Route::get('/user/my/{user_id}/edit/{record_id}', [EditRecordController::class, 'edit'])->name('user.record.edit');
-Route::get('/favorite/{user_id}/edit/{record_id}', [EditRecordController::class, 'edit'])->name('favorite.record.edit');
-Route::put('/edit/{record_id}', [EditRecordController::class, 'update'])->name('record.update');
-Route::put('/user/my/{user_id}/edit/{record_id}', [EditRecordController::class, 'update'])->name('user.record.update');
-Route::put('/favorite/{user_id}/edit/{record_id}', [EditRecordController::class, 'update'])->name('favorite.record.update');
-
-Route::delete('/delete/{record_id}', [DeleteRecordController::class, 'delete'])->name('record.delete');
-
-Route::post('/index/{record_id}', [FavoriteController::class, 'saveFavorite'])->name('favorite.save');
-Route::delete('/index/{record_id}', [FavoriteController::class, 'destroyFavorite'])->name('favorite.destroy');
+Route::get('/user/{user_id}', [ListController::class, 'showUserRecord'])->name('user.record');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //一覧
     Route::get('/user/my/{user_id}', [ListController::class, 'showMyRecord'])->name('my.record');
     Route::get('/favorite/{user_id}', [ListController::class, 'showFavorite'])->name('my.favorite');
+
+    //検索
+    Route::get('/search', [SearchBookController::class, 'show'])->name('search');
+    Route::get('/search/book', [CreateRecordController::class, 'searchBook'])->name('book.search');
+
+    //感想登録
+    Route::get('/search/{id}', [CreateRecordController::class, 'create'])->name('book.create');
+    Route::get('/create/other/{id}', [CreateRecordController::class, 'otherCreate'])->name('other.book.record');
+    Route::post('/search/{id}', [CreateRecordController::class, 'create'])->name('book.create');
+    Route::post('/create/{id}', [CreateRecordController::class, 'addRecord'])->name('book.record');
+
+    //感想更新
+    Route::get('/edit/{record_id}', [EditRecordController::class, 'edit'])->name('record.edit');
+    Route::get('/user/my/{user_id}/edit/{record_id}', [EditRecordController::class, 'edit'])->name('user.record.edit');
+    Route::get('/favorite/{user_id}/edit/{record_id}', [EditRecordController::class, 'edit'])->name('favorite.record.edit');
+    Route::put('/edit/{record_id}', [EditRecordController::class, 'update'])->name('record.update');
+    Route::put('/user/my/{user_id}/edit/{record_id}', [EditRecordController::class, 'update'])->name('user.record.update');
+    Route::put('/favorite/{user_id}/edit/{record_id}', [EditRecordController::class, 'update'])->name('favorite.record.update');
+
+    //お気に入り登録・削除
+    Route::post('/index/{record_id}', [FavoriteController::class, 'saveFavorite'])->name('favorite.save');
+    Route::delete('/index/{record_id}', [FavoriteController::class, 'destroyFavorite'])->name('favorite.destroy');
+
+    //感想削除
+    Route::delete('/delete/{record_id}', [DeleteRecordController::class, 'delete'])->name('record.delete');
 });
 
 require __DIR__ . '/auth.php';

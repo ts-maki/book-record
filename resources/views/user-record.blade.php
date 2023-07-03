@@ -4,20 +4,17 @@
 <x-layout>
     <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0">
         <x-element.breadcrumbs>
-            {{ Breadcrumbs::render('home') }}
+            {{ Breadcrumbs::render('user-record', $records[0]->user->name) }}
         </x-element.breadcrumbs>
         <x-layout.container>
             @auth
-            <x-element.tab :selected="'list'" :user_id="$user_id">
+            <x-element.tab :user_id="$user_id">
                 <x-slot name="index">感想一覧</x-slot>
                 <x-slot name="my_record">自分の感想</x-slot>
                 <x-slot name="my_favorite">お気に入り</x-slot>
             </x-element.tab>
             @endauth
             <section>
-                @if (count($records) == 0 )
-                <p class="text-center pt-2">まだ誰も感想を登録していません</p>
-                @endif
                 @foreach ($records as $record)
                 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative ">
                     <img src="{{ $record->book->thumbnail_path }}"
@@ -31,11 +28,7 @@
                                 <div class="flex items-center">
                                     <img src="{{ asset('/storage/images/edit_square_FILL0_wght400_GRAD0_opsz48.svg') }}"
                                         alt="投稿者を示すペンのアイコン" class="w-8 h-8 opacity-50">
-                                    @if (!($record->user->id == $user_id))
-                                    <a href="{{ route('user.record', ['user_id' => $record->user->id]) }}" class="min-[400px]:pl-1 sm:w-[84px] hover:text-blue-400 duration-150">{{ $record->user->name }}</a>
-                                    @else
-                                    <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->user->name }}</p>
-                                    @endif
+                                        <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->user->name }}</p>
                                 </div>
                             </div>
                             <x-element.category :category_name="$record->category->name"></x-element.category>
@@ -65,19 +58,6 @@
                             </div>
                             @endauth
                             @endif
-                            @if ($user_id === $record->user_id)
-                            <div class="flex">
-                                <div class="translate-y-[2px]">
-                                    <x-element.a-button :link="route('record.edit', ['record_id' => $record->id])"
-                                        :category="'edit'">編集</x-element.a-button>
-                                </div>
-                                <div class="pl-6">
-                                    <button
-                                        @click="dialogOpen = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }"
-                                        class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
-                                </div>
-                            </div>
-                            @endif
                         </div>
                     </div>
                 </article>
@@ -94,30 +74,9 @@
             </div>
             @endauth
         </x-layout.container>
-        <!-- ダイアログ -->
-        @include('delete')
     </div>
 </x-layout>
 <script>
-    // 削除ダイアログ
-    function deleteRecord(recordId) {
-        console.log("IDは" + recordId);
-        const deleteUrl = '/delete/' + recordId;
-        fetch(deleteUrl, {
-            method: 'DELETE',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            },
-        })
-        .then(response => {
-            console.log('削除成功');
-            location.reload();
-        })
-        .catch(error => {
-            console.log("エラーが発生しました:", error);
-        });
-    }
-
     //お気に入り登録
     function entryFavorite(recordId) {
         console.log(`お気に入り登録のIDは:${recordId}`);

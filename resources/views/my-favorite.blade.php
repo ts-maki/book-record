@@ -31,7 +31,11 @@
                                 <div class="flex items-center">
                                     <img src="{{ asset('/storage/images/edit_square_FILL0_wght400_GRAD0_opsz48.svg') }}"
                                         alt="投稿者を示すペンのアイコン" class="w-8 h-8 opacity-50">
-                                    <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->bookRecord->user->name }}</p>
+                                        @if (!($record->bookRecord->user->id == $user_id))
+                                        <a href="{{ route('user.record', ['user_id' => $record->bookRecord->user->id]) }}" class="min-[400px]:pl-1 sm:w-[84px] hover:text-blue-400 duration-150">{{ $record->bookRecord->user->name }}</a>
+                                        @else
+                                        <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->bookRecord->user->name }}</p>
+                                        @endif
                                 </div>
                             </div>
                             <x-element.category :category_name="$record->bookRecord->category->name">

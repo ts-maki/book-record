@@ -5,6 +5,7 @@
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
 
+use App\Models\User;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
 //  with `$trail`. This is nice for IDE type checking and completion.
@@ -18,7 +19,13 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 // 自分の感想
 Breadcrumbs::for('my-record', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('自分の感想', url('/{user_id}'));
+    $trail->push('自分の感想', url('user/my/{user_id}'));
+});
+
+// 指定ユーザーの感想
+Breadcrumbs::for('user-record', function (BreadcrumbTrail $trail, $user_name) {
+    $trail->parent('home');
+    $trail->push($user_name.'さんの感想', url('user/{user_id}'));
 });
 
 // 自分のお気に入り

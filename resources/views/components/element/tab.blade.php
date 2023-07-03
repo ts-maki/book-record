@@ -1,5 +1,5 @@
 @props([
-    'selected' => 'list',
+    'selected' => 'default',
     'user_id'
 ])
 
@@ -19,6 +19,11 @@
         $list_color = 'bg-white';
         $my_record_color = 'bg-white';
         $my_favorite_color = 'bg-blue-300 text-white';
+        break;
+    case 'default':
+        $list_color = 'bg-white';
+        $my_record_color = 'bg-white';
+        $my_favorite_color = 'bg-white';
         break;
     default:
         $list_color = 'bg-white';
