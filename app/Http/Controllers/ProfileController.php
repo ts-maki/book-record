@@ -57,7 +57,6 @@ class ProfileController extends Controller
         //該当ユーザーのレコードを登録しているユーザーとの紐づけ解除、レコード削除
         foreach ($book_records as $book_record) {
             $book_record->likeUsers()->detach();
-            Log::info($book_record);
             $book_record->delete();
         }
 
