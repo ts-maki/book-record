@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="pl-6">
                                     <button
-                                        @click="dialogOpen = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->bookRecord->book->thumbnail_path }}', bookTitle: '{{ $record->bookRecord->book->title }}', bookAuthor: '{{ $record->bookRecord->book->author }}', recordContent: '{{ $record->bookRecord->content }}' }"
+                                        @click="dialogOpen = true, dialogData = { recordId: '{{ $record->bookRecord->id }}', bookThumbnail: '{{ $record->bookRecord->book->thumbnail_path }}', bookTitle: '{{ $record->bookRecord->book->title }}', bookAuthor: '{{ $record->bookRecord->book->author }}', recordContent: '{{ $record->bookRecord->content }}' }"
                                         class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
                                 </div>
                             </div>
