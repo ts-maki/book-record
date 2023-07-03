@@ -4,8 +4,9 @@
 - 感想の登録、編集、削除、お気に入り登録ができる。
 - ユーザー登録していないユーザーはみんなの感想や指定ユーザーの感想を閲覧できる。
 
-急ぎ足の説明ですがAWS EC2 dockerにでプロして本番環境でアプリが確認できるようになったら細かくかきたい
-作成過程の履歴は[こちら](https://github.com/mirai-79/book-record/commits?author=mirai-79)
+#### 補足
+- 急ぎ足の説明ですがAWS EC2 dockerにでプロして本番環境でアプリが確認できるようになったら細かくかきたい
+- 作成過程の履歴は[こちら](https://github.com/mirai-79/book-record/commits?author=mirai-79)
 
 #### 環境
 - Laravel sail
