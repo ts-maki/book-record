@@ -81,7 +81,7 @@
             </section>
             <div class="mx-auto pt-4">
                 {{ $records->links() }}
-            </div>]
+            </div>
             @auth
             <div class="relative">
                 <a href="{{ route('search') }}"
