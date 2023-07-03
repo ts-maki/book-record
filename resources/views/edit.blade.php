@@ -16,7 +16,7 @@
                 </div>
             </div>
             <p class="pt-4">近しいカテゴリーを選んでください</p>
-            @if (strpos(url()->current(), 'user') !==  false)
+            @if (strpos(url()->current(), 'user/my') !==  false)
             <form action="{{ route('user.record.update', ['user_id' => $user_id, 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">
             @elseif (strpos(url()->current(), 'favorite') !==  false)
             <form action="{{ route('favorite.record.update', ['user_id' => $user_id, 'record_id' => $record->id]) }}" method="post" class="book__record-category pt-1">

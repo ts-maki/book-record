@@ -50,7 +50,7 @@ class EditRecordController extends Controller
         $this->book_edit_service->update($request);
 
         //元のタブメニューの感想ページに戻る
-        if(strpos(url()->current(), 'user') !== false) {
+        if(strpos(url()->current(), 'user/my') !== false) {
             return to_route('my.record', ['user_id' => $user_id]);
         }
         else if (strpos(url()->current(), 'favorite') !== false) {
