@@ -44,7 +44,7 @@
 
 #### 画面(ゲストユーザー)
 ##### 指定のユーザーの感想一覧
-![image](https://github.com/mirai-79/book-record/assets/99461088/8b230c0a-4570-421a-9c5e-86c4cdf47559)
+![image](https://github.com/mirai-79/book-record/assets/99461088/127c2ada-3584-42f1-a6b6-a3b8927c6c58)
 
 
 
