@@ -2,7 +2,7 @@
     $user_id = Auth::id();
 @endphp
 <x-layout>
-    <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0 w-full h-screen">
+    <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0">
         <x-element.breadcrumbs>
             {{ Breadcrumbs::render('my-favorite') }}
         </x-element.breadcrumbs>
