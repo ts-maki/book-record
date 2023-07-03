@@ -29,13 +29,13 @@
 @endphp
 
 <div class="flex justify-center">
-    <div class="px-2 border-blue-300 border-solid border-2 rounded-l-lg hover:text-white hover:bg-blue-300 duration-300 {{ $list_color }}">
-        <a href="{{ route('index') }}">{{ $index }}</a>
+    <div class=" border-blue-300 border-solid border-2 rounded-l-lg hover:text-white hover:bg-blue-300 duration-300 {{ $list_color }}">
+        <a href="{{ route('index') }}" class="px-2">{{ $index }}</a>
     </div>
-    <div class="px-2 border-blue-300 border-solid border-2 hover:text-white hover:bg-blue-300 duration-300 book__list-tab {{ $my_record_color }}">
-        <a href="{{ route('my.record', ['user_id' => $user_id]) }}">{{ $my_record }}</a>
+    <div class="border-blue-300 border-solid border-2 hover:text-white hover:bg-blue-300 duration-300 book__list-tab {{ $my_record_color }}">
+        <a href="{{ route('my.record', ['user_id' => $user_id]) }}" class="px-2">{{ $my_record }}</a>
     </div>
-    <div class="px-2 border-blue-300 border-solid border-2 rounded-r-lg hover:text-white hover:bg-blue-300 duration-300 {{ $my_favorite_color }}">
-        <a href="{{ route('my.favorite', ['user_id' => $user_id]) }}">{{ $my_favorite }}</a>
+    <div class="border-blue-300 border-solid border-2 rounded-r-lg hover:text-white hover:bg-blue-300 duration-300 {{ $my_favorite_color }}">
+        <a href="{{ route('my.favorite', ['user_id' => $user_id]) }}" class="px-2">{{ $my_favorite }}</a>
     </div>
 </div>
