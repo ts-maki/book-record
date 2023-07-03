@@ -17,11 +17,11 @@
 - Laravel telescope
 
 #### データベース設計
-![みんなの感想のER図](https://github.com/mirai-79/book-record/assets/99461088/63ec8e38-289d-4016-80b5-ece69d231d27)
+![みんなの感想のER図](https://github.com/mirai-79/book-record/assets/99461088/40cec0a9-71c3-4320-982d-deabde25f7f1)
 
 #### 画面(ログインユーザー)
 ##### 一覧画面
-![image](https://github.com/mirai-79/book-record/assets/99461088/b8d5f865-00f5-4e2a-a903-63edc3517619)
+![image](https://github.com/mirai-79/book-record/assets/99461088/c6fc6b1c-919e-44eb-997c-83bdddbf81f7)
 
 ##### 自分の感想
 ![image](https://github.com/mirai-79/book-record/assets/99461088/66356692-0fda-43b5-b00c-918a49402fc4)
