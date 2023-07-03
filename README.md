@@ -4,6 +4,8 @@
 - 感想の登録、編集、削除、お気に入り登録ができる。
 - ユーザー登録していないユーザーはみんなの感想や指定ユーザーの感想を閲覧できる。
 
+作成過程の履歴は[こちら](https://github.com/mirai-79/book-record/commits?author=mirai-79)
+
 #### 環境
 - Laravel sail
 - Alpine.js
