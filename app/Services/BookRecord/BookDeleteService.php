@@ -16,8 +16,13 @@ class BookDeleteService
 
     public function delete($request)
     {
-        DB::transaction(function () use (&$request) {
-            $this->book_delete_repository->delete($request);
-        });
+        try {
+            DB::transaction(function () use (&$request) {
+                $this->book_delete_repository->delete($request);
+            }, 2);
+        } catch (\Throwable $e) {
+            report($e);
+            abort(500, $e->getMessage());
+        }
     }
 }

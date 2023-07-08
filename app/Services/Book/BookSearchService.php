@@ -33,33 +33,38 @@ class BookSearchService
         $books = [];
 
         if ($response->totalItems == 0) {
-            Log::info('取得件数:'. 0);
-
+            Log::info('取得件数:' . 0);
+            Log::debug("検索結果が0件の時:". count($books));
             return $books = [];
         }
 
-        foreach ($response->items as $item) {
+        try {
+            foreach ($response->items as $item) {
 
-            $author = $item->volumeInfo->authors ?? '著者不明';
-            if ($author !== '著者不明') {
-                $author = Util::deleteSpace($author[0]);
+                $author = $item->volumeInfo->authors ?? '著者不明';
+                if ($author !== '著者不明') {
+                    $author = Util::deleteSpace($author[0]);
+                }
+
+                $book = [
+                    'title' => Util::deleteSpace($item->volumeInfo->title),
+                    'id' => $item->id,
+                    'author' => $author,
+                    'description' => $item->volumeInfo->description ?? null,
+                    'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
+                    'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,
+                    'published_date' => $item->volumeInfo->publishedDate ?? null,
+                ];
+
+                $books[] = $book;
             }
 
-            $book = [
-                'title' => Util::deleteSpace($item->volumeInfo->title),
-                'id' => $item->id,
-                'author' => $author,
-                'description' => $item->volumeInfo->description ?? null,
-                'thumbnail_path' => $item->volumeInfo->imageLinks->thumbnail ?? null,
-                'isbn' => $item->volumeInfo->industryIdentifiers[1]->identifier ?? null,
-                'published_date' => $item->volumeInfo->publishedDate ?? null,
-            ];
+            Log::info('取得件数:' . count($books));
 
-            $books[] = $book;
+            return $books;
+        } catch (\Throwable $e) {
+            report($e);
+            abort(500, $e->getMessage());
         }
-
-        Log::info('取得件数:'.count($books));
-
-        return $books;
     }
 }
