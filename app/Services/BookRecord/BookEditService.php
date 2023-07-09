@@ -6,6 +6,7 @@ use App\Models\BookRecord;
 use App\Repositories\BookRecord\BookEditRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\TryCatch;
 
 class BookEditService
 {
@@ -24,16 +25,21 @@ class BookEditService
      */
     public function update($request)
     {
-        DB::transaction(function () use (&$request) {
-            $this->book_edit_repository->update($request);
-        });
+        try {
+            DB::transaction(function () use (&$request) {
+                $this->book_edit_repository->update($request);
+            }, 2);
+        } catch (\Throwable $e) {
+            report($e);
+            abort(500, $e->getMessage());
+        }
     }
 
     public function matchUserIdOfBookRecord($record_id)
     {
         $user_id = Auth::id();
         $record_user_id = BookRecord::find($record_id);
-        if (! $record_user_id) {
+        if (!$record_user_id) {
             return false;
         }
 

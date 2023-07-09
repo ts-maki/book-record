@@ -19,16 +19,21 @@ class BookRecordService
     //本の感想登録
     public function addRecord($book_id, $user_id, $category_id, $content, $read_date)
     {
-        DB::transaction(function () use (&$book_id, &$user_id, &$category_id, &$content, &$read_date) {
-            $this->book_record_repository->addRecord($book_id, $user_id, $category_id, $content, $read_date);
-        });
+        try {
+            DB::transaction(function () use (&$book_id, &$user_id, &$category_id, &$content, &$read_date) {
+                $this->book_record_repository->addRecord($book_id, $user_id, $category_id, $content, $read_date);
+            }, 2);
+        } catch (\Throwable $e) {
+            report($e);
+            abort(500, $e->getMessage());
+        }
     }
 
     public function matchUserIdOfBookRecord($record_id)
     {
         $user_id = Auth::id();
         $record_user_id = BookRecord::find($record_id);
-        if (! $record_user_id) {
+        if (!$record_user_id) {
             return false;
         }
 

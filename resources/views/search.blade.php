@@ -5,8 +5,10 @@
     <x-layout.container>
         <p>本の検索(50文字以内)</p>
         <form action="{{ route('book.search') }}" method="get">
-            <input type="search" name="search_keyword" placeholder="タイトルか作者名を入力してね！" value="{{ request('search_keyword') }}"
-                class="max-sm:w-10/12 sm:w-2/3 rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring2" maxlength="50"/>
+            <input type="search" name="search_keyword" placeholder="タイトルか作者名を入力してね！"
+                value="{{ request('search_keyword') }}"
+                class="max-sm:w-10/12 sm:w-2/3 rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring2"
+                maxlength="50" />
             <button type="submit" value="検索" class="-translate-x-8 translate-y-2 scale-150"><img
                     src="{{ asset('storage/images/search_black_24dp.svg') }}"></button>
         </form>
@@ -14,7 +16,8 @@
         @if (!empty($books))
         @foreach ($books as $book)
         <div class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
-            <img src="{{ $book['thumbnail_path'] }}" class="rounded-l-lg md:max-w-[182px] max-sm:w-[200px] max-sm:h-[300px] max-sm:mx-auto max-sm:rounded-none max-sm:pt-2">
+            <img src="{{ $book['thumbnail_path'] }}"
+                class="rounded-l-lg md:max-w-[182px] max-sm:w-[200px] max-sm:h-[300px] max-sm:mx-auto max-sm:rounded-none max-sm:pt-2">
             <div class="px-4 grow flex flex-col justify-between py-2">
                 <div class="">
                     <div class="flex justify-between">
