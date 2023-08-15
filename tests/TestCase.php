@@ -12,6 +12,7 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
+    //意図した通りにデータが作成されているか確認する
     protected function dumpdb(): void
     {
         if (class_exists(CliDumper::class)) {

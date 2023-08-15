@@ -33,7 +33,6 @@ class CreateRecordControllerTest extends TestCase
 
     public function test_本の感想を登録(): void
     {
-        // $recordData = BookRecord::factory()->create();
         $user = $this->login();
         $book_id = 318;
         $recordData = [

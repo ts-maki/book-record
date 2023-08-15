@@ -25,11 +25,7 @@ class ListControllerTest extends TestCase
      */
     public function test_自分の感想一覧(): void
     {
-        $user = User::factory()->create([
-            'name' => 'テストユーザー',
-            'email' => 'tesstdtsestw',
-            'password' => Str::random(60)
-        ]);
+        $user = User::factory()->create();
 
         //認証されていなっかたら302リダイレクト
         $response = $this->get('user/my/' . $user->id);
@@ -45,11 +41,7 @@ class ListControllerTest extends TestCase
      */
     public function test_自分のお気に入り一覧(): void
     {
-        $user = User::factory()->create([
-            'name' => 'お気に入りユーザー',
-            'email' => 'testsestes',
-            'password' => Str::random(60)
-        ]);
+        $user = User::factory()->create();
 
         //認証されていなっかたら302リダイレクト
         $response = $this->get('favorite/' . $user->id);
