@@ -27,7 +27,7 @@ class ListControllerTest extends TestCase
     {
         $user = User::factory()->create([
             'name' => 'テストユーザー',
-            'email' => 'testdtsestw',
+            'email' => 'tesstdtsestw',
             'password' => Str::random(60)
         ]);
 
@@ -45,8 +45,18 @@ class ListControllerTest extends TestCase
      */
     public function test_自分のお気に入り一覧(): void
     {
-        $response = $this->get('/');
+        $user = User::factory()->create([
+            'name' => 'お気に入りユーザー',
+            'email' => 'testsestes',
+            'password' => Str::random(60)
+        ]);
 
+        //認証されていなっかたら302リダイレクト
+        $response = $this->get('favorite/' . $user->id);
+        $response->assertStatus(302);
+
+        $this->actingAs($user);
+        $response = $this->get('favorite/' . $user->id);
         $response->assertStatus(200);
     }
 }
