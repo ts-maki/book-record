@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use App\Models\BookRecord;
 use App\Models\User;
 use Tests\TestCase;
 
@@ -40,4 +41,11 @@ class ExampleTest extends TestCase
         // Assert（検証）
         $response->assertStatus(200);
     }
+
+    // public function test_factoryのテスト()
+    // {
+    //     $post = BookRecord::factory()->create();
+
+    //     $this->dumpdb();
+    // }
 }
