@@ -5,6 +5,7 @@ namespace Tests\Feature\HTTP\Controllers;
 use App\Models\Book;
 use App\Models\BookRecord;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -12,6 +13,12 @@ use Illuminate\Support\Str;
 
 class CreateRecordControllerTest extends TestCase
 {
+    public function test_本の検索(): void
+    {
+        $user = $this->login();
+
+        
+    }
 
     public function test_本の情報を登録(): void
     {
@@ -44,6 +51,35 @@ class CreateRecordControllerTest extends TestCase
         ];
 
         $response = $this->post(route('book.record', ['id' => $book_id]), $recordData);
+        $response->assertRedirect(route('index'));
+    }
+
+    /**
+     * user_id[4]がuser_id[3]の感想から本の感想を登録
+     */
+    public function test_他の人の感想から感想登録ページに遷移して感想登録(): void
+    {
+        //ページ遷移
+        $login_user_id = User::find(4);
+
+        //認証されていなっかたら302リダイレクト
+        $response = $this->get('create/other/289');
+        $response->assertStatus(302);
+
+        $this->actingAs($login_user_id);
+        $response = $this->get('create/other/289');
+        $response->assertStatus(200);
+
+        //感想登録
+        $recordData = [
+            'book_id' => 289,
+            'user_id' => 4,
+            'category' => 'ファンタジー',
+            'content' => fake()->realText(30),
+            'date' => fake()->date("Y-m-d")
+        ];
+
+        $response = $this->post(route('book.record', ['id' => 289]), $recordData);
         $response->assertRedirect(route('index'));
     }
 }
