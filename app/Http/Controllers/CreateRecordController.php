@@ -88,7 +88,7 @@ class CreateRecordController extends Controller
     public function otherCreate(Request $request)
     {
         $book_id = $request->route('id');
-        $book = Book::find($book_id);
+        $book = Book::findOrFail($book_id);
 
         return view('create')->with('book', $book);
     }

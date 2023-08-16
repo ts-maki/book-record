@@ -28,7 +28,7 @@ class EditRecordController extends Controller
     {
         $record_id = $request->route('record_id');
         Log::info('record_idは:'.$record_id);
-        $record = BookRecord::with('book', 'category')->find($record_id);
+        $record = BookRecord::with('book', 'category')->findOrFail($record_id);
 
         return view('edit')->with('record', $record);
     }

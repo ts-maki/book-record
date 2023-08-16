@@ -38,7 +38,7 @@ class BookEditService
     public function matchUserIdOfBookRecord($record_id)
     {
         $user_id = Auth::id();
-        $record_user_id = BookRecord::find($record_id);
+        $record_user_id = BookRecord::findOrFail($record_id);
         if (!$record_user_id) {
             return false;
         }
