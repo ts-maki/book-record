@@ -17,7 +17,12 @@ class CreateRecordControllerTest extends TestCase
     {
         $user = $this->login();
 
-        
+        $response = $this->get('search');
+        $response->assertStatus(200);
+
+        $search_keyword = Str::random(6);
+        $response = $this->get('search/book?search_keyword='. $search_keyword);
+        $response->assertStatus(200);
     }
 
     public function test_本の情報を登録(): void
