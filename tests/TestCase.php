@@ -64,6 +64,9 @@ abstract class TestCase extends BaseTestCase
         });
     }
 
+    /**
+     * テストユーザーを作成してログインする
+     */
     protected function login($user = null)
     {
         $user ??= User::factory()->create();
