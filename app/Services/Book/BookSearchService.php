@@ -35,7 +35,8 @@ class BookSearchService
         if ($response->totalItems == 0) {
             Log::info('取得件数:' . 0);
             Log::debug("検索結果が0件の時:". count($books));
-            return $books = [];
+            (string)$books = "検索結果が0件です";
+            return $books;
         }
 
         try {

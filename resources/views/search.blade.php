@@ -14,6 +14,10 @@
         </form>
         <x-input-error class="mt-2" :messages="$errors->get('search_keyword')" />
         @if (!empty($books))
+        @if (is_string($books))
+        <p class="mt-2 text-red-500">検索結果が0件です</p>
+        @endif
+        @if (is_array($books))
         @foreach ($books as $book)
         <div class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
             <img src="{{ $book['thumbnail_path'] }}"
@@ -46,6 +50,7 @@
             </div>
         </div>
         @endforeach
+        @endif
         @endif
     </x-layout.container>
 </x-layout>
