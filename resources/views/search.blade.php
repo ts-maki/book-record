@@ -14,10 +14,7 @@
         </form>
         <x-input-error class="mt-2" :messages="$errors->get('search_keyword')" />
         @if (!empty($books))
-        @if (mb_strlen($books) >= 12)
-        <p class="mt-2 text-red-500">APIリクエスト超過です。すみませんが翌日ご利用ください</p>
-        @else
-        (is_string($books))
+        @if  (is_string($books) !== false)
         <p class="mt-2 text-red-500">検索結果が0件です</p>
         @endif
         @if (is_array($books))
