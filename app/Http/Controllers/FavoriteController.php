@@ -19,7 +19,7 @@ class FavoriteController extends Controller
         return back();
     }
 
-    //ログインユーザーと本の感想を削除
+    //ログインユーザーと本の感想のお気に入り紐づけ解除
     public function destroyFavorite(Request $request)
     {
         $book_record_id = $request->route('record_id');
