@@ -32,6 +32,12 @@ class BookSearchService
 
         $books = [];
 
+        // if (isset($response->error)) {
+        //     Log::error('APIリクエスト超過');
+        //     (bool)$books = true;
+        //     return $books;
+        // }
+
         if ($response->totalItems == 0) {
             Log::info('取得件数:' . 0);
             Log::debug("検索結果が0件の時:". count($books));
