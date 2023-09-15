@@ -31,5 +31,6 @@ class DeleteRecordControllerTest extends TestCase
         //感想削除
         $last_record_id = BookRecord::all()->last()->id;
         $response = $this->delete(route('record.delete', ['record_id' => $last_record_id]));
+        $response->assertStatus(200);
     }
 }
