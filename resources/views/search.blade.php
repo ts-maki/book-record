@@ -14,19 +14,23 @@
         </form>
         <x-input-error class="mt-2" :messages="$errors->get('search_keyword')" />
         @if (!empty($books))
+        @if  (is_string($books) !== false)
+        <p class="mt-2 text-red-500">検索結果が0件です</p>
+        @endif
+        @if (is_array($books))
         @foreach ($books as $book)
         <div class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md">
             <img src="{{ $book['thumbnail_path'] }}"
                 class="rounded-l-lg md:max-w-[182px] max-sm:w-[200px] max-sm:h-[300px] max-sm:mx-auto max-sm:rounded-none max-sm:pt-2">
             <div class="px-4 grow flex flex-col justify-between py-2">
-                <div class="">
+                <div>
                     <div class="flex justify-between">
                         <h3 class="text-lg font-bold text-gray-800">{{ $book['title'] }}</h3>
                         <p>{{ $book['author'] }}</p>
                     </div>
                     <p>{{ Util::limitTextLength($book['description'], 150) }}</p>
                 </div>
-                <div class="">
+                <div>
                     <div class="flex justify-between">
                         <p>{{ $book['published_date'] }}</p>
                         <form action="{{ route('book.create', $book['id']) }}" method="post">
@@ -46,6 +50,7 @@
             </div>
         </div>
         @endforeach
+        @endif
         @endif
     </x-layout.container>
 </x-layout>

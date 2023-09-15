@@ -312,6 +312,7 @@ CREATE TABLE `users` (
   `user_name` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Twitterのユーザー名',
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
   `image_path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '画像のURL',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'ログイン保持',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
