@@ -75,7 +75,6 @@ class CreateRecordControllerTest extends TestCase
         $response = $this->get('create/other/289');
         $response->assertStatus(200);
 
-        //感想登録
         $recordData = [
             'book_id' => 289,
             'user_id' => 4,

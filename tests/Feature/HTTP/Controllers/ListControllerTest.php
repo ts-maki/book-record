@@ -10,9 +10,7 @@ use Illuminate\Support\Str;
 
 class ListControllerTest extends TestCase
 {
-    /**
-     * 感想一覧ページ
-     */
+
     public function test_感想一覧(): void
     {
         $response = $this->get('/');
@@ -20,9 +18,6 @@ class ListControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /**
-     * 自分の感想一覧
-     */
     public function test_自分の感想一覧(): void
     {
         $user = User::factory()->create();
@@ -36,9 +31,6 @@ class ListControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /**
-     * 自分のお気に入り一覧
-     */
     public function test_自分のお気に入り一覧(): void
     {
         $user = User::factory()->create();
