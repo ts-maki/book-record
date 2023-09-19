@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->unsignedBigInteger('isbn')->nullable()->comment('本のISBN番号')->change();
+            $table->unsignedBigInteger('isbn')->nullable()->comment('ISBN番号')->change();
         });
     }
 

@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('category_name')->unique()->comment('本のカテゴリー名');
-            $table->timestamps();
+            $table->comment('カテゴリー');
+            $table->id()->comment('カテゴリーID');
+            $table->string('category_name')->unique()->comment('カテゴリー名');
+            $table->timestamp('created_at')->comment('作成日時');
+            $table->timestamp('updated_at')->comment('更新日時');
         });
     }
 

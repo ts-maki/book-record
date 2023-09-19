@@ -12,13 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 150)->comment('本のタイトル');
+            $table->comment('本');
+            $table->id()->comment('本ID');
+            $table->string('title', 150)->comment('タイトル');
             $table->string('author', 30)->comment('著者');
-            $table->string('thumbnail_path')->nullable()->comment('表紙画像のurl');
-            $table->char('isbn', 13)->unique()->comment('本のISBN番号');
+            $table->text('description')->nullable()->comment('あらすじ');
+            $table->string('thumbnail_path')->nullable()->comment('表紙画像URL');
+            $table->char('isbn', 13)->unique()->comment('ISBN番号');
             $table->date('published_date')->comment('出版日');
-            $table->timestamps();
+            $table->timestamp('created_at')->comment('作成日時');
+            $table->timestamp('updated_at')->comment('更新日時');
         });
     }
 

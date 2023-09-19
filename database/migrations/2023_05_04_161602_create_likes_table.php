@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('book_record_id')->constrained();
+            $table->comment('お気に入り');
+            $table->foreignId('user_id')->comment('ユーザーID')->constrained();
+            $table->foreignId('book_record_id')->comment('感想ID')->constrained();
             $table->primary(['user_id', 'book_record_id']);
-            $table->timestamps();
+            $table->timestamp('created_at')->comment('作成日時');
+            $table->timestamp('updated_at')->comment('更新日時');
         });
     }
 

@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('book_records', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('book_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('category_id')->constrained('categories');
-            $table->string('content')->comment('本の感想');
+            $table->comment('感想');
+            $table->id()->comment('感想ID');
+            $table->foreignId('book_id')->comment('本ID')->constrained();
+            $table->foreignId('user_id')->comment('ユーザーID')->constrained();
+            $table->foreignId('category_id')->comment('カテゴリーID')->constrained('categories');
+            $table->string('content')->comment('感想');
             $table->date('read_date')->comment('読んだ日');
-            $table->timestamps();
+            $table->timestamp('created_at')->comment('作成日時');
+            $table->timestamp('updated_at')->comment('更新日時');
         });
     }
 

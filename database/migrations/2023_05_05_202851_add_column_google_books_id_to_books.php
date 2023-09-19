@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->string('google_book_id', 20)->unique()->after('id')->comment('googleAPIの本のid');
+            $table->string('google_book_id', 20)->unique()->after('id')->comment('googleAPIのID');
         });
     }
 
