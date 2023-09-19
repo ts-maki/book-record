@@ -2,7 +2,7 @@
     <x-element.breadcrumbs>
         {{ Breadcrumbs::render('auth.register') }}
     </x-element.breadcrumbs>
-    <div class="flex flex-col justify-center items-center pt-6 bg-emerald-50">
+    <div class="flex flex-col justify-center items-center py-6 bg-emerald-50">
         <div>
             <a href="{{ route('index') }}">
                 <img src="{{ asset('/storage/images/book_tate.png') }}" alt="ユーザー登録画面のロゴ" class="h-20 w-20">
