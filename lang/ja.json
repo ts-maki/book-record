@@ -295,7 +295,7 @@
     "Editor users have the ability to read, create, and update.": "編集者は読み込み、作成、更新ができます。",
     "Egypt": "エジプト",
     "El Salvador": "エルサルバドル",
-    "Email": "ユーザーID",
+    "Email": "ユーザーID(半角英数字)",
     "Email Address": "メールアドレス",
     "Email Addresses": "メールアドレス",
     "Email Password Reset Link": "送信",

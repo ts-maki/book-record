@@ -2,7 +2,7 @@
     <x-element.breadcrumbs>
         {{ Breadcrumbs::render('auth.register') }}
     </x-element.breadcrumbs>
-    <div class="flex flex-col justify-center items-center pt-6 bg-emerald-50">
+    <div class="flex flex-col justify-center items-center py-6 bg-emerald-50">
         <div>
             <a href="{{ route('index') }}">
                 <img src="{{ asset('/storage/images/book_tate.png') }}" alt="ユーザー登録画面のロゴ" class="h-20 w-20">
@@ -22,7 +22,7 @@
                 <!-- ID -->
                 <div class="mt-4">
                     <x-input-label for="email" :value="__('Email')" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autocomplete="username" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autocomplete="username" pattern="^[a-zA-Z0-9]+$" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 

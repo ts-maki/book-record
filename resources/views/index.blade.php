@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <x-element.category :category_name="$record->category->name"></x-element.category>
-                            <p class="text-gray-500">
+                            <p class="text-gray-500 break-all">
                                 {{ $record->content }}
                             </p>
                         </div>
