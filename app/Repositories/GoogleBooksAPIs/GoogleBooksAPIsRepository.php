@@ -54,6 +54,8 @@ class GoogleBooksAPIsRepository
             report($e);
             Log::error('書籍データの読み込みに失敗しました');
             Log::error($e->getMessage());
+            $books = json_decode($response);
+            return $books;
         }
     }
 }
