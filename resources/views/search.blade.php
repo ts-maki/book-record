@@ -15,7 +15,7 @@
         <x-input-error class="mt-2" :messages="$errors->get('search_keyword')" />
         @if (!empty($books))
         @if  (is_bool($books) !== false)
-        <p class="mt-2 text-red-500">本の検索APIのリクエスト超過です。申し訳ありませんが、翌日ご利用ください。</p>
+        <p class="mt-2 text-red-500">当該月の本の検索APIのリクエスト超過です。申し訳ありませんが、翌日ご利用ください。</p>
         <p class="mt-2 text-red-500">対策を現在検討中です。</p>
         @endif
         @if  (is_string($books) !== false)
