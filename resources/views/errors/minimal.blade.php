@@ -15,7 +15,7 @@
                 <div class="px-4 border-gray-400 tracking-wider text-red-400">
                     @yield('code')
                 </div>
-                <div><img src="{{ asset('/storage/images/onegai_gomen_woman.png') }}" alt="エラーのごめんなさいの画像" class="w-40">
+                <div><img src="{{ asset('images/onegai_gomen_woman.png') }}" alt="エラーのごめんなさいの画像" class="w-40">
                 </div>
                 <div class="ml-4 uppercase tracking-wider">
                     @yield('message')

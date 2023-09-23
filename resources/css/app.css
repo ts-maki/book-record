@@ -53,7 +53,7 @@ body {
     width: 2rem;
     height: 2rem;
     background-color: #FFFFFF;
-    background-image: url(/storage/app/public/images/calendar_month_black_24dp.svg);
+    background-image: url(/public/images/calendar_month.svg);
     background-repeat: no-repeat;
     background-position: center;
     transform: scale(1.2);

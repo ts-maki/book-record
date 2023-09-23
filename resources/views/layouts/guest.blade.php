@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-emerald-50">
             <div>
                 <a href="{{ route('index') }}">
-                    <img src="{{ asset('/storage/images/book_tate.png') }}" alt="ユーザー登録画面のロゴ" class="h-20 w-20">
+                    <img src="{{ asset('images/book_tate.png') }}" alt="ユーザー登録画面のロゴ" class="h-20 w-20">
                 </a>
             </div>
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
