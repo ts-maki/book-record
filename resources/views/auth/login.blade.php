@@ -5,7 +5,7 @@
     <div class="flex flex-col sm:justify-center items-center py-6 bg-emerald-50">
         <div>
             <a href="{{ route('index') }}">
-                <img src="{{ asset('/storage/images/book_tate.png') }}" alt="ユーザー登録画面のロゴ" class="h-20 w-20">
+                <img src="{{ asset('images/book_tate.png') }}" alt="ユーザー登録画面のロゴ" class="h-20 w-20">
             </a>
         </div>
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -30,16 +30,6 @@
                         autocomplete="current-password" />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                </div>
-
-                <!-- Remember Me -->
-                <div class="block mt-4">
-                    <label for="remember_me" class="inline-flex items-center">
-                        <input id="remember_me" type="checkbox"
-                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                            name="remember">
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                    </label>
                 </div>
 
                 <div class="flex items-center justify-between mt-4">

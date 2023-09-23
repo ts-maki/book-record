@@ -10,10 +10,14 @@
                 class="max-sm:w-10/12 sm:w-2/3 rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring2"
                 maxlength="50" />
             <button type="submit" value="検索" class="-translate-x-8 translate-y-2 scale-150"><img
-                    src="{{ asset('storage/images/search_black_24dp.svg') }}"></button>
+                    src="{{ asset('images/search_black.svg') }}"></button>
         </form>
         <x-input-error class="mt-2" :messages="$errors->get('search_keyword')" />
         @if (!empty($books))
+        @if  (is_bool($books) !== false)
+        <p class="mt-2 text-red-500">当該月の本の検索APIのリクエスト超過です。申し訳ありませんが、翌日ご利用ください。</p>
+        <p class="mt-2 text-red-500">対策を現在検討中です。</p>
+        @endif
         @if  (is_string($books) !== false)
         <p class="mt-2 text-red-500">検索結果が0件です</p>
         @endif

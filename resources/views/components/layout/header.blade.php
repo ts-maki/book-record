@@ -5,7 +5,7 @@
         </a>
         <div class="flex items-center h-full">
             <div class="pr-2">
-                <img src="{{ asset('/storage/images/account_circle_black_24dp.svg') }}"
+                <img src="{{ asset('images/account_circle.svg') }}"
                     class="w-8 h-8 bg-white rounded-full">
             </div>
             @auth

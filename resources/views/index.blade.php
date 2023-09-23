@@ -29,7 +29,7 @@
                                     {{ $record->book->title }}
                                 </h3>
                                 <div class="flex items-center">
-                                    <img src="{{ asset('/storage/images/edit_square_FILL0_wght400_GRAD0_opsz48.svg') }}"
+                                    <img src="{{ asset('images/pencil.svg') }}"
                                         alt="投稿者を示すペンのアイコン" class="w-8 h-8 opacity-50">
                                     @if (!($record->user->id == $user_id))
                                     <a href="{{ route('user.record', ['user_id' => $record->user->id]) }}" class="min-[400px]:pl-1 sm:w-[84px] hover:text-blue-400 duration-150">{{ $record->user->name }}</a>
@@ -47,11 +47,11 @@
                             @auth
                             @if (!Auth::user()->checkFavorite($record->id))
                             <button @click="entryFavorite({{ $record->id }})" type="submit"><img
-                                    src="{{ asset('/storage/images/star_border_black_24dp.svg') }}" alt="お気に入り登録ボタン"
+                                    src="{{ asset('images/star_border_black.svg') }}" alt="お気に入り登録ボタン"
                                     class="h-9 w-9"></button>
                             @else
                             <button @click="deleteFavorite({{ $record->id }})" type="submit"><img
-                                    src="{{ asset('/storage/images/star_black_24dp.svg') }}" alt="お気に入り解除ボタン"
+                                    src="{{ asset('images/star_black.svg') }}" alt="お気に入り解除ボタン"
                                     class="h-9 w-9"></button>
                             @endif
                             @endauth
