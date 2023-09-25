@@ -139,18 +139,13 @@
     sail php artisan key:generate
     ```
 
-- SQLファイルをphpMyadminにインポート
-
-    http://localhost:8080/
-    
-    ※Docker起動時にテストデータを投入するinitSQLに変更予定
-- パッケージをインストール
+- データベース作成
     ```
-    sail npm install
+    sail artisan migrate
     ```
-- 開発環境をローカルにビルド(ホットリロード)
+- データベースに初期データ投入
     ```
-    sail npm run dev
+    sail artisan db:seed --class=CategoriesSeeder
     ```
 
 - 画面にアクセス
