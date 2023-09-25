@@ -51,7 +51,7 @@
 <img  alt="categories1" src="https://github.com/mirai-79/book-record/assets/99461088/6d836707-b6a0-4836-a0c0-cd4ea8645293">
 <img  alt="categories2" src="https://github.com/mirai-79/book-record/assets/99461088/3aaab4b8-7d7e-4fe5-be07-73721d78bf0b">
 <br><br>
-<:orange_book:ins>**likesテーブル**</ins>
+:orange_book:<ins>**likesテーブル**</ins>
 <img  alt="likes1" src="https://github.com/mirai-79/book-record/assets/99461088/a9efa3d1-4d01-45fa-829e-c9c0c0f1bc77">
 <img  alt="likes2" src="https://github.com/mirai-79/book-record/assets/99461088/1960003c-e65e-4969-8a5f-bb3ef31659c1">
 <br><br>
