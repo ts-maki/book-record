@@ -2,13 +2,13 @@
 ## 作成途中
 # 本の感想共有アプリ
 
-## 1. アプリの概要
+## アプリの概要
 読んだ本の感想を共有できるWebアプリケーションです。
 <br>
 読書が趣味なので、読んだ本の感想を記録することができて、他の読者さんの感想も共有できるWebアプリケーション
 を作りたいと思いました。
 
-## 2. 使用技術
+## 使用技術
 ### フロントエンド
 - HTML
 - CSS, Tailwind CSS
@@ -32,19 +32,19 @@
 
 <br><br>
 
-## 3. Laravelアーキテクチャ
+## Laravelアーキテクチャ
 コードの拡張性と可読性を意識して、データを画面に映すまでの処理を役割分担した場所に記載しています。
 <img  alt="architecture" src="https://github.com/mirai-79/book-record/assets/99461088/b735cd05-ec55-4f22-af58-f74265efe1b4">
 <br><br>
 
-## 4. インフラ構成図
+## インフラ構成図
 
-## 5. ER図
+## ER図
 ![book-recordのER図](https://github.com/mirai-79/book-record/assets/99461088/f4a90567-c7eb-469b-9b1b-a61267036c3c)
 
 <br><br>
 
-## 6. テーブル定義書
+## テーブル定義書
 :orange_book:<ins>**book_recordsテーブル**</ins>
 <img alt="books-record1" src="https://github.com/mirai-79/book-record/assets/99461088/a51c62bb-f416-46a0-ae9d-3b354ef95f47">
 <img alt="books-records2" src="https://github.com/mirai-79/book-record/assets/99461088/d1efc17f-0be3-430a-80e2-158ce33ab84e">
@@ -66,7 +66,7 @@
 <img  alt="users2" src="https://github.com/mirai-79/book-record/assets/99461088/aa3be275-f88d-474a-a083-b5a80b4d35d8">
 
 <br><br>
-## 7. アプリの特徴
+## アプリの特徴
 
 レスポンシブデザイン対応
 
@@ -98,7 +98,7 @@
 
 ### エラー画面(例:404エラー)
 
-## 8. アプリの機能一覧
+## アプリの機能一覧
 
 ### メイン機能
 - 本検索(Google Books APIs)
@@ -114,7 +114,14 @@
 
 <br><br>
 
-## 9. 開発環境構築
+## 工夫したところ
+
+<br><br>
+
+## 苦労したところ
+<br><br>
+
+## 開発環境構築
 
 #### 環境
 
