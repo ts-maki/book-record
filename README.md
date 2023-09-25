@@ -31,6 +31,7 @@
 <br><br>
 
 ## 3. Laravelアーキテクチャ
+コードの拡張性と可読性を意識して、データを画面に映すまでの処理を役割分担した場所に記載しています。
 <img  alt="architecture" src="https://github.com/mirai-79/book-record/assets/99461088/b735cd05-ec55-4f22-af58-f74265efe1b4">
 <br><br>
 
