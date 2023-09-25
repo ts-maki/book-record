@@ -30,15 +30,16 @@
 
 <br><br>
 
-## 3. インフラ構成図
+## 3. アーキテクチャ
 
+## 4. インフラ構成図
 
-## 4. ER図
+## 5. ER図
 ![book-recordのER図](https://github.com/mirai-79/book-record/assets/99461088/f4a90567-c7eb-469b-9b1b-a61267036c3c)
 
 <br><br>
 
-## 5. テーブル定義書
+## 6. テーブル定義書
 :orange_book:<ins>**book_recordsテーブル**</ins>
 <img alt="books-record1" src="https://github.com/mirai-79/book-record/assets/99461088/a51c62bb-f416-46a0-ae9d-3b354ef95f47">
 <img alt="books-records2" src="https://github.com/mirai-79/book-record/assets/99461088/d1efc17f-0be3-430a-80e2-158ce33ab84e">
@@ -60,7 +61,7 @@
 <img  alt="users2" src="https://github.com/mirai-79/book-record/assets/99461088/aa3be275-f88d-474a-a083-b5a80b4d35d8">
 
 <br><br>
-## 6. アプリの特徴
+## 7. アプリの特徴
 
 レスポンシブデザイン対応
 
@@ -77,6 +78,10 @@
 自分がお気に入りした感想を一覧で見ることができます。
 <br>
 
+### 本の検索
+本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+<br>
+
 ### 自分の感想の編集、削除
 自分が投稿した感想を編集、削除(ダイアログ)することができます。
 <br>
@@ -88,7 +93,7 @@
 
 ### エラー画面(例:404エラー)
 
-## 6. アプリの機能一覧
+## 8. アプリの機能一覧
 
 ### メイン機能
 - 本検索(Google Books APIs)
@@ -104,7 +109,7 @@
 
 <br><br>
 
-### 開発環境構築
+## 9. 開発環境構築
 
 #### 環境
 
