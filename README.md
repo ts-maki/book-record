@@ -39,8 +39,23 @@
 <br><br>
 
 ## 5. テーブル定義書
-books_recordsテーブル
-<img width="326" alt="image" src="https://github.com/mirai-79/book-record/assets/99461088/634bcfe7-21be-46eb-8ca8-d4900ee70bb3">
+<ins>**book_recordsテーブル**</ins>
+<img alt="books-record1" src="https://github.com/mirai-79/book-record/assets/99461088/a51c62bb-f416-46a0-ae9d-3b354ef95f47">
+<img alt="books-records2" src="https://github.com/mirai-79/book-record/assets/99461088/d1efc17f-0be3-430a-80e2-158ce33ab84e">
+<br>
+<ins>**booksテーブル**</ins>
+<img alt="books1" src="https://github.com/mirai-79/book-record/assets/99461088/111f70cd-500f-4945-b7bf-310273f539a5">
+<img alt="books2" src="https://github.com/mirai-79/book-record/assets/99461088/f8f19360-bfc5-4dc2-a4c5-a4877510f6c7">
+<br>
+<ins>**categoriesテーブル**</ins>
+<img  alt="categories1" src="https://github.com/mirai-79/book-record/assets/99461088/6d836707-b6a0-4836-a0c0-cd4ea8645293">
+<img  alt="categories2" src="https://github.com/mirai-79/book-record/assets/99461088/3aaab4b8-7d7e-4fe5-be07-73721d78bf0b">
+
+<ins>**likesテーブル**</ins>
+<img  alt="likes1" src="https://github.com/mirai-79/book-record/assets/99461088/a9efa3d1-4d01-45fa-829e-c9c0c0f1bc77">
+<img  alt="likes2" src="https://github.com/mirai-79/book-record/assets/99461088/1960003c-e65e-4969-8a5f-bb3ef31659c1">
+<br>
+<ins>**usersテーブル**</ins>
 
 <br><br>
 ## 6. アプリの特徴
