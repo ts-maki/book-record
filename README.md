@@ -42,19 +42,19 @@
 :orange_book:<ins>**book_recordsテーブル**</ins>
 <img alt="books-record1" src="https://github.com/mirai-79/book-record/assets/99461088/a51c62bb-f416-46a0-ae9d-3b354ef95f47">
 <img alt="books-records2" src="https://github.com/mirai-79/book-record/assets/99461088/d1efc17f-0be3-430a-80e2-158ce33ab84e">
-<br>
+<br><br>
 :orange_book:<ins>**booksテーブル**</ins>
 <img alt="books1" src="https://github.com/mirai-79/book-record/assets/99461088/111f70cd-500f-4945-b7bf-310273f539a5">
 <img alt="books2" src="https://github.com/mirai-79/book-record/assets/99461088/f8f19360-bfc5-4dc2-a4c5-a4877510f6c7">
-<br>
+<br><br>
 :orange_book:<ins>**categoriesテーブル**</ins>
 <img  alt="categories1" src="https://github.com/mirai-79/book-record/assets/99461088/6d836707-b6a0-4836-a0c0-cd4ea8645293">
 <img  alt="categories2" src="https://github.com/mirai-79/book-record/assets/99461088/3aaab4b8-7d7e-4fe5-be07-73721d78bf0b">
-
+<br><br>
 <:orange_book:ins>**likesテーブル**</ins>
 <img  alt="likes1" src="https://github.com/mirai-79/book-record/assets/99461088/a9efa3d1-4d01-45fa-829e-c9c0c0f1bc77">
 <img  alt="likes2" src="https://github.com/mirai-79/book-record/assets/99461088/1960003c-e65e-4969-8a5f-bb3ef31659c1">
-<br>
+<br><br>
 :orange_book:<ins>**usersテーブル**</ins>
 <img  alt="users1" src="https://github.com/mirai-79/book-record/assets/99461088/3e647852-57dc-49f6-8092-98c2a748dd83">
 <img  alt="users2" src="https://github.com/mirai-79/book-record/assets/99461088/aa3be275-f88d-474a-a083-b5a80b4d35d8">
