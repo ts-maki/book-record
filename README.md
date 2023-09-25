@@ -46,8 +46,8 @@
 
 ## テーブル定義書
 :orange_book:<ins>**book_recordsテーブル**</ins>
-<img alt="books-record1" src="https://github.com/mirai-79/book-record/assets/99461088/a51c62bb-f416-46a0-ae9d-3b354ef95f47">
-<img alt="books-records2" src="https://github.com/mirai-79/book-record/assets/99461088/d1efc17f-0be3-430a-80e2-158ce33ab84e">
+<img alt="book-records1" src="https://github.com/mirai-79/book-record/assets/99461088/d57e4532-9478-4e9a-8df9-92ed12867295">
+<img alt="book-records2" src="https://github.com/mirai-79/book-record/assets/99461088/b4b01976-5b88-4d4d-89e0-e3539835c012">
 <br><br>
 :orange_book:<ins>**booksテーブル**</ins>
 <img alt="books1" src="https://github.com/mirai-79/book-record/assets/99461088/111f70cd-500f-4945-b7bf-310273f539a5">
