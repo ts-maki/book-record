@@ -20,12 +20,20 @@
 ### インフラ
 - docker
 - AWS
-- -nginx
+- nginx
 
 ### その他
 - Git
 - PHPMyadmin
 - Vscode
+
+<br><br>
+
+## 3. インフラ構成図
+
+## 4. ER図
+
+## 5. アプリの特徴
 
 
 ### 開発環境構築
