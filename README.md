@@ -31,6 +31,8 @@
 <br><br>
 
 ## 3. アーキテクチャ
+<img  alt="architecture" src="https://github.com/mirai-79/book-record/assets/99461088/b735cd05-ec55-4f22-af58-f74265efe1b4">
+<br><br>
 
 ## 4. インフラ構成図
 
