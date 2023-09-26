@@ -98,8 +98,7 @@
 
 ### 感想登録、この本の感想を登録する
 本の検索結果または、感想一覧の「この本の感想を登録する」から感想を登録できます。
-<img alt="record-create" src="https://github.com/mirai-79/book-record/assets/99461088/19d2d995-594f-4d8d-818d-2050a5f60b01">
-<br>
+<img alt="record-create" src="https://github.com/mirai-79/book-record/assets/99461088/ef86840d-4924-44ee-8b16-3f486a41b60e">
 
 ### 自分の感想の編集
 自分が投稿した感想を編集することができます。
