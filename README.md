@@ -73,27 +73,43 @@
 ### 本の感想の共有(ホーム画面)
 ユーザーが投稿した感想を一覧で見ることができます。
 ユーザー登録をしないゲストユーザーはホーム画面のみ見ることができます。
+<img alt="home" src="https://github.com/mirai-79/book-record/assets/99461088/63180613-ca4c-46c4-b4c4-142b9689e270">
 <br>
 
 ### 自分の感想一覧
 自分が投稿した感想を一覧で見ることができます。
+<img alt="my-record" src="https://github.com/mirai-79/book-record/assets/99461088/7643b89c-70d9-43ef-8053-feac7bad9932">
 <br>
 
 ### お気に入り一覧
 自分がお気に入りした感想を一覧で見ることができます。
+<img alt="my-favorite" src="https://github.com/mirai-79/book-record/assets/99461088/05b54696-35d8-47b6-ac66-e70d1b8b93ea">
+<br>
+
+### 指定ユーザーの感想一覧
+本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+<img alt="user-record" src="https://github.com/mirai-79/book-record/assets/99461088/814d94aa-9d26-4b7c-bd72-4b9be9e44606">
 <br>
 
 ### 本の検索
 本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+<img alt="book-search" src="https://github.com/mirai-79/book-record/assets/99461088/a6f62bad-83b4-42a5-b040-4376f6cf0ad5">
 <br>
 
-### 自分の感想の編集、削除
-自分が投稿した感想を編集、削除(ダイアログ)することができます。
+### 自分の感想の編集
+自分が投稿した感想を編集することができます。
+<img alt="record-edit" src="https://github.com/mirai-79/book-record/assets/99461088/7d19241c-98fb-4f1d-a783-f3b6bce535bf">
+<br>
+
+### 自分の感想の削除
+自分が投稿した感想を削除(ダイアログ)することができます。
+<img alt="record-delete" src="https://github.com/mirai-79/book-record/assets/99461088/6a364f1c-ade4-495a-96ad-b76b6fceeba1">
 <br>
 
 ### お気に入り登録、他の人の感想から感想記録
-自分の感想や他のユーザーの感想をお気に入り登録、削除することができます。
+自分の感想や他のユーザーの感想を星形アイコンをクリックでお気に入り登録、削除することができます。
 登録したお気に入りは「お気に入り一覧画面」から確認することができます。
+
 <br>
 
 ### エラー画面(例:404エラー)
