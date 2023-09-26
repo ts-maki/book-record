@@ -128,7 +128,7 @@
 <br>
 
 ### ユーザー登録
-<img alt="login" src="https://github.com/mirai-79/book-record/assets/99461088/2ff84145-8f1c-4c1b-965d-ecde3a23db67">
+<img alt="user-registration" src="https://github.com/mirai-79/book-record/assets/99461088/2ecc3f2c-c1fa-412b-b537-1f040210bedd">
 <br>
 
 ### プロフィール編集
