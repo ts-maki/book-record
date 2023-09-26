@@ -109,10 +109,26 @@
 ### お気に入り登録、他の人の感想から感想記録
 自分の感想や他のユーザーの感想を星形アイコンをクリックでお気に入り登録、削除することができます。
 登録したお気に入りは「お気に入り一覧画面」から確認することができます。
-
+<img alt="favorite1" src="https://github.com/mirai-79/book-record/assets/99461088/8540f979-b7f3-4c7c-900e-8226e2f6ae26">
+<br>
+<img alt="fovorite2" src="https://github.com/mirai-79/book-record/assets/99461088/315127de-225d-4919-92b1-4a09f1326394">
 <br>
 
 ### エラー画面(例:404エラー)
+<img alt="error" src="https://github.com/mirai-79/book-record/assets/99461088/4bbe3e1e-3e5c-41e0-8bc8-9d3a0b99b977">
+<br>
+
+### ログイン
+<img alt="login" src="https://github.com/mirai-79/book-record/assets/99461088/2ff84145-8f1c-4c1b-965d-ecde3a23db67">
+<br>
+
+### ユーザー登録
+<img alt="login" src="https://github.com/mirai-79/book-record/assets/99461088/2ff84145-8f1c-4c1b-965d-ecde3a23db67">
+<br>
+
+### ユーザー情報編集
+
+<br>
 
 ## アプリの機能一覧
 
