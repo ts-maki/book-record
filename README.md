@@ -73,14 +73,22 @@
 ### 本の感想の共有(ホーム画面)
 ユーザーが投稿した感想を一覧で見ることができます。
 ユーザー登録をしないゲストユーザーはホーム画面のみ見ることができます。
+<img alt="home" src="https://github.com/mirai-79/book-record/assets/99461088/63180613-ca4c-46c4-b4c4-142b9689e270">
 <br>
 
 ### 自分の感想一覧
 自分が投稿した感想を一覧で見ることができます。
+<img alt="my-record" src="https://github.com/mirai-79/book-record/assets/99461088/7643b89c-70d9-43ef-8053-feac7bad9932">
 <br>
 
 ### お気に入り一覧
 自分がお気に入りした感想を一覧で見ることができます。
+<img alt="my-favorite" src="https://github.com/mirai-79/book-record/assets/99461088/05b54696-35d8-47b6-ac66-e70d1b8b93ea">
+<br>
+
+### 指定ユーザーの感想一覧
+感想一覧のユーザーをクリックすると、そのユーザーの感想一覧を見ることができます。
+<img alt="user-record" src="https://github.com/mirai-79/book-record/assets/99461088/814d94aa-9d26-4b7c-bd72-4b9be9e44606">
 <br>
 
 #### 指定ユーザーの感想一覧
@@ -89,18 +97,57 @@
 
 ### 本の検索
 本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+<img alt="book-search" src="https://github.com/mirai-79/book-record/assets/99461088/a6f62bad-83b4-42a5-b040-4376f6cf0ad5">
 <br>
 
-### 自分の感想の編集、削除
-自分が投稿した感想を編集、削除(ダイアログ)することができます。
+### 感想登録、この本の感想を登録する
+本の検索結果または、感想一覧の「この本の感想を登録する」から感想を登録できます。
+<img alt="record-create" src="https://github.com/mirai-79/book-record/assets/99461088/ef86840d-4924-44ee-8b16-3f486a41b60e">
+
+### 自分の感想の編集
+自分が投稿した感想を編集することができます。
+<img alt="record-edit" src="https://github.com/mirai-79/book-record/assets/99461088/7d19241c-98fb-4f1d-a783-f3b6bce535bf">
+<br>
+
+### 自分の感想の削除
+自分が投稿した感想を削除(ダイアログ)することができます。
+<img alt="record-delete" src="https://github.com/mirai-79/book-record/assets/99461088/6a364f1c-ade4-495a-96ad-b76b6fceeba1">
 <br>
 
 ### お気に入り登録、他の人の感想から感想記録
-自分の感想や他のユーザーの感想をお気に入り登録、削除することができます。
+自分の感想や他のユーザーの感想を星形アイコンをクリックでお気に入り登録、削除することができます。
 登録したお気に入りは「お気に入り一覧画面」から確認することができます。
+<img alt="favorite1" src="https://github.com/mirai-79/book-record/assets/99461088/8540f979-b7f3-4c7c-900e-8226e2f6ae26">
+<br><br>
+<img alt="fovorite2" src="https://github.com/mirai-79/book-record/assets/99461088/315127de-225d-4919-92b1-4a09f1326394">
 <br>
 
 ### エラー画面(例:404エラー)
+401,403,404,419,429,500,503のエラー画面を作成しました。
+<br>
+画像は404エラーの場合です。
+<img alt="error" src="https://github.com/mirai-79/book-record/assets/99461088/4bbe3e1e-3e5c-41e0-8bc8-9d3a0b99b977">
+<br>
+
+### ログイン
+ログイン画面です。
+<img alt="login" src="https://github.com/mirai-79/book-record/assets/99461088/2ff84145-8f1c-4c1b-965d-ecde3a23db67">
+<br>
+
+### ユーザー登録
+ユーザー登録画面です。
+<img alt="user-registration" src="https://github.com/mirai-79/book-record/assets/99461088/2ecc3f2c-c1fa-412b-b537-1f040210bedd">
+<br>
+
+### プロフィール編集
+プロフィール編集画面です。
+<img alt="profile-edit" src="https://github.com/mirai-79/book-record/assets/99461088/79e85364-0d91-4da3-b162-0c72c66dd68d">
+<br>
+
+### アカウント削除
+アカウント削除画面です。削除すると該当ユーザーに紐づいた感想も削除されます。
+<img alt="profile-delete" src="https://github.com/mirai-79/book-record/assets/99461088/51b7d9c3-9d38-4bd8-88fa-00fff1bf1c99">
+<br>
 
 ## アプリの機能一覧
 
@@ -119,10 +166,12 @@
 <br><br>
 
 ## 工夫したところ
-
+- FormRequestクラスを用いたバリデーションの実装
+- 他の人の感想に読んだ本がある場合、他の人の感想から感想登録できる実装
 <br><br>
 
 ## 苦労したところ
+- Google Books APIsが返す本の情報が、本によって出版日がない、出版日の表示形式が違うなど一律ではない場合対応の処理
 <br><br>
 
 ## 開発環境構築
