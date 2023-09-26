@@ -87,7 +87,7 @@
 <br>
 
 ### 指定ユーザーの感想一覧
-本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+感想一覧のユーザーをクリックすると、そのユーザーの感想一覧を見ることができます。
 <img alt="user-record" src="https://github.com/mirai-79/book-record/assets/99461088/814d94aa-9d26-4b7c-bd72-4b9be9e44606">
 <br>
 
@@ -97,7 +97,7 @@
 <br>
 
 ### 感想登録、この本の感想を登録する
-本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+本の検索結果または、感想一覧の「この本の感想を登録する」から感想を登録できます。
 <img alt="record-create" src="https://github.com/mirai-79/book-record/assets/99461088/19d2d995-594f-4d8d-818d-2050a5f60b01">
 <br>
 
@@ -120,22 +120,28 @@
 <br>
 
 ### エラー画面(例:404エラー)
+以下のHTTPステータスの場合のエラー画面です。画像は404エラーの場合です。
+401,403,404,419,429,500,503
 <img alt="error" src="https://github.com/mirai-79/book-record/assets/99461088/4bbe3e1e-3e5c-41e0-8bc8-9d3a0b99b977">
 <br>
 
 ### ログイン
+ログイン画面です。
 <img alt="login" src="https://github.com/mirai-79/book-record/assets/99461088/2ff84145-8f1c-4c1b-965d-ecde3a23db67">
 <br>
 
 ### ユーザー登録
+ユーザー登録画面です。
 <img alt="user-registration" src="https://github.com/mirai-79/book-record/assets/99461088/2ecc3f2c-c1fa-412b-b537-1f040210bedd">
 <br>
 
 ### プロフィール編集
+プロフィール編集画面です。
 <img alt="profile-edit" src="https://github.com/mirai-79/book-record/assets/99461088/79e85364-0d91-4da3-b162-0c72c66dd68d">
 <br>
 
 ### アカウント削除
+アカウント削除画面です。削除すると該当ユーザーに紐づいた感想も削除されます。
 <img alt="profile-delete" src="https://github.com/mirai-79/book-record/assets/99461088/51b7d9c3-9d38-4bd8-88fa-00fff1bf1c99">
 <br>
 
