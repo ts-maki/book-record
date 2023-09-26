@@ -96,6 +96,11 @@
 <img alt="book-search" src="https://github.com/mirai-79/book-record/assets/99461088/a6f62bad-83b4-42a5-b040-4376f6cf0ad5">
 <br>
 
+### 感想登録、この本の感想を登録する
+本のタイトルまたは著者名で本を検索し、キーワードに関連する本を一覧表示します。
+<img alt="record-create" src="https://github.com/mirai-79/book-record/assets/99461088/19d2d995-594f-4d8d-818d-2050a5f60b01">
+<br>
+
 ### 自分の感想の編集
 自分が投稿した感想を編集することができます。
 <img alt="record-edit" src="https://github.com/mirai-79/book-record/assets/99461088/7d19241c-98fb-4f1d-a783-f3b6bce535bf">
@@ -126,8 +131,12 @@
 <img alt="login" src="https://github.com/mirai-79/book-record/assets/99461088/2ff84145-8f1c-4c1b-965d-ecde3a23db67">
 <br>
 
-### ユーザー情報編集
+### プロフィール編集
+<img alt="profile-edit" src="https://github.com/mirai-79/book-record/assets/99461088/79e85364-0d91-4da3-b162-0c72c66dd68d">
+<br>
 
+### アカウント削除
+<img alt="profile-delete" src="https://github.com/mirai-79/book-record/assets/99461088/51b7d9c3-9d38-4bd8-88fa-00fff1bf1c99">
 <br>
 
 ## アプリの機能一覧
