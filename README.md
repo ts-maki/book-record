@@ -38,6 +38,8 @@
 <br><br>
 
 ## インフラ構成図
+<img alt="diagram" src="https://github.com/mirai-79/book-record/assets/99461088/a875deb6-551d-41cc-a0e8-f8460ab70f6d">
+<br><br>
 
 ## ER図
 ![book-recordのER図](https://github.com/mirai-79/book-record/assets/99461088/f4a90567-c7eb-469b-9b1b-a61267036c3c)
