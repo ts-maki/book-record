@@ -264,9 +264,9 @@ google books APIsのリクエスト超過で本の検索ができなくなるこ
     ```
 
 - 画面にアクセス
-    ```
+
     http://localhost/
-    ```
+
 - Laravel公式デバッグアシスタント telescope
 
     http://localhost/telescope/
