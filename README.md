@@ -276,3 +276,7 @@ google books APIsのリクエスト超過で本の検索ができなくなるこ
     ```
     sail down
     ```
+- データベースを消して停止したい場合
+    ```
+    sail down -v
+    ```
