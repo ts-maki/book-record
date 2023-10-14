@@ -17,7 +17,7 @@ class GoogleBooksAPIsRepository
      * @param  string  $search_keyword 検索キーワード
      * @return object
      */
-    public function readBookInfo($search_keyword)
+    public function readBookInfo(string $search_keyword): object
     {
         $search_url = 'https://www.googleapis.com/books/v1/volumes?q='.$search_keyword.'&maxResults=40';
         Log::info('検索URLは:'.$search_url);
