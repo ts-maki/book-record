@@ -13,6 +13,17 @@
                 <x-slot name="my_record">自分の感想</x-slot>
                 <x-slot name="my_favorite">お気に入り</x-slot>
             </x-element.tab>
+            <div class="pt-2"></div>
+            <x-element.tab-user-category :user_id="$user_id">
+                <x-slot name="fantasy">ファンタジー</x-slot>
+                <x-slot name="love">恋愛</x-slot>
+                <x-slot name="youth">青春</x-slot>
+                <x-slot name="SF">SF</x-slot>
+                <x-slot name="mystery">ミステリー</x-slot>
+                <x-slot name="horror">ホラー</x-slot>
+                <x-slot name="job">仕事</x-slot>
+                <x-slot name="history">歴史</x-slot>
+            </x-element.tab-user-category>
             @endauth
             <section>
                 @if (count($records) == 0 )

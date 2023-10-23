@@ -4,18 +4,17 @@
 <x-layout>
     <div x-cloak x-data="{ dialogOpen : false, dialogData: {} }" class="m-0 p-0">
         <x-element.breadcrumbs>
-            {{ Breadcrumbs::render('home') }}
+            {{ Breadcrumbs::render('my-record') }}
         </x-element.breadcrumbs>
         <x-layout.container>
             @auth
-            <x-element.tab :selected="'list'" :user_id="$user_id">
+            <x-element.tab :selected="'my_record'" :user_id="$user_id">
                 <x-slot name="index">感想一覧</x-slot>
                 <x-slot name="my_record">自分の感想</x-slot>
                 <x-slot name="my_favorite">お気に入り</x-slot>
             </x-element.tab>
-            <div class="pb-2"></div>
-            @endauth
-            <x-element.tab-category>
+            <div class="pt-2"></div>
+            <x-element.tab-user-category :user_id="$user_id" :category_id="$category_id">
                 <x-slot name="fantasy">ファンタジー</x-slot>
                 <x-slot name="love">恋愛</x-slot>
                 <x-slot name="youth">青春</x-slot>
@@ -24,10 +23,11 @@
                 <x-slot name="horror">ホラー</x-slot>
                 <x-slot name="job">仕事</x-slot>
                 <x-slot name="history">歴史</x-slot>
-            </x-element.tab-category>
+            </x-element.tab-user-category>
+            @endauth
             <section>
                 @if (count($records) == 0 )
-                <p class="text-center pt-2">まだ誰も感想を登録していません</p>
+                <p class="text-center pt-2">まだ感想を登録していません</p>
                 @endif
                 @foreach ($records as $record)
                 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative ">
@@ -42,11 +42,7 @@
                                 <div class="flex items-center">
                                     <img src="{{ asset('images/pencil.svg') }}"
                                         alt="投稿者を示すペンのアイコン" class="w-8 h-8 opacity-50">
-                                    @if (!($record->user->id == $user_id))
-                                    <a href="{{ route('user.record', ['user_id' => $record->user->id]) }}" class="min-[400px]:pl-1 sm:w-[84px] hover:text-blue-400 duration-150">{{ $record->user->name }}</a>
-                                    @else
                                     <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->user->name }}</p>
-                                    @endif
                                 </div>
                             </div>
                             <x-element.category :category_name="$record->category->name"></x-element.category>
@@ -79,7 +75,7 @@
                             @if ($user_id === $record->user_id)
                             <div class="flex">
                                 <div class="translate-y-[2px]">
-                                    <x-element.a-button :link="route('record.edit', ['record_id' => $record->id])"
+                                    <x-element.a-button :link="route('user.record.edit', ['record_id' => $record->id, 'user_id' => $user_id])"
                                         :category="'edit'">編集</x-element.a-button>
                                 </div>
                                 <div class="pl-6">

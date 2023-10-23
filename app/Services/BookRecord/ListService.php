@@ -34,4 +34,24 @@ class ListService
             ->paginate(20);
         return $records;
     }
+
+    //各カテゴリーの感想一覧
+    public function showCategory($category_id)
+    {
+        $records = BookRecord::with('book', 'user', 'category')->where('category_id', $category_id)->orderby('updated_at', 'DESC')
+            ->paginate(20);
+        return $records;
+    }
+
+    //各カテゴリーの自分の感想一覧
+    public function showMyRecordCategory($user_id, $category_id)
+    {
+        $records = BookRecord::with('book', 'user', 'category')->where('user_id', $user_id)->where('category_id', $category_id)->orderby('updated_at', 'DESC')
+        ->paginate(20);
+
+        return $records;
+        return view('my-record-category')
+            ->with('records', $records)
+            ->with('category_id', $category_id);
+    }
 }
