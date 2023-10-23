@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ListController::class, 'index'])->name('index');
 Route::get('/user/{user_id}', [ListController::class, 'showUserRecord'])->name('user.record');
+Route::get('/category/{category_id}', [ListController::class, 'showCategoryRecord'])->name('category');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     //一覧
     Route::get('/user/my/{user_id}', [ListController::class, 'showMyRecord'])->name('my.record');
     Route::get('/favorite/{user_id}', [ListController::class, 'showFavorite'])->name('my.favorite');
+    Route::get('/user/{user_id}/category/{category_id}', [ListController::class, 'showMyRecordCategory'])->name('my.record.category');
 
     //検索
     Route::get('/search', [SearchBookController::class, 'show'])->name('search');

@@ -15,7 +15,7 @@
             </x-element.tab>
             <div class="pb-2"></div>
             @endauth
-            <x-element.tab-category>
+            <x-element.tab-category :category_id="$category_id">
                 <x-slot name="fantasy">ファンタジー</x-slot>
                 <x-slot name="love">恋愛</x-slot>
                 <x-slot name="youth">青春</x-slot>
