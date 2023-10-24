@@ -102,25 +102,25 @@
     <div class=" border-green-300 border-solid border-2 rounded-l-lg hover:text-white hover:bg-green-300 duration-300 {{ $fantasy_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 1, 'user_id' => $user_id]) }}" class="px-2">{{ $fantasy }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-t-2 border-b-2 border-r-2  hover:text-white hover:bg-green-300 duration-300 {{ $love_color }}">
+    <div class=" border-green-300 border-solid border-2  hover:text-white hover:bg-green-300 duration-300 {{ $love_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 2, 'user_id' => $user_id]) }}" class="px-2">{{ $love }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-t-2 border-b-2 border-r-2 hover:text-white hover:bg-green-300 duration-300 {{ $youth_color }}">
+    <div class=" border-green-300 border-solid border-2 hover:text-white hover:bg-green-300 duration-300 {{ $youth_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 3, 'user_id' => $user_id]) }}" class="px-2">{{ $youth }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-t-2 border-b-2 border-r-2 hover:text-white hover:bg-green-300 duration-300 {{ $SF_color }}">
+    <div class=" border-green-300 border-solid border-2 hover:text-white hover:bg-green-300 duration-300 {{ $SF_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 4, 'user_id' => $user_id]) }}" class="px-2">{{ $SF }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-t-2 border-b-2 border-r-2 hover:text-white hover:bg-green-300 duration-300 {{ $mystery_color }}">
+    <div class=" border-green-300 border-solid border-2 hover:text-white hover:bg-green-300 duration-300 {{ $mystery_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 5, 'user_id' => $user_id]) }}" class="px-2">{{ $mystery }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-t-2 border-b-2 border-r-2 hover:text-white hover:bg-green-300 duration-300 {{ $horror_color }}">
+    <div class=" border-green-300 border-solid border-2 hover:text-white hover:bg-green-300 duration-300 {{ $horror_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 6, 'user_id' => $user_id]) }}" class="px-2">{{ $horror }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-t-2 border-b-2 border-r-2 hover:text-white hover:bg-green-300 duration-300 {{ $job_color }}">
+    <div class=" border-green-300 border-solid border-2 hover:text-white hover:bg-green-300 duration-300 {{ $job_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 7, 'user_id' => $user_id]) }}" class="px-2">{{ $job }}</a>
     </div>
-    <div class=" border-green-300 border-solid border-b-2 border-r-2 border-t-2 rounded-r-lg hover:text-white hover:bg-green-300 duration-300 {{ $history_color }}">
+    <div class=" border-green-300 border-solid border-2 rounded-r-lg hover:text-white hover:bg-green-300 duration-300 {{ $history_color }}">
         <a href="{{ route('my.record.category', ['category_id' => 8, 'user_id' => $user_id]) }}" class="px-2">{{ $history }}</a>
     </div>
 </div>
