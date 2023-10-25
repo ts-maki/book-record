@@ -14,7 +14,7 @@
                 <x-slot name="my_favorite">お気に入り</x-slot>
             </x-element.tab>
             <div class="pt-2"></div>
-            <x-element.tab-favorite-category :user_id="$user_id">
+            <x-element.tab-favorite-category :user_id="$user_id" :category_id="$category_id">
                 <x-slot name="fantasy">ファンタジー</x-slot>
                 <x-slot name="love">恋愛</x-slot>
                 <x-slot name="youth">青春</x-slot>
@@ -31,63 +31,63 @@
                 @endif
                 @foreach ($records as $record)
                 <article class="flex flex-col rounded-lg border sm:flex-row mt-6 bg-white drop-shadow-md relative ">
-                    <img src="{{ $record->bookRecord->book->thumbnail_path }}"
+                    <img src="{{ $record->book->thumbnail_path }}"
                         class="rounded-l-lg md:max-w-[182px] max-sm:w-[200px] max-sm:h-[300px] sm:max-h-[188px] max-sm:mx-auto max-sm:rounded-none max-sm:pt-2">
                     <div class="flex flex-col py-2 px-4 flex-1 justify-between">
                         <div class="">
                             <div class="flex justify-between items-start">
                                 <h3 class="text-lg font-bold text-gray-800 w-2/3">
-                                    {{ $record->bookRecord->book->title }}
+                                    {{ $record->book->title }}
                                 </h3>
                                 <div class="flex items-center">
                                     <img src="{{ asset('images/pencil.svg') }}"
                                         alt="投稿者を示すペンのアイコン" class="w-8 h-8 opacity-50">
-                                        @if (!($record->bookRecord->user->id == $user_id))
-                                        <a href="{{ route('user.record', ['user_id' => $record->bookRecord->user->id]) }}" class="min-[400px]:pl-1 sm:w-[84px] hover:text-blue-400 duration-150">{{ $record->bookRecord->user->name }}</a>
+                                        @if (!($record->user->id == $user_id))
+                                        <a href="{{ route('user.record', ['user_id' => $record->user->id]) }}" class="min-[400px]:pl-1 sm:w-[84px] hover:text-blue-400 duration-150">{{ $record->user->name }}</a>
                                         @else
-                                        <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->bookRecord->user->name }}</p>
+                                        <p class="min-[400px]:pl-1 sm:w-[84px]">{{ $record->user->name }}</p>
                                         @endif
                                 </div>
                             </div>
-                            <x-element.category :category_name="$record->bookRecord->category->name">
+                            <x-element.category :category_name="$record->category->name">
                             </x-element.category>
                             <p class="text-gray-500 break-all">
-                                {{ $record->bookRecord->content }}
+                                {{ $record->content }}
                             </p>
                         </div>
                         <div class="flex justify-between items-center pt-4">
                             @auth
-                            @if (!Auth::user()->checkFavorite($record->bookRecord->id))
+                            @if (!Auth::user()->checkFavorite($record->id))
                             <button @click="entryFavorite({{ $record->id }})" type="submit"><img
                                     src="{{ asset('images/star_border_black.svg') }}" alt="お気に入り登録ボタン"
                                     class="h-9 w-9"></button>
                             @else
-                            <button @click="deleteFavorite({{ $record->bookRecord->id }})" type="submit"><img
+                            <button @click="deleteFavorite({{ $record->id }})" type="submit"><img
                                     src="{{ asset('images/star_black.svg') }}" alt="お気に入り解除ボタン"
                                     class="h-9 w-9"></button>
                             @endif
                             @endauth
                             @auth
-                            @if ($user_id !== $record->bookRecord->user_id)
+                            @if ($user_id !== $record->user_id)
                             <div class="">
                                 <x-element.a-button
-                                    :link="route('other.book.record', ['id' => $record->bookRecord->book->id])"
+                                    :link="route('other.book.record', ['id' => $record->book->id])"
                                     :category="'record'">
                                     この本の感想を登録する
                                 </x-element.a-button>
                             </div>
                             @endauth
                             @endif
-                            @if ($user_id === $record->bookRecord->user_id)
+                            @if ($user_id === $record->user_id)
                             <div class="flex">
                                 <div class="translate-y-[2px]">
                                     <x-element.a-button
-                                        :link="route('favorite.record.edit', ['record_id' => $record->bookRecord->id, 'user_id' => $user_id])"
+                                        :link="route('favorite.record.edit', ['record_id' => $record->id, 'user_id' => $user_id])"
                                         :category="'edit'">編集</x-element.a-button>
                                 </div>
                                 <div class="pl-6">
                                     <button
-                                        @click="dialogOpen = true, dialogData = { recordId: '{{ $record->bookRecord->id }}', bookThumbnail: '{{ $record->bookRecord->book->thumbnail_path }}', bookTitle: '{{ $record->bookRecord->book->title }}', bookAuthor: '{{ $record->bookRecord->book->author }}', recordContent: '{{ $record->bookRecord->content }}' }"
+                                        @click="dialogOpen = true, dialogData = { recordId: '{{ $record->id }}', bookThumbnail: '{{ $record->book->thumbnail_path }}', bookTitle: '{{ $record->book->title }}', bookAuthor: '{{ $record->book->author }}', recordContent: '{{ $record->content }}' }"
                                         class="px-2 border-red-300 border-solid border-2 rounded-full hover:text-white hover:bg-red-300 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">削除</button>
                                 </div>
                             </div>

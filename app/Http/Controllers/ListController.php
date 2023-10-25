@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookRecord;
+use App\Models\Like;
 use App\Services\BookRecord\ListService;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,16 @@ class ListController extends Controller
         $records = $this->list_service->showMyRecordCategory($user_id, $category_id);
 
         return view('my-record-category')
+            ->with('records', $records)
+            ->with('category_id', $category_id);
+    }
+
+    //各カテゴリーの自分のお気に入り一覧
+    public function showMyFavoriteCategory($user_id, $category_id)
+    {
+        $records = $this->list_service->showMyFavoriteCategory($user_id, $category_id);
+
+        return view('my-favorite-category')
             ->with('records', $records)
             ->with('category_id', $category_id);
     }

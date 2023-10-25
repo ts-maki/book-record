@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/my/{user_id}', [ListController::class, 'showMyRecord'])->name('my.record');
     Route::get('/favorite/{user_id}', [ListController::class, 'showFavorite'])->name('my.favorite');
     Route::get('/user/{user_id}/category/{category_id}', [ListController::class, 'showMyRecordCategory'])->name('my.record.category');
+    Route::get('/user/{user_id}/favorite/category/{category_id}', [ListController::class, 'showMyFavoriteCategory'])->name('my.favorite.category');
 
     //検索
     Route::get('/search', [SearchBookController::class, 'show'])->name('search');

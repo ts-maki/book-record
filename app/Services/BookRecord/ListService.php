@@ -54,4 +54,14 @@ class ListService
             ->with('records', $records)
             ->with('category_id', $category_id);
     }
+
+    public function showMyFavoriteCategory($user_id, $category_id)
+    {
+        $records = BookRecord::where('category_id', $category_id)->withWhereHas('likeUsers', function ($query) use ($user_id) {
+            $query->where('user_id', $user_id);
+        })->orderby('updated_at', 'DESC')
+            ->paginate(20);
+
+        return $records;
+    }
 }
